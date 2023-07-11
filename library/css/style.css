@@ -12,7 +12,9 @@
     box-sizing: border-box;
 }
 
-.visually-hidden {
+.visually-hidden:not(:focus):not(:active),
+input[type='checkbox'].visually-hidden,
+input[type='radio'].visually-hidden {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -243,4 +245,286 @@ body {
 .pgn-button:hover,
 .pgn-button:focus {
     box-shadow: 0px 0px 5px 2px rgba(18, 18, 21, 0.50);
+}
+
+/* FAVORITES */
+
+.filter-text {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 35px;
+
+    align-self: flex-start;
+
+    font-size: 20px;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.favorites-filters {
+    align-self: flex-start;
+
+    margin-bottom: 35px;
+}
+
+.filters {
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+.filter-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    column-gap: 85px;
+}
+
+.filter-item {
+    position: relative;
+
+    height: fit-content;
+    margin-left: 32px;
+
+    font-size: inherit;
+}
+
+.filter-label {
+    display: block;
+    padding: 5px;
+    padding-right: 10px;
+
+    font-size: 20px;
+    line-height: normal;
+
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+
+.filter {
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+
+.filter-label::before {
+    content: "";
+    position: absolute;
+    top: 7px;
+    left: -35px;
+
+    width: 23px;
+    height: 23px;
+    padding: 5px;
+
+    outline: 2px solid var(--basic-black);
+    outline-offset: -5px;
+    border-radius: 50%;
+}
+
+.filter:checked + .filter-label::after {
+    content: "";
+    position: absolute;
+    left: -27px;
+    top: 15px;
+
+    width: 7px;
+    height: 7px;
+    background-color: var(--basic-black);
+    border-radius: 50%;
+}
+
+.filter:checked + .filter-label {
+    font-weight: 700;
+}
+
+.filter:hover + .filter-label {
+    text-shadow: 0 0 5px rgba(18, 18, 21, 0.50);
+}
+
+.books-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 260px;
+    row-gap: 40px;
+}
+
+.book-item {
+    position: relative;
+
+    width: calc((100% - 300px)/2);
+    height: 555px;
+    padding: 15px 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    font-size: 15px;
+    line-height: 40px;
+    letter-spacing: 2px;
+
+    border: 1px solid var(--basic-black);
+}
+
+.book-category {
+    position: relative;
+
+    margin: 0;
+    margin-bottom: 20px;
+
+    font-family: Forum;
+    font-size: 20px;
+    text-transform: capitalize;
+}
+
+.book-category::before {
+    content: "";
+    position: absolute;
+    top: 38px;
+
+    width: 60px;
+    height: 1px;
+
+    background-color: var(--basic-orange);
+}
+
+.book-title,
+.book-author {
+    margin: 0;
+    margin-bottom: 20px;
+
+    font-weight: 700;
+}
+
+.book-title {
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.book-description {
+    max-width: 355px;
+    margin: 0;
+
+    font-family: Inter;
+    text-transform: capitalize;
+}
+
+.book-img {
+    position: absolute;
+    bottom: 0;
+    right: -40px;
+}
+
+.buy-btn {
+    padding: 8px 26px;
+    margin-top: auto;
+
+    color: var(--basic-dark);
+    font-family: inherit;
+    text-align: center;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1px;
+
+    border-radius: 2px;
+    border: none;
+    outline: 1px solid var(--basic-dark);
+    background: var(--basic-white);
+
+    transition-duration: 0.5s;
+}
+
+.buy-btn:not([disabled]):hover,
+.buy-btn:not([disabled]):focus {
+    cursor: pointer;
+    outline: 1px solid var(--basic-orange);
+    background-color: var(--basic-orange);
+}
+
+.buy-btn:not([disabled]):active{
+    box-shadow: inset 0px 1px 2px var(--basic-black);
+}
+
+.own-btn {
+    outline: 1px solid var(--basic-orange);
+    color: var(--basic-orange);
+}
+
+/* COFFEE SHOP */
+
+.shop .section-text {
+    margin-bottom: 40px;
+
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.shop-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-self: stretch;
+}
+
+.shop-title {
+    margin: 0;
+    margin-bottom: 40px;
+
+    font-family: Forum;
+    font-size: 40px;
+    line-height: 1;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    color: var(--basic-orange);
+}
+
+.shop-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.shop-item {
+    position: relative;
+
+    margin-bottom: 40px;
+
+    display: grid;
+    grid-template-columns: 1fr min-content min-content;
+    align-items: center;
+    gap: 59px;
+
+    letter-spacing: 2px;
+    text-transform: capitalize;
+}
+
+.item-name {
+    margin: 0;
+}
+
+.item-price {
+    margin: 0;
+
+    font-family: Forum;
+}
+
+.shop-line {
+    width: 100px;
+    height: 1px;
+
+    background-color: var(--basic-orange);
+}
+
+.desserts .shop-title {
+    text-align: end;
+}
+
+.desserts .shop-item {
+    justify-items: end;
 }
