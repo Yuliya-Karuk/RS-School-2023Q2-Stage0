@@ -40,14 +40,13 @@ body {
     color: var(--basic-black)
 }
 
-.container {
+.page {
     max-width: 1440px;
     margin: 0 auto;
+    padding: 0;
 }
 
 .general {
-    max-width: 1440px;
-    margin: 0 auto;
     padding: 20px 20px 40px;
 
     display: flex;
@@ -150,21 +149,14 @@ body {
 /* HEADER */
 
 .header {
-    margin: 0 auto;
-    padding: 0;
-
-    background-color: var(--basic-dark);
-}
-
-.header-container {
-    max-width: 1440px;
-    margin: 0 auto;
     padding: 20px;
 
     display: flex;
     justify-content: space-between;
 
     color: var(--basic-white);
+
+    background-color: var(--basic-dark);
 }
 
 .header-title {
@@ -789,13 +781,11 @@ body {
 /* FOOTER */
 
 .footer {
+    padding: 20px 20px 0;
+
     color: var(--basic-white);
 
     background: var(--basic-dark);
-}
-
-.footer-container {
-    padding: 20px 20px 0;
 }
 
 .footer-contacts {
