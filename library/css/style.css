@@ -96,7 +96,7 @@ body {
     text-decoration: none;
 
     cursor: pointer;
-    transition-duration: 0.5s;
+    transition-duration: 0.8s;
 }
 
 .link:hover,
@@ -132,7 +132,7 @@ body {
     border: 1px solid var(--basic-dark);
     background-color: transparent;
 
-    transition-duration: 0.5s;
+    transition-duration: 0.8s;
     cursor: pointer;
 }
 
@@ -284,7 +284,7 @@ body {
     outline: 8px solid var(--basic-dark);
     outline-offset: -16px;
 
-    transition-duration: 0.3s;
+    transition-duration: 0.8s;
 }
 
 .pgn-active {
@@ -329,59 +329,68 @@ body {
     padding: 0;
 
     display: flex;
-    column-gap: 75px;
+    column-gap: 90px;
 }
 
 .filter-item {
     position: relative;
 
-    height: fit-content;
-    margin-left: 32px;
+    padding-left: 32px;
 
     font-size: inherit;
 }
 
-.filter-item:last-of-type {
-    margin-left: 44px;
+.filter-item:nth-of-type(1) {
+    width: 104px;
+}
+
+.filter-item:nth-of-type(2) {
+    width: 99px;
+}
+
+.filter-item:nth-of-type(3) {
+    width: 116px;
+}
+
+.filter-item:nth-of-type(4) {
+    width: 116px;
+}
+
+.filter {
+    cursor: pointer;
+    transition-duration: 0.8s;
 }
 
 .filter-label {
-    width: 85px;
     display: block;
     padding: 5px;
-    padding-right: 10px;
 
     font-size: 20px;
     line-height: normal;
 
     cursor: pointer;
-    transition-duration: 0.5s;
-}
-
-.filter {
-    cursor: pointer;
-    transition-duration: 0.5s;
+    transition-duration: 0.8s;
 }
 
 .filter-label::before {
     content: "";
     position: absolute;
-    top: 7px;
-    left: -35px;
+    top: 5px;
+    left: -5px;
 
-    width: 23px;
-    height: 23px;
+    width: 27px;
+    height: 27px;
     padding: 5px;
 
     outline: 2px solid var(--basic-black);
-    outline-offset: -5px;
+    outline-offset: -7px;
     border-radius: 50%;
 }
 
 .filter:checked + .filter-label::after {
     content: "";
     position: absolute;
-    left: -27px;
+    left: 5px;
     top: 15px;
 
     width: 7px;
@@ -393,6 +402,7 @@ body {
 
 .filter:checked + .filter-label {
     font-weight: 700;
+    text-shadow: none;
 }
 
 .filter:hover + .filter-label {
@@ -706,7 +716,7 @@ body {
     line-height: 1.67;
     letter-spacing: 0.6px;
 
-    transition-duration: 0.5s;
+    transition-duration: 0.8s;
 }
 
 .input-card:hover {
