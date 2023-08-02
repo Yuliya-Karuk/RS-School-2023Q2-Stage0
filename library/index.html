@@ -41,6 +41,13 @@
                             fill="white" />
                     </svg>
                 </a>
+                <button class="header-burger" type="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="45" height="22" viewBox="0 0 45 22" fill="none">
+                        <line y1="1" x2="45" y2="1" stroke="white" stroke-width="2" />
+                        <line y1="11" x2="45" y2="11" stroke="white" stroke-width="2" />
+                        <line y1="21" x2="45" y2="21" stroke="white" stroke-width="2" />
+                    </svg>
+                </button>
             </div>
         </header>
         <main class="main">
@@ -57,14 +64,28 @@
                 <h2 class="section-title" id="about">About</h2>
                 <p class="section-text">The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside</p>
                 <div class="about-slider">
-                    <img class="about-img" src="images/about1.jpg" alt="1 photo of library" width="450" height="560">
+                    <button class="slider-btn slider-left" type="button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                            <path d="M15 7.5L9 12.5L15 17.5" stroke="black" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <img class="about-img about-img-active" src="images/about1.jpg" alt="1 photo of library" width="450" height="560">
                     <img class="about-img" src="images/about2.jpg" alt="2 photo of library" width="450" height="560">
                     <img class="about-img" src="images/about3.jpg" alt="3 photo of library" width="450" height="560">
+                    <img class="about-img about-img-hidden" src="images/about4.jpg" alt="3 photo of library" width="450" height="560">
+                    <img class="about-img about-img-hidden" src="images/about5.jpg" alt="3 photo of library" width="450" height="560">
+                    <button class="slider-btn slider-right" type="button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                            <path d="M9 17.5L15 12.5L9 7.5" stroke="black" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
                 </div>
                 <div class="pagination">
                     <button class="pgn-button pgn-active" type="button"></button>
                     <button class="pgn-button" type="button"></button>
                     <button class="pgn-button" type="button"></button>
+                    <button class="pgn-button pgn-hidden" type="button"></button>
+                    <button class="pgn-button pgn-hidden" type="button"></button>
                 </div>
             </section>
             <section class="general favorites">
