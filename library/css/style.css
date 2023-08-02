@@ -87,6 +87,8 @@ body {
 .section-text {
     margin: 0;
     margin-bottom: 20px;
+
+    text-align: center;
 }
 
 .link {
@@ -198,6 +200,10 @@ body {
     border-radius: 50%;
 }
 
+.header-burger {
+    display: none;
+}
+
 /* WELCOME */
 
 .welcome {
@@ -252,12 +258,17 @@ body {
 }
 
 .about-slider {
+    width: 100%;
     margin-bottom: 35px;
 
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 25px;
 
     font-size: 0;
+
+    overflow: hidden;
 }
 
 .about-img {
@@ -265,6 +276,10 @@ body {
     height: 560px;
 
     background-color: var(--basic-white);
+}
+
+.about-img-hidden {
+    display: none;
 }
 
 .pagination {
@@ -295,6 +310,28 @@ body {
 .pgn-button:not([disabled]):focus {
     cursor: pointer;
     outline: 8px solid var(--body-gray);
+}
+
+.pgn-hidden {
+    display: none;
+}
+
+.slider-btn {
+    display: block;
+    padding: 10px;
+    margin-top: 40px;
+
+    background-color: transparent;
+    border-radius: 50%;
+    border: none;
+
+    cursor: pointer;
+    transition-duration: 0.8s;
+}
+
+.slider-btn:hover,
+.slider-btn:focus {
+    background-color: var(--basic-orange);
 }
 
 /* FAVORITES */
@@ -412,24 +449,26 @@ body {
 .books-list {
     margin: 0;
     padding: 0;
+    padding-right: 40px;
     list-style: none;
 
     display: flex;
     flex-wrap: wrap;
-    column-gap: 260px;
+    justify-content: space-between;
     row-gap: 40px;
 }
 
 .book-item {
     position: relative;
 
-    width: calc((100% - 300px)/2);
+    width: 550px;
     height: 555px;
     padding: 14px 19px;
 
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    flex-shrink: 0;
 
     font-size: 15px;
     line-height: 40px;
@@ -587,6 +626,11 @@ body {
     display: flex;
     justify-content: space-between;
     align-self: stretch;
+    flex-wrap: wrap;
+}
+
+.contact-info {
+    flex-shrink: 0;
 }
 
 .contact-title {
@@ -650,7 +694,7 @@ body {
 }
 
 .find-card {
-    width: 42.8%;
+    width: 600px;
 }
 
 .find-title {
@@ -743,16 +787,16 @@ body {
 }
 
 .get-card {
-    width: 32.6%;
+    width: 600px;
 
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    row-gap: 35px;
 }
 
 .get-title {
     margin: 0;
-    margin-bottom: 35px;
 
     font-family: Forum;
     font-size: 30px;
@@ -761,8 +805,8 @@ body {
 }
 
 .get-text {
+    width: 76%;
     margin: 0;
-    margin-bottom: 35px;
 
     text-align: right;
     letter-spacing: 0.4px;
@@ -811,7 +855,7 @@ body {
 }
 
 .footer-social {
-    width: 16.4%;
+    width: 229px;
 }
 
 .footer-address {
@@ -831,7 +875,7 @@ body {
 }
 
 .footer-hours {
-    width: 10.7%;
+    width: 149px;
 }
 
 .hours-text {
@@ -868,4 +912,103 @@ body {
 
 .rs-link {
     margin-left: 10px;
+}
+
+/* MEDIA */
+
+@media screen and (max-width: 1240px) {
+
+    .contact-wrapper {
+        justify-content: center;
+        row-gap: 80px;
+    }
+
+    .contact-info {
+        margin-right: auto;
+    }
+
+    .cards-wrapper {
+        flex-wrap: wrap;
+        justify-content: center;
+        row-gap: 22px;
+    }
+
+    .get-card {
+        align-items: center;
+        row-gap: 40px;
+    }
+
+
+    .get-text {
+        width: 100%;
+        text-align: center;
+    }
+
+    .books-list {
+        justify-content: center;
+        column-gap: 65px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+
+    .header-burger {
+        display: block;
+        padding: 0;
+
+        border: none;
+        background-color: transparent;
+
+        cursor: pointer;
+        transition-duration: 0.8s;
+    }
+
+    .header-nav {
+        display: none;
+    }
+
+    .welcome {
+        background-image: url("../images/Welcome_tablet.jpg");
+    }
+
+
+    .about-slider {
+        margin-bottom: 20px;
+        gap: 48px;
+    }
+
+    .about-img {
+        display: none;
+    }
+
+    .about-img-active {
+        display: block;
+    }
+
+    .pgn-hidden {
+        display: block;
+    }
+
+    .shop-wrapper {
+        flex-wrap: wrap;
+        column-gap: 90px;
+        row-gap: 40px;
+    }
+
+    .desserts {
+        margin-left: auto;
+    }
+
+    .shop-text {
+        letter-spacing: 1.99px;
+    }
+
+    .footer {
+        margin-top: -2px;
+    }
+
+    .rs-link {
+        margin-left: -44px;
+    }
+
 }
