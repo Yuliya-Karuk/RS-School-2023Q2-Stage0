@@ -12,6 +12,7 @@
 </head>
 <body>
     <div class="page">
+        <div class="overlay"></div>
         <header class="header">
             <h1 class="header-title">Brooklyn Public Library</h1>
             <div class="menu">
@@ -41,12 +42,8 @@
                             fill="white" />
                     </svg>
                 </a>
-                <button class="link header-burger" type="button">
-                    <svg class="burger-svg" xmlns="http://www.w3.org/2000/svg" width="45" height="22" viewBox="0 0 45 22" fill="none">
-                        <line y1="1" x2="45" y2="1" stroke="white" stroke-width="2" />
-                        <line y1="11" x2="45" y2="11" stroke="white" stroke-width="2" />
-                        <line y1="21" x2="45" y2="21" stroke="white" stroke-width="2" />
-                    </svg>
+                <button class="link burger-button" type="button">
+                    <span class="burger-line"></span>
                 </button>
             </div>
         </header>
@@ -483,6 +480,7 @@
             </div>
         </footer>
     </div>
+    <script src="js/script.js"></script>
     <script src="js/index.js"></script>
 </body>
 </html>
