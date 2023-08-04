@@ -172,6 +172,7 @@ img {
 }
 
 .header {
+    position: relative;
     padding: 20px;
 
     display: flex;
@@ -1057,7 +1058,7 @@ img {
     .header-nav {
         position: absolute;
         top: 0;
-        right: -100%;
+        right: 0;
         z-index: 20;
 
         width: 332px;
@@ -1066,19 +1067,45 @@ img {
         display: flex;
         align-items: center;
         justify-content: center;
+
         background: var(--basic-black);
 
+        opacity: 0;
+        visibility: hidden;
         cursor: pointer;
         transition: 0.8s ease-in-out;
+        animation: burger-close 0.8s ease-in-out;
     }
 
     .header-nav-active {
-        right: 0;
+        opacity: 1;
+        visibility: visible;
+        transition: 0.8s ease-in-out;
+        animation: burger-open 0.8s ease-in-out;
+    }
+
+    @keyframes burger-close {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(100%);
+        }
+    }
+
+    @keyframes burger-open {
+        0% {
+            transform: translateX(100%);
+        }
+        100% {
+            transform: translateX(0);
+        }
     }
 
     .nav-list {
-        flex-direction: column;
         margin-right: 0;
+
+        flex-direction: column;
     }
 
     .nav-link {
