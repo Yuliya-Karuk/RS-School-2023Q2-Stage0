@@ -105,20 +105,8 @@ img {
     transition-duration: 0.8s;
 }
 
-.link:hover,
-.link:focus {
-    text-shadow: 0 0 10px var(--basic-white);
-    transform: scale(1.1);
-}
-
 .link:active {
     text-decoration: underline;
-}
-
-.icon-link:hover,
-.icon-link:focus {
-    transform: scale(1.2);
-    box-shadow: 0 0 10px var(--basic-white);
 }
 
 .icon-link:active path {
@@ -142,34 +130,15 @@ img {
     cursor: pointer;
 }
 
-.btn:not([disabled]):hover,
-.btn:not([disabled]):focus{
-    border: 1px solid var(--basic-orange);
-    background-color: var(--basic-orange);
-}
-
 .btn:not([disabled]):active {
     box-shadow: inset 0px 1px 2px var(--basic-black);
 }
 
+.no-scroll {
+    overflow: hidden;
+}
+
 /* HEADER */
-
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    z-index: 10;
-    visibility: hidden;
-    display: none;
-}
-
-.overlay-active {
-    display: block;
-    visibility: visible;
-}
 
 .header {
     position: relative;
@@ -217,7 +186,7 @@ img {
 
 .header-login {
     position: relative;
-    z-index: 20;
+    z-index: 10;
 
     display: block;
 
@@ -389,12 +358,6 @@ img {
     outline: 8px solid var(--basic-orange);
 }
 
-.pgn-button:not([disabled]):hover,
-.pgn-button:not([disabled]):focus {
-    cursor: pointer;
-    outline: 8px solid var(--body-gray);
-}
-
 .pgn-hidden {
     display: none;
 }
@@ -410,11 +373,6 @@ img {
 
     cursor: pointer;
     transition-duration: 0.8s;
-}
-
-.slider-btn:hover,
-.slider-btn:focus {
-    background-color: var(--basic-orange);
 }
 
 /* FAVORITES */
@@ -519,10 +477,6 @@ img {
 .filter:checked + .filter-label {
     font-weight: 700;
     text-shadow: none;
-}
-
-.filter:hover + .filter-label {
-    text-shadow: 0 0 2px rgba(18, 18, 21, 0.50);
 }
 
 .books-list {
@@ -752,13 +706,6 @@ img {
     display: inline;
 }
 
-.contact-link:hover,
-.contact-link:focus {
-    transform: none;
-    color: var(--basic-orange);
-    text-shadow: 0 0 5px rgba(18, 18, 21, 0.20);
-}
-
 .contact-link:active {
     color: var(--basic-orange);
     text-decoration: underline;
@@ -860,10 +807,6 @@ img {
     letter-spacing: inherit;
 
     transition-duration: 0.8s;
-}
-
-.input-card:hover {
-    box-shadow: 0px 0px 7px 2px rgba(18, 18, 21, 0.50);
 }
 
 .input-card:focus {
@@ -1001,16 +944,63 @@ img {
     letter-spacing: 2px;
 }
 
-.site-link:hover,
-.site-link:focus {
-    box-shadow: none;
-}
-
 .rs-link {
     margin-left: 10px;
 }
 
 /* MEDIA */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .link:hover,
+    .link:focus {
+        text-shadow: 0 0 10px var(--basic-white);
+        transform: scale(1.1);
+    }
+
+    .icon-link:hover,
+    .icon-link:focus {
+        transform: scale(1.2);
+        box-shadow: 0 0 10px var(--basic-white);
+    }
+
+    .btn:not([disabled]):hover,
+    .btn:not([disabled]):focus{
+        border: 1px solid var(--basic-orange);
+        background-color: var(--basic-orange);
+    }
+
+    .pgn-button:not([disabled]):hover,
+    .pgn-button:not([disabled]):focus {
+        cursor: pointer;
+        outline: 8px solid var(--body-gray);
+    }
+
+    .slider-btn:hover,
+    .slider-btn:focus {
+        background-color: var(--basic-orange);
+    }
+
+    .filter:hover + .filter-label {
+        text-shadow: 0 0 2px rgba(18, 18, 21, 0.50);
+    }
+
+    .contact-link:hover,
+    .contact-link:focus {
+        transform: none;
+        color: var(--basic-orange);
+        text-shadow: 0 0 5px rgba(18, 18, 21, 0.20);
+    }
+
+    .input-card:hover {
+        box-shadow: 0px 0px 7px 2px rgba(18, 18, 21, 0.50);
+    }
+
+    .site-link:hover,
+    .site-link:focus {
+        box-shadow: none;
+    }
+}
 
 @media screen and (max-width: 1240px) {
 
@@ -1056,19 +1046,19 @@ img {
     }
 
     .header-nav {
-        position: absolute;
-        top: 0;
+        position: fixed;
+        top: 100px;
         right: 0;
         z-index: 20;
 
         width: 332px;
-        padding: 100px 106px;
+        padding: 0 106px 100px;
 
         display: flex;
         align-items: center;
         justify-content: center;
 
-        background: var(--basic-black);
+        background: var(--basic-dark);
 
         opacity: 0;
         visibility: hidden;
