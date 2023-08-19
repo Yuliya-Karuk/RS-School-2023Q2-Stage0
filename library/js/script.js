@@ -46,3 +46,5 @@ class Burger {
 }
 
 const newBurger = new Burger();
+
+
