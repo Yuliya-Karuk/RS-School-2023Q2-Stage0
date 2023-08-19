@@ -1,0 +1,53 @@
+%burger-line {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: $color-basic-white;
+
+}
+
+.burger {
+    display: none;
+    position: relative;
+    width: 45px;
+    height: 24px;
+    align-items: center;
+    @extend %transition;
+    @include media-laptop {
+        display: block;
+    }
+
+    &::before {
+        @extend %burger-line;
+        top: 0;
+        left: 0;
+    }
+    &::after {
+        @extend %burger-line;
+        bottom: 0;
+        left: 0;
+    }
+
+    &_active {
+        &::before {
+            top: unset;
+            transform: rotate(45deg);
+        }
+        &::after {
+            bottom: unset;
+            transform: rotate(-45deg);
+        }
+    }
+}
+
+.burger__line {
+    @extend %burger-line;
+    top: calc(50% - 1px);
+    left: 0;
+    transition-duration: 0.1s;
+    .burger_active & {
+        background-color: transparent;
+    }
+}

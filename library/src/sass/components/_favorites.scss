@@ -1,0 +1,64 @@
+.favorites__container {
+    @include flex-column(35px);
+}
+
+.books {
+    padding-right: 40px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: 40px;
+}
+
+.books__item {
+    position: relative;
+
+    width: 550px;
+    height: 555px;
+    padding: 14px 19px;
+
+    @include flex-column;
+    align-items: flex-start;
+    flex-shrink: 0;
+
+    border: 1px solid var(--basic-black);
+}
+
+.books__description {
+    @include flex-column(20px);
+}
+
+.books__category {
+    position: relative;
+    @include font("Forum", 2rem, 400, 4rem, 0.2rem, capitalize);
+    color: $color-basic-black;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 39px;
+        width: 60px;
+        height: 1px;
+        background-color: $color-basic-primary;
+    }
+
+}
+.books__author {
+    text-transform: capitalize;
+}
+
+.books__short {
+    @include font("Inter", 1.5rem, 400, 4rem, 0.2rem, capitalize);
+    max-width: 357px;
+}
+
+.books__img {
+    position: absolute;
+    bottom: -1px;
+    right: -41px;
+}
+
+.books__button {
+    margin-top: auto;
+}

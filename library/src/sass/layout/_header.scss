@@ -1,0 +1,23 @@
+.header {
+    background-color: $color-basic-dark;
+}
+
+.header__wrapper {
+    padding: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.header__menu {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.header__login {
+    position: relative;
+    z-index: 10;
+    border-radius: 50%;
+}

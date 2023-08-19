@@ -1,0 +1,27 @@
+.link {
+    display: flex;
+    @include font("Inter", 2rem, 400, 2rem, 0.2rem);
+    color: $color-basic-black;
+    @extend %transition;
+    @include media-hover-start {
+        &:hover,
+        &:focus {
+            text-shadow: 0 0 10px var(--basic-white);
+            transform: scale(1.1);
+        }
+    }
+    &:active {
+        text-decoration: underline;
+    }
+}
+
+.link-icon {
+    display: flex;
+    @extend %transition;
+    @include media-hover-start {
+        &:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 10px var(--basic-white);
+        }
+    }
+}

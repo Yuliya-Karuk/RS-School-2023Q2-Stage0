@@ -1,0 +1,15 @@
+.navigation {
+    margin-right: 2px;
+}
+
+.navigation__list {
+    display: flex;
+    gap: 30px;
+}
+
+.navigation__link {
+    color: $color-basic-white;
+    line-height: 5rem;
+    letter-spacing: normal;
+    @extend %transition;
+}
