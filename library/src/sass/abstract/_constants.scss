@@ -11,3 +11,23 @@ $laptop: 1024px;
 $tablet: 768px;
 $tablet-additional: 600px;
 $mobile: 480px;
+
+@keyframes burger-close {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes burger-open {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}

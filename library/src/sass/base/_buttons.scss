@@ -28,4 +28,10 @@
 
         cursor: auto;
     }
+
+    &_large {
+        width: 242px;
+        height: 44px;
+        font-size: 20px;
+    }
 }

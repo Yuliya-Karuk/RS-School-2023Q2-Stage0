@@ -5,7 +5,7 @@
     @include flex-column;
     align-items: center;
 
-    @include media-tablet {
-        padding: 40px 20px;
+    @include media-mobile {
+        padding: 20px 20px;
     }
 }

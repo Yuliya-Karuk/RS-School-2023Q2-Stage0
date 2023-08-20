@@ -1,15 +1,28 @@
 .slider {
     width: 100%;
-    overflow: hidden;
 }
 
 .slider__container {
+    overflow: hidden;
     margin-bottom: 35px;
+    @include media-tablet {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        column-gap: 48px;
+        margin-bottom: 20px;
+    }
+}
+
+.slider__images {
     display: flex;
-    align-items: center;
     column-gap: 25px;
     @include media-laptop {
         column-gap: 8.5%;
+    }
+    @include media-tablet {
+        width: 61.85%;
+        column-gap: 32%;
     }
 }
 
@@ -19,6 +32,9 @@
     aspect-ratio: 450 / 560;
     @include media-laptop {
         width: 46%;
+    }
+    @include media-tablet {
+        width: 100%;
     }
 }
 
@@ -47,7 +63,9 @@
             display: flex;
         }
     }
-
+    &:disabled {
+        cursor: auto;
+    }
 }
 
 .pgn__inner {
@@ -55,10 +73,16 @@
     height: 16px;
     border-radius: 50%;
     background-color: $color-basic-dark;
+    @extend %transition;
     .pgn__button_active & {
         background-color: $color-basic-primary;
     }
-
+    @include media-hover-start {
+        .pgn__button:not([disabled]):hover &,
+        .pgn__button:not([disabled]):focus & {
+            background-color: $color-basic-neutral;
+        }
+    }
 }
 
 .slider-btn {
@@ -66,10 +90,9 @@
     padding: 10px;
     margin-top: 40px;
 
-    background-color: transparent;
     border-radius: 50%;
-    border: none;
-
-    cursor: pointer;
-    transition-duration: 0.8s;
+    @extend %transition;
+    @include media-tablet {
+        display: block;
+    }
 }

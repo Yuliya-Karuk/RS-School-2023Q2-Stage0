@@ -40,6 +40,14 @@
             transform: rotate(-45deg);
         }
     }
+
+    @include media-laptop {
+        display: flex;
+    }
+    @include media-mobile {
+        width: 22px;
+        height: 16px;
+    }
 }
 
 .burger__line {

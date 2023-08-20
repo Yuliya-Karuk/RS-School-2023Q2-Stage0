@@ -578,11 +578,11 @@ body {
     color: var(--basic-orange);
 
     cursor: auto;
-} */ */
+} */
 
 /* COFFEE SHOP */
 
-.shop-text {
+/* .shop-text {
     margin-bottom: 40px;
 
     letter-spacing: 2px;
@@ -600,7 +600,7 @@ body {
     display: flex;
     flex-direction: column;
     row-gap: 40px;
-}
+} */
 
 /* .shop-title {
     margin: 0;
@@ -613,7 +613,7 @@ body {
     color: var(--basic-orange);
 } */
 
-.shop-list {
+/* .shop-list {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -658,11 +658,11 @@ body {
 
 .desserts .shop-item {
     justify-items: end;
-}
+} */
 
 /* CONTACT */
 
-.contact-wrapper {
+/* .contact-wrapper {
     display: flex;
     justify-content: space-between;
     align-self: stretch;
@@ -713,18 +713,18 @@ body {
 
 .map {
     font-size: 0;
-}
+} */
 
 /* LIBRARY CARD */
 
-.cards {
+/* .cards {
     padding: 20px 20px 42px;
 }
 
 .cards-wrapper {
     /* margin-bottom: 2px; */
 
-    display: flex;
+    /* display: flex;
     justify-content: space-between;
     align-self: stretch;
 }
@@ -735,7 +735,7 @@ body {
     display: flex;
     flex-direction: column;
     row-gap: 30px;
-}
+} */
 
 /* .find-title {
     margin: 0;
@@ -747,7 +747,7 @@ body {
     text-align: center;
 } */
 
-.book-card {
+/* .book-card {
     padding: 17px 17px 27px;
 
     display: flex;
@@ -868,11 +868,11 @@ body {
 
 .get-button:last-of-type {
     margin-right: 0;
-}
+} */
 
 /* FOOTER */
 
-.footer {
+/* .footer {
     padding: 20px 20px 0;
 
     color: var(--basic-white);
@@ -946,11 +946,11 @@ body {
 
 .rs-link {
     margin-left: 10px;
-}
+} */
 
 /* MEDIA */
 
-@media (hover: hover) and (pointer: fine) {
+/* @media (hover: hover) and (pointer: fine) { */
 
     /* .link:hover,
     .link:focus {
@@ -970,39 +970,39 @@ body {
         background-color: var(--basic-orange);
     } */
 
-    .pgn-button:not([disabled]):hover,
+    /* .pgn-button:not([disabled]):hover,
     .pgn-button:not([disabled]):focus {
         cursor: pointer;
         outline: 8px solid var(--body-gray);
-    }
+    } */
 
-    .slider-btn:hover,
+    /* .slider-btn:hover,
     .slider-btn:focus {
         background-color: var(--basic-orange);
-    }
+    } */
 
-    .filter:hover + .filter-label {
+    /* .filter:hover + .filter-label {
         text-shadow: 0 0 2px rgba(18, 18, 21, 0.50);
-    }
+    } */
 
-    .contact-link:hover,
+    /* .contact-link:hover,
     .contact-link:focus {
         transform: none;
         color: var(--basic-orange);
         text-shadow: 0 0 5px rgba(18, 18, 21, 0.20);
-    }
+    } */
 
-    .input-card:hover {
+    /* .input-card:hover {
         box-shadow: 0px 0px 7px 2px rgba(18, 18, 21, 0.50);
-    }
+    } */
 
-    .site-link:hover,
+    /* .site-link:hover,
     .site-link:focus {
         box-shadow: none;
-    }
-}
+    } */
+/* } */
 
-@media screen and (max-width: 1439px) {
+/* @media screen and (max-width: 1439px) {
 
     .about-img:nth-of-type(3) {
         display: none;
@@ -1011,52 +1011,52 @@ body {
     .pgn-button:nth-of-type(4) {
         display: block;
     }
-}
+} */
 
 @media screen and (max-width: 1240px) {
 
-    .contact-wrapper {
+    /* .contact-wrapper {
         justify-content: center;
         row-gap: 100px;
-    }
+    } */
 
-    .contact-info {
+    /* .contact-info {
         margin-right: auto;
-    }
+    } */
 
-    .cards {
+    /* .cards {
         padding: 20px 20px 40px;
-    }
+    } */
 
-    .cards-wrapper {
+    /* .cards-wrapper {
         flex-wrap: wrap;
         justify-content: center;
         row-gap: 22px;
-    }
+    } */
 
-    .get-card {
+    /* .get-card {
         align-items: center;
         row-gap: 40px;
-    }
+    } */
 
-    .get-text {
+    /* .get-text {
         width: 100%;
         text-align: center;
-    }
+    } */
 
-    .books-list {
+    /* .books-list {
         justify-content: center;
         column-gap: 65px;
-    }
+    } */
 }
 
 @media screen and (max-width: 1024px) {
 
-    .burger-button {
+    /* .burger-button {
         display: flex;
-    }
+    } */
 
-    .header-nav {
+    /* .header-nav {
         position: fixed;
         top: 100px;
         right: 0;
@@ -1076,16 +1076,16 @@ body {
         cursor: pointer;
         transition: 0.8s ease-in-out;
         animation: burger-close 0.8s ease-in-out;
-    }
+    } */
 
-    .header-nav-active {
+    /* .header-nav-active {
         opacity: 1;
         visibility: visible;
         transition: 0.8s ease-in-out;
         animation: burger-open 0.8s ease-in-out;
-    }
+    } */
 
-    @keyframes burger-close {
+    /* @keyframes burger-close {
         0% {
             transform: translateX(0);
         }
@@ -1101,9 +1101,9 @@ body {
         100% {
             transform: translateX(0);
         }
-    }
+    } */
 
-    .nav-list {
+    /* .nav-list {
         margin-right: 0;
 
         flex-direction: column;
@@ -1111,13 +1111,13 @@ body {
 
     .nav-link {
         text-align: center;
-    }
+    } */
 
-    .welcome {
+    /* .welcome {
         background-image: url("../images/Welcome_tablet.jpg");
-    }
+    } */
 
-    .about-slider {
+    /* .about-slider {
         margin-bottom: 20px;
         column-gap: 48px;
     }
@@ -1136,25 +1136,25 @@ body {
 
     .pgn-hidden {
         display: block;
-    }
+    } */
 
-    .shop-wrapper {
+    /* .shop-wrapper {
         flex-wrap: wrap;
         column-gap: 90px;
         row-gap: 40px;
-    }
+    } */
 
-    .desserts {
+    /* .desserts {
         margin-left: auto;
-    }
+    } */
 
-    .shop-text {
+    /* .shop-text {
         letter-spacing: 1.99px;
-    }
+    } */
 
-    .rs-link {
+    /* .rs-link {
         margin-left: -44px;
-    }
+    } */
 }
 
 @media screen and (max-width: 767px) {
@@ -1176,9 +1176,9 @@ body {
 
 @media screen and (max-width: 600px) {
 
-    .welcome-text {
+    /* .welcome-text {
         width: 100%;
-    }
+    } */
 
     .about-img {
         width: 75%;
@@ -1209,10 +1209,10 @@ body {
 
 @media screen and (max-width: 480px) {
 
-    body {
+    /* body {
         font-size: 16px;
-    }
-/* 
+    } */
+    /*
     .section-title {
         font-size: 26px;
         margin-bottom: 41px;
@@ -1226,26 +1226,26 @@ body {
         font-size: 14px;
     } */
 
-    .header-svg {
+    /* .header-svg {
         width: 20px;
         height: 20px;
-    }
+    } */
 
-    .header-nav {
+    /* .header-nav {
         width: fit-content;
         padding: 50px 80px;
-    }
+    } */
 
-    .nav-list {
+    /* .nav-list {
         gap: 20px;
-    }
+    } */
 
-    .burger-button {
+    /* .burger-button {
         width: 22px;
         height: 16px;
-    }
+    } */
 
-    .welcome {
+    /* .welcome {
         padding: 110px 0 80px;
     }
 
@@ -1259,7 +1259,7 @@ body {
 
     .welcome-title {
         font-size: 20px;
-    }
+    } */
 
     .filter-label::before {
         top: 0;

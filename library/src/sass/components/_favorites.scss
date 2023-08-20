@@ -9,6 +9,10 @@
     flex-wrap: wrap;
     justify-content: space-between;
     row-gap: 40px;
+    @include media-desktop-additional {
+        justify-content: center;
+        column-gap: 65px;
+    }
 }
 
 .books__item {

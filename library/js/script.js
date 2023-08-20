@@ -1,15 +1,15 @@
 /* BURGER MENU */
 const activeClasses = {
-    burgerMenu: "header-nav-active",
-    burgerButton: "burger-button-active",
+    burgerMenu: "navigation_active",
+    burgerButton: "burger_active",
     body: "no-scroll",
 }
 
 class Burger {
     constructor() {
-        this.burgerButton = document.querySelector(".burger-button"); // кнопка бургер меню
-        this.burgerMenu = document.querySelector(".header-nav"); // меню навигации
-        this.menuLinks = document.querySelectorAll(".nav-link"); // ссылки в меню
+        this.burgerButton = document.querySelector(".burger"); // кнопка бургер меню
+        this.burgerMenu = document.querySelector(".navigation"); // меню навигации
+        this.menuLinks = document.querySelectorAll(".navigation__link"); // ссылки в меню
         this.body =  document.querySelector("body");
         this.bindListeners();
     }
