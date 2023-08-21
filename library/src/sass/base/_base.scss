@@ -64,7 +64,9 @@ h4 {
 h5 {
     @include font("Inter", 1.5rem, 700, 4rem, 0.2rem, uppercase);
     color: $color-basic-black;
-
+    @include media-tablet-additional {
+        line-height: 2.5rem;
+    }
 }
 
 strong {
@@ -78,6 +80,10 @@ strong {
 p {
     @include font("Inter", 2rem, 400, 4rem);
     color: $color-basic-black;
+    @include media-mobile {
+        font-size: 1.6rem;
+        line-height: 2.2rem;
+    }
 }
 
 img {

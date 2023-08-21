@@ -4,6 +4,9 @@
 
 .footer__wrapper {
     padding: 20px 20px 0;
+    @include media-mobile {
+        padding: 20px 10px 0;
+    }
 }
 
 .footer__content {
@@ -15,13 +18,19 @@
 }
 
 .footer__contacts {
-    width: 229px;
+    max-width: 229px;
+    @include media-mobile {
+        width: 55%;
+    }
 }
 
 .footer__address {
     @include font("Inter", 1.5rem, 400, 2rem, normal);
     margin-bottom: 18px;
     color: $color-basic-white;
+    @include media-mobile {
+        font-size: 1.4rem;
+    }
 }
 
 .social-sites {
@@ -48,6 +57,9 @@
     &:nth-of-type(2) {
         margin-bottom: 10px;
     }
+    @include media-mobile {
+        font-size: 1.4rem;
+    }
 }
 
 .footer__rs {
@@ -57,6 +69,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @include media-mobile {
+        padding: 15px 0;
+    }
 }
 
 .footer__year {
@@ -71,6 +86,11 @@
         margin-left: 10px;
         @include media-laptop {
             margin-left: -44px;
+        }
+        @include media-tablet-additional {
+            width: 50%;
+            margin: 0;
+            text-align: center;
         }
     }
 }

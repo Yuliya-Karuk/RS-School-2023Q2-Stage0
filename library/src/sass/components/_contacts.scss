@@ -8,6 +8,9 @@
         justify-content: center;
         row-gap: 100px;
     }
+    @include media-mobile {
+        row-gap: 20px;
+    }
 }
 
 .contacts__content {
@@ -15,6 +18,9 @@
     flex-shrink: 0;
     @include media-tablet {
         margin-right: auto;
+    }
+    @include media-tablet-additional {
+        flex-shrink: unset;
     }
 }
 
@@ -54,4 +60,10 @@
     .contact-block_email & {
         font-weight: 700;
     }
+}
+
+.contacts__img {
+    aspect-ratio: 696 / 414;
+    width: 100%;
+    max-width: 696px;
 }

@@ -1,6 +1,13 @@
 .filters__list {
     display: flex;
     column-gap: 90px;
+    @media screen and (max-width: 767px) {
+        column-gap: 40px;
+    }
+    @include media-tablet-additional {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 .filters__item {

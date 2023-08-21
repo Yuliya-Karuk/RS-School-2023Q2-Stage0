@@ -6,12 +6,15 @@
     @include media-hover-start {
         &:hover,
         &:focus {
-            text-shadow: 0 0 10px var(--basic-white);
+            text-shadow: 0 0 10px $color-basic-white;
             transform: scale(1.1);
         }
     }
     &:active {
         text-decoration: underline;
+    }
+    @include media-mobile {
+        font-size: 1.4rem;
     }
 }
 
@@ -21,7 +24,7 @@
     @include media-hover-start {
         &:hover {
             transform: scale(1.2);
-            box-shadow: 0 0 10px var(--basic-white);
+            box-shadow: 0 0 10px $color-basic-white;
         }
     }
 }

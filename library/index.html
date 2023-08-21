@@ -6,8 +6,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="src/img/favicon32.ico" type="image/ico" sizes="32x32">
-
-    <link href="css/main.css" rel="stylesheet">
     <link href="src/sass/style.css" rel="stylesheet">
     <title>Brooklyn Public Library</title>
 </head>
@@ -62,10 +60,9 @@
                     <p class="about__text">The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside</p>
                     <div class="slider about__slider">
                         <div class="slider__container">
-                            <button class="slider-btn slider-left" type="button">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
-                                    <path d="M15 7.5L9 12.5L15 17.5" stroke="black" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
+                            <button class="slider__btn slider__btn_left" type="button">
+                                <object class="slider__object" type="image/svg+xml" data="src/img/icons/arrow_left.svg"
+                                    width="24"></object>
                             </button>
                             <div class="slider__images">
                                 <img class="slider__img slider__img_active" src="src/img/about/about1.jpg" alt="1 photo of library" width="450" height="560">
@@ -74,10 +71,8 @@
                                 <img class="slider__img" src="src/img/about/about4.jpg" alt="4 photo of library" width="450" height="560">
                                 <img class="slider__img" src="src/img/about/about5.jpg" alt="5 photo of library" width="450" height="560">
                             </div>
-                            <button class="slider-btn slider-right" type="button">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
-                                    <path d="M9 17.5L15 12.5L9 7.5" stroke="black" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
+                            <button class="slider__btn slider__btn_right" type="button">
+                                <object class="slider__object" type="image/svg+xml" data="src/img/icons/arrow_right.svg" width="24"></object>
                             </button>
                         </div>
                         <div class="pagination">
@@ -117,193 +112,195 @@
                                 </ul>
                             </fieldset>
                         </form>
-                        <ul class="books books_winter favorites__books">
-                            <li class="books__item">
-                                <div class="books__description">
-                                    <span class="books__category">Staff Picks</span>
-                                    <h5 class="books__title">The Book Eaters<br><span class="books__author">By Sunyi Dean</span></h5>
-                                    <p class="books__short">An unusual sci-fi story about a book eater woman who tries desperately to save
-                                        her dangerous mind-eater son from tradition and certain death. Complete with dysfunctional family
-                                        values, light Sapphic romance, and a strong, complex protagonist. Not for the faint of heart.</p>
-                                </div>
-                                <img class="books__img" src="src/img/favorites/book_winter_1.jpg" alt="The Book Eaters cover" width="200" height="300">
-                                <button class="btn btn_buy books__button" type="button">Buy</button>
-                            </li>
-                            <li class="books__item">
-                                <div class="books__description">
-                                    <span class="books__category">Staff Picks</span>
-                                    <h5 class="books__title">Cackle<br><span class="books__author">By Rachel Harrison</span></h5>
-                                    <p class="books__short">Are your Halloween movies of choice The Witches of Eastwick and Practical Magic?
-                                        Look no further than here - where a woman recovering from a breakup moves to a quaint town in upstate
-                                        New York and befriends a beautiful witch.</p>
-                                </div>
-                                <img class="books__img" src="src/img/favorites/book_winter_2.jpg" alt="Cackle cover" width="200" height="300">
-                                <button class="btn btn_buy books__button" type="button">Buy</button>
-                            </li>
-                            <li class="books__item">
-                                <div class="books__description">
-                                    <span class="books__category">Staff Picks</span>
-                                    <h5 class="books__title">Dante: Poet of the Secular World<br><span class="books__author">By Erich
-                                            Auerbach</span></h5>
-                                    <p class="books__short">Auerbach's engaging book places the 'Comedy' within the tradition of epic,
-                                        tragedy, and philosophy in general, arguing for Dante's uniqueness as one who raised the individual and
-                                        his drama of soul into something of divine significance—an inspired introduction to Dante's main themes.
-                                    </p>
-                                </div>
-                                <img class="books__img" src="src/img/favorites/book_winter_3.jpg" alt="The Book Eaters cover" width="200" height="300">
-                                <button class="btn btn_buy books__button" type="button">Buy</button>
-                            </li>
-                            <li class="books__item">
-                                <div class="books__description">
-                                    <span class="books__category">Staff Picks</span>
-                                    <h5 class="books__title">The Last Queen<br><span class="books__author">By Clive Irving</span></h5>
-                                    <p class="books__short">A timely and revelatory new biography of Queen Elizabeth (and her family)
-                                        exploring how the Windsors have evolved and thrived as the modern world has changed around them.</p>
-                                </div>
-                                <img class="books__img" src="src/img/favorites/book_winter_4.jpg" alt="The Book Eaters cover" width="200" height="300">
-                                <button class="btn btn_own books__button" type="button" disabled>Own</button>
-                            </li>
-                        </ul>
-                        <ul class="books books_spring favorites__books visually-hidden">
-                            <li class="books___item">
-                                <div class="books__description">
-                                    <span class="books__category">Staff Picks</span>
-                                    <h5 class="books__title">The Body<br><span class="books__author">By Stephen King</span></h5>
-                                    <p class="books__short">Powerful novel that takes you back to a nostalgic time, exploring both the
-                                        beauty and danger and loss of innocence that is youth.</p>
-                                </div>
-                                <img class="books__img" src="src/img/favorites/book_spring_1.jpg" alt="The Book Eaters cover" width="200" height="300">
-                                <button class="btn btn_buy books__button" type="button">Buy</button>
-                            </li>
-                            <li class="books__item">
-                                <div class="books__description">
-                                    <span class="books__category">Staff Picks</span>
-                                    <h5 class="books__title">Carry: A Memoir of Survival on Stolen Land<br><span class="books__author">By Toni
-                                            Jenson</span></h5>
-                                    <p class="books__short">This memoir about the author's relationship with gun violence feels both
-                                        expansive and intimate, resulting in a lyrical indictment of the way things are.</p>
-                                </div>
-                                <img class="books__img" src="src/img/favorites/book_spring_2.jpg" alt="Cackle cover" width="200" height="300">
-                                <button class="btn btn_buy books__button" type="button">Buy</button>
-                            </li>
-                            <li class="books__item">
-                                <div class="books__description">
-                                    <span class="books__category">Staff Picks</span>
-                                    <h5 class="books__title">Dante: Poet of the Secular World<br><span class="books__author">By Erich
-                                            Auerbach</span></h5>
-                                    <p class="books__short">Auerbach's engaging book places the 'Comedy' within the tradition of epic,
-                                        tragedy, and philosophy in general, arguing for Dante's uniqueness as one who raised the individual and
-                                        his drama of soul into something of divine significance—an inspired introduction to Dante's main themes.
-                                    </p>
-                                </div>
-                                <img class="books__img" src="src/img/favorites/book_spring_3.jpg" alt="The Book Eaters cover" width="200" height="300">
-                                <button class="btn btn_buy books__button" type="button">Buy</button>
-                            </li>
-                            <li class="books__item">
-                                <div class="books__description">
-                                    <span class="books__category">Staff Picks</span>
-                                    <h5 class="books__title">Days of Distraction<br><span class="books__author">By Alexandra Chang</span></h5>
-                                    <p class="books__short">A sardonic view of Silicon Valley culture, a meditation on race, and a journal
-                                        of displacement and belonging, all in one form-defying package of spare prose.</p>
-                                </div>
-                                <img class="books__img" src="src/img/favorites/book_spring_4.jpg" alt="The Book Eaters cover" width="200" height="300">
-                                <button class="btn btn_own books__button" type="button" disabled>Own</button>
-                            </li>
-                        </ul>
-                        <ul class="books books_summer favorites__books visually-hidden">
-                            <li class="books__item">
-                                <div class="book-description">
-                                    <span class="book-s__ategory">Staff Picks</span>
-                                    <h5 class="books__title">Crude: A Memoir<br><span class="books__author">By Pablo Fajardo &amp; Sophie
-                                            Tardy-Joubert</span></h5>
-                                    <p class="books__short">PDrawing and color by Damien Roudeau | This book illustrates the struggles of a
-                                        group of indigenous Ecuadoreans as they try to sue the ChevronTexaco company for damage their oil fields
-                                        did to the Amazon and her people</p>
-                                </div>
-                                <img class="books__img" src="src/img/favorites/book_summer_1.jpg" alt="The Book Eaters cover" width="200" height="300">
-                                <button class="btn btn_buy books__button" type="button">Buy</button>
-                            </li>
-                            <li class="books__item">
-                                <div class="books__description">
-                                    <span class="books__category">Staff Picks</span>
-                                    <h5 class="books__title">Let My People Go Surfing<br><span class="books__author">By Yvon Chouinard</span></h5>
-                                    <p class="books__short">Chouinard—climber, businessman, environmentalist—shares tales of courage and
-                                        persistence from his experience of founding and leading Patagonia, Inc. Full title: Let My People Go
-                                        Surfing: The Education of a Reluctant Businessman, Including 10 More Years of Business Unusual.</p>
-                                </div>
-                                <img class="books__img" src="src/img/favorites/book_summer_2.jpg" alt="Cackle cover" width="200" height="300">
-                                <button class="btn btn_buy books__button" type="button">Buy</button>
-                            </li>
-                            <li class="books__item">
-                                <div class="books__description">
-                                    <span class="books__category">Staff Picks</span>
-                                    <h5 class="books__title">The Octopus Museum: Poems<br><span class="books__author">By Brenda Shaughnessy</span>
-                                    </h5>
-                                    <p class="books__short">This collection of bold and scathingly beautiful feminist poems imagines what
-                                        comes after our current age of environmental destruction, racism, sexism, and divisive politics.</p>
-                                </div>
-                                <img class="books__img" src="src/img/favorites/book_summer_3.jpg" alt="The Book Eaters cover" width="200" height="300">
-                                <button class="btn btn_buy books__button" type="button">Buy</button>
-                            </li>
-                            <li class="books__item">
-                                <div class="books__description">
-                                    <span class="books__category">Staff Picks</span>
-                                    <h5 class="books__title">Shark Dialogues: A Novel<br><span class="books__author">By Kiana Davenport</span></h5>
-                                    <p class="books__short">An epic saga of seven generations of one family encompasses the tumultuous
-                                        history of Hawaii as a Hawaiian woman gathers her four granddaughters together in an erotic tale of
-                                        villains and dreamers, queens and revolutionaries, lepers and healers.</p>
-                                </div>
-                                <img class="books__img" src="src/img/favorites/book_summer_4.jpg" alt="The Book Eaters cover" width="200" height="300">
-                                <button class="btn btn_buy books__button" type="button">Buy</button>
-                            </li>
-                        </ul>
-                        <ul class="books books_autumn favorites__books visually-hidden">
-                            <li class="books__item">
-                                <div class="books__description">
-                                    <span class="books__ategory">CStaff Picks</span>
-                                    <h5 class="books__title">Casual Conversation<br><span class="books__author">By Renia White</span></h5>
-                                    <p class="books__short">White's impressive debut collection takes readers through and beyond the
-                                        concepts of conversation and the casual - both what we say to each other and what we don't, examining
-                                        the possibilities around how we construct and communicate identity.</p>
-                                </div>
-                                <img class="books__img" src="src/img/favorites/book_autumn_1.jpg" alt="The Book Eaters cover" width="200" height="300">
-                                <button class="btn btn_buy books__button" type="button">Buy</button>
-                            </li>
-                            <li class="books__item">
-                                <div class="books__description">
-                                    <span class="books__category">Staff Picks</span>
-                                    <h5 class="books__title">The Great Fire<br><span class="books__author">By Lou Ureneck</span></h5>
-                                    <p class="books__short">The harrowing story of an ordinary American and a principled Naval officer who,
-                                        horrified by the burning of Smyrna, led an extraordinary rescue effort that saved a quarter of a million
-                                        refugees from the Armenian Genocide</p>
-                                </div>
-                                <img class="books__img" src="src/img/favorites/book_autumn_2.jpg" alt="Cackle cover" width="200" height="300">
-                                <button class="btn btn_buy books__button" type="button">Buy</button>
-                            </li>
-                            <li class="books__item">
-                                <div class="books__description">
-                                    <span class="books__category">Staff Picks</span>
-                                    <h5 class="books__title">Rickey: The Life and Legend<br><span class="books__author">By Howard Bryant</span></h5>
-                                    <p class="books__short">With the fall rolling around, one can't help but think of baseball's postseason
-                                        coming up! And what better way to
-                                        prepare for it than reading the biography of one of the game's all-time greatest performers, the Man of
-                                        Steal, Rickey Henderson?</p>
-                                </div>
-                                <img class="books__img" src="src/img/favorites/book_autumn_3.jpg" alt="The Book Eaters cover" width="200" height="300">
-                                <button class="btn btn_buy books__button" type="button">Buy</button>
-                            </li>
-                            <li class="books__item">
-                                <div class="books__description">
-                                    <span class="books__category">Staff Picks</span>
-                                    <h5 class="books__title">Slug: And Other Stories<br><span class="books__author">By Megan Milks</span></h5>
-                                    <p class="books__short">Exes Tegan and Sara find themselves chained together by hairballs of
-                                        codependency. A father and child experience the shared trauma of giving birth to gods from their wounds.
-                                    </p>
-                                </div>
-                                <img class="books__img" src="src/img/favorites/book_autumn_4.jpg" alt="The Book Eaters cover" width="200" height="300">
-                                <button class="btn btn_buy books__button" type="button">Buy</button>
-                            </li>
-                        </ul>
+                        <div class="favorites__books">
+                            <ul class="books books_winter">
+                                <li class="books__item">
+                                    <div class="books__description">
+                                        <span class="books__category">Staff Picks</span>
+                                        <h5 class="books__title">The Book Eaters<br><span class="books__author">By Sunyi Dean</span></h5>
+                                        <p class="books__short">An unusual sci-fi story about a book eater woman who tries desperately to save
+                                            her dangerous mind-eater son from tradition and certain death. Complete with dysfunctional family
+                                            values, light Sapphic romance, and a strong, complex protagonist. Not for the faint of heart.</p>
+                                    </div>
+                                    <img class="books__img" src="src/img/favorites/book_winter_1.jpg" alt="The Book Eaters cover" width="200" height="300">
+                                    <button class="btn btn_buy books__button" type="button">Buy</button>
+                                </li>
+                                <li class="books__item">
+                                    <div class="books__description">
+                                        <span class="books__category">Staff Picks</span>
+                                        <h5 class="books__title">Cackle<br><span class="books__author">By Rachel Harrison</span></h5>
+                                        <p class="books__short">Are your Halloween movies of choice The Witches of Eastwick and Practical Magic?
+                                            Look no further than here - where a woman recovering from a breakup moves to a quaint town in upstate
+                                            New York and befriends a beautiful witch.</p>
+                                    </div>
+                                    <img class="books__img" src="src/img/favorites/book_winter_2.jpg" alt="Cackle cover" width="200" height="300">
+                                    <button class="btn btn_buy books__button" type="button">Buy</button>
+                                </li>
+                                <li class="books__item">
+                                    <div class="books__description">
+                                        <span class="books__category">Staff Picks</span>
+                                        <h5 class="books__title">Dante: Poet of the Secular World<br><span class="books__author">By Erich
+                                                Auerbach</span></h5>
+                                        <p class="books__short">Auerbach's engaging book places the 'Comedy' within the tradition of epic,
+                                            tragedy, and philosophy in general, arguing for Dante's uniqueness as one who raised the individual and
+                                            his drama of soul into something of divine significance—an inspired introduction to Dante's main themes.
+                                        </p>
+                                    </div>
+                                    <img class="books__img" src="src/img/favorites/book_winter_3.jpg" alt="The Book Eaters cover" width="200" height="300">
+                                    <button class="btn btn_buy books__button" type="button">Buy</button>
+                                </li>
+                                <li class="books__item">
+                                    <div class="books__description">
+                                        <span class="books__category">Staff Picks</span>
+                                        <h5 class="books__title">The Last Queen<br><span class="books__author">By Clive Irving</span></h5>
+                                        <p class="books__short">A timely and revelatory new biography of Queen Elizabeth (and her family)
+                                            exploring how the Windsors have evolved and thrived as the modern world has changed around them.</p>
+                                    </div>
+                                    <img class="books__img" src="src/img/favorites/book_winter_4.jpg" alt="The Book Eaters cover" width="200" height="300">
+                                    <button class="btn btn_own books__button" type="button" disabled>Own</button>
+                                </li>
+                            </ul>
+                            <ul class="books books_spring visually-hidden">
+                                <li class="books___item">
+                                    <div class="books__description">
+                                        <span class="books__category">Staff Picks</span>
+                                        <h5 class="books__title">The Body<br><span class="books__author">By Stephen King</span></h5>
+                                        <p class="books__short">Powerful novel that takes you back to a nostalgic time, exploring both the
+                                            beauty and danger and loss of innocence that is youth.</p>
+                                    </div>
+                                    <img class="books__img" src="src/img/favorites/book_spring_1.jpg" alt="The Book Eaters cover" width="200" height="300">
+                                    <button class="btn btn_buy books__button" type="button">Buy</button>
+                                </li>
+                                <li class="books__item">
+                                    <div class="books__description">
+                                        <span class="books__category">Staff Picks</span>
+                                        <h5 class="books__title">Carry: A Memoir of Survival on Stolen Land<br><span class="books__author">By Toni
+                                                Jenson</span></h5>
+                                        <p class="books__short">This memoir about the author's relationship with gun violence feels both
+                                            expansive and intimate, resulting in a lyrical indictment of the way things are.</p>
+                                    </div>
+                                    <img class="books__img" src="src/img/favorites/book_spring_2.jpg" alt="Cackle cover" width="200" height="300">
+                                    <button class="btn btn_buy books__button" type="button">Buy</button>
+                                </li>
+                                <li class="books__item">
+                                    <div class="books__description">
+                                        <span class="books__category">Staff Picks</span>
+                                        <h5 class="books__title">Dante: Poet of the Secular World<br><span class="books__author">By Erich
+                                                Auerbach</span></h5>
+                                        <p class="books__short">Auerbach's engaging book places the 'Comedy' within the tradition of epic,
+                                            tragedy, and philosophy in general, arguing for Dante's uniqueness as one who raised the individual and
+                                            his drama of soul into something of divine significance—an inspired introduction to Dante's main themes.
+                                        </p>
+                                    </div>
+                                    <img class="books__img" src="src/img/favorites/book_spring_3.jpg" alt="The Book Eaters cover" width="200" height="300">
+                                    <button class="btn btn_buy books__button" type="button">Buy</button>
+                                </li>
+                                <li class="books__item">
+                                    <div class="books__description">
+                                        <span class="books__category">Staff Picks</span>
+                                        <h5 class="books__title">Days of Distraction<br><span class="books__author">By Alexandra Chang</span></h5>
+                                        <p class="books__short">A sardonic view of Silicon Valley culture, a meditation on race, and a journal
+                                            of displacement and belonging, all in one form-defying package of spare prose.</p>
+                                    </div>
+                                    <img class="books__img" src="src/img/favorites/book_spring_4.jpg" alt="The Book Eaters cover" width="200" height="300">
+                                    <button class="btn btn_own books__button" type="button" disabled>Own</button>
+                                </li>
+                            </ul>
+                            <ul class="books books_summer visually-hidden">
+                                <li class="books__item">
+                                    <div class="book-description">
+                                        <span class="book-s__ategory">Staff Picks</span>
+                                        <h5 class="books__title">Crude: A Memoir<br><span class="books__author">By Pablo Fajardo &amp; Sophie
+                                                Tardy-Joubert</span></h5>
+                                        <p class="books__short">PDrawing and color by Damien Roudeau | This book illustrates the struggles of a
+                                            group of indigenous Ecuadoreans as they try to sue the ChevronTexaco company for damage their oil fields
+                                            did to the Amazon and her people</p>
+                                    </div>
+                                    <img class="books__img" src="src/img/favorites/book_summer_1.jpg" alt="The Book Eaters cover" width="200" height="300">
+                                    <button class="btn btn_buy books__button" type="button">Buy</button>
+                                </li>
+                                <li class="books__item">
+                                    <div class="books__description">
+                                        <span class="books__category">Staff Picks</span>
+                                        <h5 class="books__title">Let My People Go Surfing<br><span class="books__author">By Yvon Chouinard</span></h5>
+                                        <p class="books__short">Chouinard—climber, businessman, environmentalist—shares tales of courage and
+                                            persistence from his experience of founding and leading Patagonia, Inc. Full title: Let My People Go
+                                            Surfing: The Education of a Reluctant Businessman, Including 10 More Years of Business Unusual.</p>
+                                    </div>
+                                    <img class="books__img" src="src/img/favorites/book_summer_2.jpg" alt="Cackle cover" width="200" height="300">
+                                    <button class="btn btn_buy books__button" type="button">Buy</button>
+                                </li>
+                                <li class="books__item">
+                                    <div class="books__description">
+                                        <span class="books__category">Staff Picks</span>
+                                        <h5 class="books__title">The Octopus Museum: Poems<br><span class="books__author">By Brenda Shaughnessy</span>
+                                        </h5>
+                                        <p class="books__short">This collection of bold and scathingly beautiful feminist poems imagines what
+                                            comes after our current age of environmental destruction, racism, sexism, and divisive politics.</p>
+                                    </div>
+                                    <img class="books__img" src="src/img/favorites/book_summer_3.jpg" alt="The Book Eaters cover" width="200" height="300">
+                                    <button class="btn btn_buy books__button" type="button">Buy</button>
+                                </li>
+                                <li class="books__item">
+                                    <div class="books__description">
+                                        <span class="books__category">Staff Picks</span>
+                                        <h5 class="books__title">Shark Dialogues: A Novel<br><span class="books__author">By Kiana Davenport</span></h5>
+                                        <p class="books__short">An epic saga of seven generations of one family encompasses the tumultuous
+                                            history of Hawaii as a Hawaiian woman gathers her four granddaughters together in an erotic tale of
+                                            villains and dreamers, queens and revolutionaries, lepers and healers.</p>
+                                    </div>
+                                    <img class="books__img" src="src/img/favorites/book_summer_4.jpg" alt="The Book Eaters cover" width="200" height="300">
+                                    <button class="btn btn_buy books__button" type="button">Buy</button>
+                                </li>
+                            </ul>
+                            <ul class="books books_autumn visually-hidden">
+                                <li class="books__item">
+                                    <div class="books__description">
+                                        <span class="books__ategory">CStaff Picks</span>
+                                        <h5 class="books__title">Casual Conversation<br><span class="books__author">By Renia White</span></h5>
+                                        <p class="books__short">White's impressive debut collection takes readers through and beyond the
+                                            concepts of conversation and the casual - both what we say to each other and what we don't, examining
+                                            the possibilities around how we construct and communicate identity.</p>
+                                    </div>
+                                    <img class="books__img" src="src/img/favorites/book_autumn_1.jpg" alt="The Book Eaters cover" width="200" height="300">
+                                    <button class="btn btn_buy books__button" type="button">Buy</button>
+                                </li>
+                                <li class="books__item">
+                                    <div class="books__description">
+                                        <span class="books__category">Staff Picks</span>
+                                        <h5 class="books__title">The Great Fire<br><span class="books__author">By Lou Ureneck</span></h5>
+                                        <p class="books__short">The harrowing story of an ordinary American and a principled Naval officer who,
+                                            horrified by the burning of Smyrna, led an extraordinary rescue effort that saved a quarter of a million
+                                            refugees from the Armenian Genocide</p>
+                                    </div>
+                                    <img class="books__img" src="src/img/favorites/book_autumn_2.jpg" alt="Cackle cover" width="200" height="300">
+                                    <button class="btn btn_buy books__button" type="button">Buy</button>
+                                </li>
+                                <li class="books__item">
+                                    <div class="books__description">
+                                        <span class="books__category">Staff Picks</span>
+                                        <h5 class="books__title">Rickey: The Life and Legend<br><span class="books__author">By Howard Bryant</span></h5>
+                                        <p class="books__short">With the fall rolling around, one can't help but think of baseball's postseason
+                                            coming up! And what better way to
+                                            prepare for it than reading the biography of one of the game's all-time greatest performers, the Man of
+                                            Steal, Rickey Henderson?</p>
+                                    </div>
+                                    <img class="books__img" src="src/img/favorites/book_autumn_3.jpg" alt="The Book Eaters cover" width="200" height="300">
+                                    <button class="btn btn_buy books__button" type="button">Buy</button>
+                                </li>
+                                <li class="books__item">
+                                    <div class="books__description">
+                                        <span class="books__category">Staff Picks</span>
+                                        <h5 class="books__title">Slug: And Other Stories<br><span class="books__author">By Megan Milks</span></h5>
+                                        <p class="books__short">Exes Tegan and Sara find themselves chained together by hairballs of
+                                            codependency. A father and child experience the shared trauma of giving birth to gods from their wounds.
+                                        </p>
+                                    </div>
+                                    <img class="books__img" src="src/img/favorites/book_autumn_4.jpg" alt="The Book Eaters cover" width="200" height="300">
+                                    <button class="btn btn_buy books__button" type="button">Buy</button>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -403,7 +400,7 @@
                             </div>
                         </div>
                         <div class="contacts__map">
-                            <img class="map-img" src="src/img/map.png" alt="map image" width="696" height="414">
+                            <img class="contacts__img" src="src/img/map.png" alt="map image" width="696" height="414">
                         </div>
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 .shop__text {
     margin-bottom: 40px;
     letter-spacing: 2px;
-    @extend %text-center;
+    text-align: center;
     @include media-laptop {
         letter-spacing: 1.99px;
     }
@@ -35,6 +35,9 @@
 
 .catalog__list {
     @include flex-column(40px);
+    @include media-mobile {
+        row-gap: 20px;
+    }
 }
 
 .catalog__item {
@@ -46,6 +49,12 @@
     gap: 59px;
     .catalog_desserts & {
         justify-items: end;
+        @include media-mobile {
+            justify-items: flex-start;
+        }
+    }
+    @include media-mobile {
+        gap: 10px;
     }
 }
 

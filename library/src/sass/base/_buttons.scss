@@ -9,7 +9,7 @@
     color: $color-basic-dark;
 
     border-radius: 2px;
-    border: 1px solid var(--basic-dark);
+    border: 1px solid $color-basic-dark;
     @extend %transition;
 
     &:not([disabled]):hover,
@@ -19,7 +19,7 @@
     }
 
     &:not([disabled]):active {
-        box-shadow: inset 0px 1px 2px var(--basic-black);
+        box-shadow: inset 0px 1px 2px $color-basic-black;
     }
 
     &_own {
@@ -33,5 +33,9 @@
         width: 242px;
         height: 44px;
         font-size: 20px;
+        @include media-mobile {
+            font-size: 1.2rem;
+            height: 35px;
+        }
     }
 }
