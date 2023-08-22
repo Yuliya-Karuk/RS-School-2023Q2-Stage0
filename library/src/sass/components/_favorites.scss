@@ -14,6 +14,12 @@
     flex-wrap: wrap;
     justify-content: space-between;
     row-gap: 40px;
+    opacity: 0;
+    &_active {
+        opacity: 1;
+        transition-delay: 0.5s;
+        transition: opacity 0.5s linear;
+    }
     @include media-desktop-additional {
         justify-content: center;
         column-gap: 65px;
@@ -34,7 +40,10 @@
 
     border: 1px solid $color-basic-black;
     @include media-tablet-additional {
-        height: fit-content;
+        height: 500px;
+    }
+    @include media-tablet-additional {
+        height: 600px;
     }
 }
 
@@ -66,6 +75,13 @@
     }
 }
 
+.books__title {
+    width: 129%;
+    @include media-tablet-additional {
+        width: 100%;
+    }
+}
+
 .books__author {
     text-transform: capitalize;
 }
@@ -75,6 +91,10 @@
     @include media-tablet-additional {
         font-size: 1.3rem;
         line-height: 2rem;
+    }
+    @include media-mobile {
+        font-size: 1.1rem;
+        line-height: 1.4rem;
     }
 }
 

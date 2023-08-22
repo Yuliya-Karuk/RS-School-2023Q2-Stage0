@@ -395,6 +395,14 @@ fieldset {
     transform: translateX(0);
   }
 }
+@keyframes fade {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 .slider__btn, .pgn__inner, .pgn__button, .slider__images, .navigation__link, .burger, .btn, input[type=text], input[type=radio] + label, .link-icon, .link {
   transition: all 0.4s ease-out;
 }
@@ -522,6 +530,12 @@ h5 {
     line-height: 2.5rem;
   }
 }
+@media (max-width: 480px) {
+  h5 {
+    font-size: 1.3rem;
+    line-height: 2rem;
+  }
+}
 
 strong {
   font-family: "Inter";
@@ -568,6 +582,10 @@ img {
 
 .no-transition {
   transition: none;
+}
+
+.animate-fade {
+  animation: fade 0.5s ease-in-out;
 }
 
 .link {
@@ -991,7 +1009,8 @@ input[type=text]:focus {
 @media (max-width: 480px) {
   .navigation {
     width: fit-content;
-    padding: 50px 80px;
+    top: 90px;
+    padding: 0 80px 50px;
   }
 }
 .navigation_start {
@@ -1294,6 +1313,12 @@ input[type=text]:focus {
   flex-wrap: wrap;
   justify-content: space-between;
   row-gap: 40px;
+  opacity: 0;
+}
+.books_active {
+  opacity: 1;
+  transition-delay: 0.5s;
+  transition: opacity 0.5s linear;
 }
 @media (max-width: 1240px) {
   .books {
@@ -1317,7 +1342,12 @@ input[type=text]:focus {
 }
 @media (max-width: 600px) {
   .books__item {
-    height: fit-content;
+    height: 500px;
+  }
+}
+@media (max-width: 600px) {
+  .books__item {
+    height: 600px;
   }
 }
 
@@ -1359,6 +1389,15 @@ input[type=text]:focus {
   background-color: #BB945F;
 }
 
+.books__title {
+  width: 129%;
+}
+@media (max-width: 600px) {
+  .books__title {
+    width: 100%;
+  }
+}
+
 .books__author {
   text-transform: capitalize;
 }
@@ -1375,6 +1414,12 @@ input[type=text]:focus {
   .books__short {
     font-size: 1.3rem;
     line-height: 2rem;
+  }
+}
+@media (max-width: 480px) {
+  .books__short {
+    font-size: 1.1rem;
+    line-height: 1.4rem;
   }
 }
 

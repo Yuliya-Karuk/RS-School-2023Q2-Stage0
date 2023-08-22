@@ -135,3 +135,52 @@ class Slider {
 
 const newSlider = new Slider();
 
+/* Season */
+
+const FadeAnimation = {
+    ANIMATE_FADE : "animate-fade",
+    ACTIVE_CLASS : "books_active",
+    NO_DISPLAY : "visually-hidden",
+}
+
+class Fade {
+    constructor() {
+        this.fadeTabs = document.querySelectorAll(".filter__label");
+        this.fadeLists = document.querySelectorAll(".books");
+        this.prevList = document.querySelector(".books_active");
+        this.bindListeners();
+    }
+
+    handlerAnimation(prevEl, currentEl, callback) {
+        const context = this;
+        prevEl.classList.add(FadeAnimation.ANIMATE_FADE)
+        console.log(currentEl)
+        prevEl.addEventListener("animationend", () => {
+            for (let i = 0; i < context.fadeLists.length; i++) {
+                context.fadeLists[i].classList.remove(FadeAnimation.ANIMATE_FADE)
+                context.fadeLists[i].classList.add(FadeAnimation.NO_DISPLAY)
+                context.fadeLists[i].classList.remove(FadeAnimation.ACTIVE_CLASS)
+            }
+            currentEl.classList.toggle(FadeAnimation.ACTIVE_CLASS)
+            currentEl.classList.toggle(FadeAnimation.NO_DISPLAY)
+            callback(currentEl, context);
+        })
+    }
+
+    changePrev(currentEl, context) {
+        context.prevList = currentEl;
+    }
+
+    bindListeners() {
+        const context = this;
+        for (let i = 0; i < this.fadeTabs.length; i++) {
+            this.fadeTabs[i].addEventListener("click", () => {
+                context.currentList = this.fadeLists[i];
+                context.handlerAnimation(this.prevList, this.currentList, this.changePrev);
+            })
+        }
+    }
+}
+
+const newFade = new Fade();
+

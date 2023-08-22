@@ -67,6 +67,10 @@ h5 {
     @include media-tablet-additional {
         line-height: 2.5rem;
     }
+    @include media-mobile {
+        font-size: 1.3rem;
+        line-height: 2rem;
+    }
 }
 
 strong {
@@ -100,4 +104,8 @@ img {
 
 .no-transition {
     transition: none;
+}
+
+.animate-fade {
+    animation: fade 0.5s ease-in-out;
 }

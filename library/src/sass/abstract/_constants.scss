@@ -31,3 +31,13 @@ $mobile: 480px;
         transform: translateX(0);
     }
 }
+
+@keyframes fade {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}

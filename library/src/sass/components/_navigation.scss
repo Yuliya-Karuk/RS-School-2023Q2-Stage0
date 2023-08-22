@@ -20,7 +20,8 @@
     }
     @include media-mobile {
         width: fit-content;
-        padding: 50px 80px;
+        top: 90px;
+        padding: 0 80px 50px;
     }
     &_start {
         animation: burger-close 0.8s ease-in-out;
