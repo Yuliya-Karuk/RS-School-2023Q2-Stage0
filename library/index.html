@@ -60,10 +60,6 @@
                     <p class="about__text">The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside</p>
                     <div class="slider about__slider">
                         <div class="slider__container">
-                            <button class="slider__btn slider__btn_left" type="button">
-                                <object class="slider__object" type="image/svg+xml" data="src/img/icons/arrow_left.svg"
-                                    width="24"></object>
-                            </button>
                             <div class="slider__images">
                                 <img class="slider__img slider__img_active" src="src/img/about/about1.jpg" alt="1 photo of library" width="450" height="560">
                                 <img class="slider__img" src="src/img/about/about2.jpg" alt="2 photo of library" width="450" height="560">
@@ -71,12 +67,18 @@
                                 <img class="slider__img" src="src/img/about/about4.jpg" alt="4 photo of library" width="450" height="560">
                                 <img class="slider__img" src="src/img/about/about5.jpg" alt="5 photo of library" width="450" height="560">
                             </div>
+                        </div>
+                        <div class="slider__buttons">
+                            <button class="slider__btn slider__btn_left" type="button" disabled>
+                                <!-- <object class="slider__object" type="image/svg+xml" data="src/img/icons/arrow_left.svg"
+                                                                width="24"></object> -->
+                            </button>
                             <button class="slider__btn slider__btn_right" type="button">
-                                <object class="slider__object" type="image/svg+xml" data="src/img/icons/arrow_right.svg" width="24"></object>
+                                <!-- <object class="slider__object" type="image/svg+xml" data="src/img/icons/arrow_right.svg" width="24"></object> -->
                             </button>
                         </div>
                         <div class="pagination">
-                            <button class="pgn__button pgn__button_active" type="button" disabled><span class="pgn__inner"></span></button>
+                            <button class="pgn__button" type="button" disabled><span class="pgn__inner"></span></button>
                             <button class="pgn__button" type="button"><span class="pgn__inner"></span></button>
                             <button class="pgn__button" type="button"><span class="pgn__inner"></span></button>
                             <button class="pgn__button" type="button"><span class="pgn__inner"></span></button>

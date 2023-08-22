@@ -17,13 +17,14 @@
         opacity: 0;
         visibility: hidden;
         cursor: pointer;
-
-        transition: 0.8s ease-in-out;
-        animation: burger-close 0.8s ease-in-out;
     }
     @include media-mobile {
         width: fit-content;
         padding: 50px 80px;
+    }
+    &_start {
+        animation: burger-close 0.8s ease-in-out;
+        transition: 0.8s ease-in-out;
     }
     &_active {
         opacity: 1;

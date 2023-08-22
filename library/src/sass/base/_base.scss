@@ -89,3 +89,15 @@ p {
 img {
     height: auto;
 }
+
+.animate-left {
+    transform: translateX(100%);
+}
+
+.animate-right {
+    transform: translateX(-100%);
+}
+
+.no-transition {
+    transition: none;
+}
