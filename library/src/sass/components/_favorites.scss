@@ -1,5 +1,5 @@
 .favorites__container {
-    @include flex-column(35px);
+    @include flex-column(25px);
 }
 
 .favorites__books {
@@ -121,5 +121,17 @@
     margin-top: auto;
     @include media-mobile {
         align-self: center;
+    }
+}
+
+.favorites__filters {
+    @include media-tablet {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        padding: 10px 0;
+        border-radius: 10px;
+        background: rgba(187, 148, 95, 0.5);
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     }
 }

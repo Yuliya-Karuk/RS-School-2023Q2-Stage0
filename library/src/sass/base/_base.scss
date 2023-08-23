@@ -94,18 +94,6 @@ img {
     height: auto;
 }
 
-.animate-left {
-    transform: translateX(100%);
-}
-
-.animate-right {
-    transform: translateX(-100%);
-}
-
-.no-transition {
-    transition: none;
-}
-
 .animate-fade {
     animation: fade 0.5s ease-in-out;
 }

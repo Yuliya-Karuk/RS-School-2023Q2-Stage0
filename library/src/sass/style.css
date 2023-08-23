@@ -572,18 +572,6 @@ img {
   height: auto;
 }
 
-.animate-left {
-  transform: translateX(100%);
-}
-
-.animate-right {
-  transform: translateX(-100%);
-}
-
-.no-transition {
-  transition: none;
-}
-
 .animate-fade {
   animation: fade 0.5s ease-in-out;
 }
@@ -1296,7 +1284,7 @@ input[type=text]:focus {
 .favorites__container {
   display: flex;
   flex-direction: column;
-  row-gap: 35px;
+  row-gap: 25px;
 }
 
 .favorites__books {
@@ -1443,6 +1431,18 @@ input[type=text]:focus {
 @media (max-width: 480px) {
   .books__button {
     align-self: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .favorites__filters {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    padding: 10px 0;
+    border-radius: 10px;
+    background: rgba(187, 148, 95, 0.5);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   }
 }
 
