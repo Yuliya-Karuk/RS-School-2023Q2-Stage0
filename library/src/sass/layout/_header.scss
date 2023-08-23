@@ -23,15 +23,74 @@
     gap: 40px;
 }
 
+.header__auth {
+    position: relative;
+}
+
 .header__login {
     position: relative;
     z-index: 10;
+    padding: 10px 0;
     border-radius: 50%;
+    @include media-hover-start {
+        &:hover {
+            transform: none;
+            box-shadow: 0 0 10px $color-basic-white;
+        }
+    }
 }
 
-.header__object {
+.header__icon {
+    width: 28px;
+    height: 28px;
+    background-image: url("../img/icons/icon_profile.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+
     @include media-mobile {
         width: 20px;
         height: 20px;
     }
+}
+
+.menu-auth  {
+    position: absolute;
+    right: 0;
+    z-index: 5;
+    width: 80px;
+    height: 115px;
+    padding-top: 5px;
+    @include flex-column(10px);
+    align-items: center;
+    background: $color-basic-white;
+    transition: all 0.5s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+    &_active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+}
+
+.menu-auth__title {
+    position: relative;
+    margin-bottom: 10px;
+    line-height: 20px;
+    letter-spacing: normal;
+    text-transform: none;
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 5px;
+        width: 40px;
+        height: 1px;
+        background-color: $color-basic-primary;
+    }
+}
+
+.menu-auth__link {
+    @include font("Inter", 1.5rem, 400, 2rem);
 }

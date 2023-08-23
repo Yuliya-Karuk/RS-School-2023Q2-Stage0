@@ -37,7 +37,7 @@ class Burger {
 
         // /* закрыть бургер-меню при нажатии на вне меню */
         document.addEventListener("click", function(e) {
-            if (!e.target.classList.contains("header-nav") && context.burgerMenu.classList.contains(BurgerClasses.burgerMenu) && !context.burgerButton.contains(e.target)) context.toggleBurgerMenu();
+            if (!e.target.classList.contains("navigation") && context.burgerMenu.classList.contains(BurgerClasses.burgerMenu) && !context.burgerButton.contains(e.target)) context.toggleBurgerMenu();
         });
 
         /* закрыть бургер-меню при нажатии на ссылку */
