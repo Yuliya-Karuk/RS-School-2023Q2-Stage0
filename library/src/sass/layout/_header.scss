@@ -43,10 +43,19 @@
 .header__icon {
     width: 28px;
     height: 28px;
-    background-image: url("../img/icons/icon_profile.svg");
-    background-repeat: no-repeat;
+    background: center no-repeat url("../img/icons/icon_profile.svg");
     background-size: cover;
-    background-position: center center;
+    .header__login_active & {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include font("Inter", 1.5rem, 400, 2rem, normal, uppercase);
+        color: $color-basic-primary;
+        background: none;
+        background-color: $color-basic-white;
+        border-radius: 50%;
+    }
+
 
     @include media-mobile {
         width: 20px;

@@ -573,26 +573,30 @@
     <div class="modal modal_register">
         <div class="auth auth_register">
             <h3 class="modal__title">Register</h3>
-            <form class="register__form" method="post">
+            <form class="auth__form auth__form_register" method novalidate>
                 <ul class="modal__inputs">
                     <li class="modal__item">
                         <label class="modal__label" for="register-first-name">First name</label>
-                        <input class="modal__input" id="register-first-name" type="text" name="first-name">
+                        <input class="modal__input" id="register-first-name" type="text" name="first-name" required>
+                        <span class="modal__error">Fill the field, please</span>
                     </li>
                     <li class="modal__item">
                         <label class="modal__label" for="register-last-name">Last name</label>
-                        <input class="modal__input" id="register-last-name" type="text" name="last-name">
+                        <input class="modal__input" id="register-last-name" type="text" name="last-name" required>
+                        <span class="modal__error">Fill the field, please</span>
                     </li>
                     <li class="modal__item">
                         <label class="modal__label" for="register-email">E-mail</label>
-                        <input class="modal__input" id="register-email" type="email" name="email">
+                        <input class="modal__input" id="register-email" type="email" name="email" required>
+                        <span class="modal__error">Fill the field with correct email, please</span>
                     </li>
                     <li class="modal__item">
                         <label class="modal__label" for="register-password">Password</label>
-                        <input class="modal__input" id="register-password" type="password" name="password">
+                        <input class="modal__input" id="register-password" type="password" name="password" required minlength="8">
+                        <span class="modal__error">Fill the field with the password of 8 characters or more, please</span>
                     </li>
                 </ul>
-                <button class="btn modal__button" type="button">Sign Up</button>
+                <button class="btn modal__button" type="submit">Sign Up</button>
                 <span class="modal__auth-text">Already have an account?<a class="link modal__link">Login</a></span>
             </form>
             <button class="modal__close-btn" type="button">
@@ -603,18 +607,20 @@
     <div class="modal modal_login">
         <div class="auth auth_login">
             <h3 class="modal__title">Login</h3>
-            <form class="login__form" method="post">
+            <form class="auth__form auth__form_login" method novalidate>
                 <ul class="modal__inputs">
                     <li class="modal__item">
                         <label class="modal__label" for="login-email">E-mail or readers card</label>
-                        <input class="modal__input" id="login-email" type="text" name="login">
+                        <input class="modal__input" id="login-email" type="text" name="login" required>
+                        <span class="modal__error">Fill the field with correct email, please</span>
                     </li>
                     <li class="modal__item">
                         <label class="modal__label" for="login-password">Password</label>
-                        <input class="modal__input" id="login-password" type="password" name="password">
+                        <input class="modal__input" id="login-password" type="password" name="password" required minlength="8">
+                        <span class="modal__error">Fill the field with the password of 8 characters or more, please</span>
                     </li>
                 </ul>
-                <button class="btn modal__button" type="button">Log In</button>
+                <button class="btn modal__button" type="submit">Log In</button>
                 <span class="modal__auth-text">Don’t have an account?<a class="link modal__link">Register</a></span>
             </form>
             <button class="modal__close-btn" type="button">

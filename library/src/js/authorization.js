@@ -1,8 +1,10 @@
+import {Account, newAccount} from './account.js';
 export {Auth};
 
 const AuthClasses = {
     authMenu: "menu-auth_active",
     showModal: "modal_active",
+    loginIconActive: "header__login_active",
 }
 
 class Auth {
@@ -11,11 +13,19 @@ class Auth {
         this.authMenu = document.querySelector(".menu-auth");
         this.authLinkLogin = document.querySelector(".menu-auth__link_login");
         this.authLinkRegister = document.querySelector(".menu-auth__link_register");
+        this.authLinkProfile;
+        this.authLinkLogout;
         this.cardLinkLogin = document.querySelector(".get-card__button_log");
         this.cardLinkRegister = document.querySelector(".get-card__button_sign");
         this.modalLogin = document.querySelector(".modal_login");
         this.modalRegister = document.querySelector(".modal_register");
         this.closeButtons = document.querySelectorAll(".modal__close-btn")
+
+        this.loginIcon = document.querySelector(".header__icon");
+
+        // this.isAuthorized = false;
+        this.userKey;
+        this.authorizedUser;
 
         this.bindListeners();
     }
@@ -40,6 +50,31 @@ class Auth {
         this.modalRegister.classList.remove(AuthClasses.showModal);
     }
 
+    fillAuthMenu() {
+        this.userKey = newAccount.findAuthorized();
+        if (this.userKey !== undefined) {
+            this.authorizedUser = JSON.parse(localStorage.getItem(String(this.userKey)));
+            this.loginButton.classList.add(AuthClasses.loginIconActive);
+            this.loginButton.title = `${this.authorizedUser.userName} ${this.authorizedUser.userSurname}`;
+            this.loginIcon.innerHTML = `${this.authorizedUser.userName[0]}${this.authorizedUser.userSurname[0]}`;
+
+            this.authMenu.innerHTML = `<h5 class="menu-auth__title">${this.authorizedUser.userCardNumber}</h5>
+                <a class="link menu-auth__link menu-auth__link_profile" href="#">My profile</a>
+                <a class="link menu-auth__link menu-auth__link_logout" href="#">Log Out</a>`
+            this.bindListenersNewAuth();
+        }
+    }
+
+    changePage() {
+        location.reload();
+    }
+
+    logout() {
+        this.authorizedUser.isAuthorized = false;
+        localStorage.setItem(`${this.userKey}`, JSON.stringify(this.authorizedUser));
+        this.authorizedUser = undefined;
+        this.changePage();
+    }
 
     bindListeners() {
         const context = this;
@@ -75,6 +110,15 @@ class Auth {
                 context.closeLogin();
             });
         }
+
+        document.addEventListener("DOMContentLoaded", () => context.fillAuthMenu());
+    }
+
+    bindListenersNewAuth() {
+        const context = this;
+        this.authLinkProfile = document.querySelector(".menu-auth__link_profile");
+        this.authLinkLogout = document.querySelector(".menu-auth__link_logout");
+        this.authLinkLogout.addEventListener("click", () => context.logout());
     }
 
 }
