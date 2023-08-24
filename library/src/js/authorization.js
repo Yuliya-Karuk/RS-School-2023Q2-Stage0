@@ -22,6 +22,8 @@ class Auth {
         this.closeButtons = document.querySelectorAll(".modal__close-btn")
 
         this.loginIcon = document.querySelector(".header__icon");
+        this.modalRegisterName = document.querySelector("#register-first-name");
+        this.modalLoginEmail = document.querySelector("#login-email");
 
         // this.isAuthorized = false;
         this.userKey;
@@ -36,10 +38,12 @@ class Auth {
 
     showLogin() {
         this.modalLogin.classList.add(AuthClasses.showModal);
+        this.modalLoginEmail.focus();
     }
 
     showRegister() {
         this.modalRegister.classList.add(AuthClasses.showModal);
+        this.modalRegisterName.focus();
     }
 
     closeLogin() {

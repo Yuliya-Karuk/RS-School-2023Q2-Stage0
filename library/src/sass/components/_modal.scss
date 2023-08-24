@@ -40,12 +40,25 @@
     height: 20px;
     display: flex;
     align-items: center;
+    @include font("Inter", 1.2rem, 400, normal, 0.06rem);
     border: 1px solid $color-basic-primary;
+    @extend %transition;
+
+    &:focus {
+        background-color: rgba(187, 148, 95, 0.15);
+    }
+
+    @include media-hover-start {
+        &:hover {
+            box-shadow: 0px 0px 2px 1px rgba(41, 41, 41, 0.3);
+        }
+    }
     .auth__form_active &:invalid {
         border: 1px solid $color-basic-error;
     }
     .auth__form_active &:valid {
-        border: 1px solid $color-basic-valid;
+        border: 1px solid $color-basic-primary;
+        background-color: rgba(187, 148, 95, 0.15);
     }
 }
 

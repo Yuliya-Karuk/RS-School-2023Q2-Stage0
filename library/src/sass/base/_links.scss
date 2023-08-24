@@ -6,8 +6,8 @@
     @include media-hover-start {
         &:hover,
         &:focus {
-            text-shadow: 0 0 10px $color-basic-white;
-            transform: scale(1.1);
+            color: $color-basic-primary;
+            text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.5);
         }
     }
     &:active {
@@ -24,7 +24,7 @@
     @include media-hover-start {
         &:hover {
             transform: scale(1.2);
-            box-shadow: 0 0 10px $color-basic-white;
+            box-shadow: 0 0 10px $color-basic-primary;
         }
     }
 }
