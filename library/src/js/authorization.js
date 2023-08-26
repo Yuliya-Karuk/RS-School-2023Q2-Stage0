@@ -25,6 +25,8 @@ class Auth {
         this.modalRegisterName = document.querySelector("#register-first-name");
         this.modalLoginEmail = document.querySelector("#login-email");
 
+        this.modalProfile = document.querySelector(".modal_profile")
+
         // this.isAuthorized = false;
         this.userKey;
         this.authorizedUser;
@@ -46,12 +48,20 @@ class Auth {
         this.modalRegisterName.focus();
     }
 
+    showProfile() {
+        this.modalProfile.classList.add(AuthClasses.showModal);
+    }
+
     closeLogin() {
         this.modalLogin.classList.remove(AuthClasses.showModal);
     }
 
     closeRegister() {
         this.modalRegister.classList.remove(AuthClasses.showModal);
+    }
+
+    closeProfile() {
+        this.modalProfile.classList.remove(AuthClasses.showModal);
     }
 
     fillAuthMenu() {
@@ -102,16 +112,16 @@ class Auth {
 
         document.addEventListener("click", function(e) {
             if (context.modalLogin.classList.contains(AuthClasses.showModal) && e.target.classList.contains("modal_login")) context.closeLogin();
+            if (context.modalRegister.classList.contains(AuthClasses.showModal) && e.target.classList.contains("modal_register")) context.closeRegister();
+            if (context.modalProfile.classList.contains(AuthClasses.showModal) && e.target.classList.contains("modal_profile")) context.closeProfile();
         });
 
-        document.addEventListener("click", function(e) {
-            if (context.modalRegister.classList.contains(AuthClasses.showModal) && e.target.classList.contains("modal_register")) context.closeRegister();
-        });
 
         for (let i = 0; i < this.closeButtons.length; i++) {
             this.closeButtons[i].addEventListener("click", () => {
                 context.closeRegister();
                 context.closeLogin();
+                context.closeProfile();
             });
         }
 
@@ -123,6 +133,7 @@ class Auth {
         this.authLinkProfile = document.querySelector(".menu-auth__link_profile");
         this.authLinkLogout = document.querySelector(".menu-auth__link_logout");
         this.authLinkLogout.addEventListener("click", () => context.logout());
+        this.authLinkProfile.addEventListener("click", () => context.showProfile());
     }
 
 }

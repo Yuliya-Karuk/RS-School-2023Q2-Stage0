@@ -32,6 +32,10 @@ class Account {
             userPassword: this.registerPassword.value,
             userCardNumber: cardNumber,
             isAuthorized: true,
+            isRegistered: true,
+            rentedBooksNumber: 0,
+            rentedBooks: {},
+            visits: 1,
         }
         return data;
     }
@@ -40,11 +44,12 @@ class Account {
         let userKey;
         for (let i = 0; i < localStorage.length; i++) {
             let user = JSON.parse(localStorage.getItem(String(i)));
+            console.log(user)
             if (user.isAuthorized) {
                 userKey = i;
+                return userKey;
             }
         }
-        return userKey;
     }
 
 }

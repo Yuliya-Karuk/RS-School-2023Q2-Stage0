@@ -88,6 +88,10 @@
     position: absolute;
     right: 15px;
     top: 15px;
+    .profile & {
+        right: 25px;
+        top: 25px;
+    }
 }
 
 .modal__close-icon {

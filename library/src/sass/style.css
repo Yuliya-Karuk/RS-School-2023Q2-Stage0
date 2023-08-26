@@ -1946,6 +1946,10 @@ input[type=radio]:checked + label:after {
   right: 15px;
   top: 15px;
 }
+.profile .modal__close-btn {
+  right: 25px;
+  top: 25px;
+}
 
 .modal__close-icon {
   display: block;
@@ -1968,6 +1972,146 @@ input[type=radio]:checked + label:after {
 }
 .auth_login {
   width: 250px;
+}
+
+.profile {
+  position: relative;
+  z-index: 30;
+  width: 600px;
+  display: flex;
+  background: #FFFFFF;
+}
+
+.profile p {
+  font-family: "Inter";
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 2rem;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.profile__avatar {
+  width: 28.3%;
+  max-width: 170px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  justify-content: center;
+  align-items: center;
+  background-color: #0C0C0E;
+}
+
+.profile__name {
+  background-color: #FFFFFF;
+}
+.profile__name_short {
+  width: 80px;
+  height: 80px;
+  color: #BB945F;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profile__name_long {
+  padding: 5px 15px;
+}
+
+.profile__content {
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.profile__title {
+  margin-bottom: 20px;
+  line-height: 2rem;
+  letter-spacing: 0.08rem;
+  text-transform: uppercase;
+}
+.profile__title::after {
+  display: none;
+}
+
+.profile-info {
+  display: flex;
+  column-gap: 20px;
+}
+
+.profile-info__item {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  align-items: center;
+}
+
+.profile-info__title {
+  font-family: "Inter";
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 2rem;
+  letter-spacing: 0.04rem;
+  text-transform: capitalize;
+}
+
+.profile-info__number {
+  font-family: "Inter";
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 2rem;
+  letter-spacing: 0.02rem;
+  text-transform: capitalize;
+}
+
+.profile-books {
+  margin-bottom: 20px;
+}
+
+.profile-books__title {
+  font-family: "Inter";
+  font-size: 2.5rem;
+  font-weight: 400;
+  line-height: 2rem;
+  letter-spacing: normal;
+  text-transform: none;
+  color: #0C0C0E;
+  margin-bottom: 30px;
+}
+
+.profile-books__list {
+  max-height: 50px;
+  list-style-type: disc;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  margin-left: 30px;
+  overflow: scroll;
+}
+
+.profile-books__item {
+  font-family: "Inter";
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 2rem;
+  letter-spacing: 0.2rem;
+  text-transform: capitalize;
+}
+
+.profile-card {
+  display: flex;
+  column-gap: 15px;
+  align-items: center;
+}
+
+.profile-card__number {
+  color: #BB945F;
+}
+
+.profile-card__icon {
+  width: 14px;
+  height: 12px;
+  background: center no-repeat url("../img/icons/icon_copy.svg");
 }
 
 /*# sourceMappingURL=style.css.map */
