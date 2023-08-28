@@ -31,3 +31,9 @@
     padding: 5px;
     line-height: normal;
 }
+
+.filter__input {
+    &:checked {
+        pointer-events: none;
+    }
+}

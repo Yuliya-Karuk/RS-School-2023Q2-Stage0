@@ -122,6 +122,11 @@
     @include media-mobile {
         align-self: center;
     }
+    &_inactive {
+        border: 1px solid $color-basic-primary;
+        color: $color-basic-primary;
+        cursor: auto;
+    }
 }
 
 .favorites__filters {

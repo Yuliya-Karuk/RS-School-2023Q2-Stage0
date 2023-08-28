@@ -22,13 +22,6 @@
         box-shadow: inset 0px 1px 2px $color-basic-black;
     }
 
-    &_own {
-        border: 1px solid $color-basic-primary;
-        color: $color-basic-primary;
-
-        cursor: auto;
-    }
-
     &_large {
         width: 242px;
         height: 44px;

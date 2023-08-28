@@ -44,6 +44,10 @@
     border: 1px solid $color-basic-primary;
     @extend %transition;
 
+    &_small {
+        width: 45px;
+    }
+
     &:focus {
         background-color: rgba(187, 148, 95, 0.15);
     }
@@ -92,6 +96,10 @@
         right: 25px;
         top: 25px;
     }
+    .card & {
+        right: 20px;
+        top: 25px;
+    }
 }
 
 .modal__close-icon {
@@ -99,4 +107,16 @@
     width: 15px;
     height: 15px;
     background: center no-repeat url("../img/icons/close_btn_black.svg");
+    &_card {
+        background: center no-repeat url("../img/icons/close_btn_white.svg");
+    }
+}
+
+.modal__text {
+    @include font("Inter", 2rem, 400, 2rem);
+}
+
+.modal__double {
+    display: flex;
+    column-gap: 10px;
 }

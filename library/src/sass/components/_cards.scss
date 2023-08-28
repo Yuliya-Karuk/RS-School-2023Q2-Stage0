@@ -77,6 +77,9 @@
 
 .book-card__button {
     margin: 0 auto;
+    &_inactive {
+        display: none;
+    }
 }
 
 .get-card {
@@ -106,4 +109,31 @@
 .get-card__buttons {
     display: flex;
     column-gap: 20px;
+}
+
+.card-info {
+    display: none;
+    column-gap: 35px;
+    justify-content: center;
+    &_active {
+        display: flex;
+    }
+}
+
+.card-info__title,
+.card-info__number {
+    @include font("Inter", 1rem, 400, 2rem, 0.02rem, capitalize);
+    text-align: center
+}
+
+.card-info__item {
+    @include flex-column(0px);
+    align-items: center;
+}
+
+.get-card__button_profile {
+    display: none;
+    &_active {
+        display: flex;
+    }
 }

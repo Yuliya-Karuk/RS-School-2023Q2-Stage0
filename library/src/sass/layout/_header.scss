@@ -91,6 +91,9 @@
     line-height: 20px;
     letter-spacing: normal;
     text-transform: none;
+    &_active {
+        font-size: 1.2rem;
+    }
     &::after {
         content: "";
         position: absolute;

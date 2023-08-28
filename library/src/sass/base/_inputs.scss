@@ -9,9 +9,11 @@ input[type=radio] + label {
     }
 }
 
-input[type=radio]:checked+label {
+input[type=radio]:checked + label {
     font-weight: 700;
     text-shadow: none;
+    pointer-events: none;
+    cursor: default;
 }
 
 input[type=radio]:checked + label:before,
