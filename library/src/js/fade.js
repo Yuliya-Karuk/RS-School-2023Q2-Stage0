@@ -17,7 +17,6 @@ class Fade {
     handlerAnimation(prevEl, currentEl, callback) {
         const context = this;
         prevEl.classList.add(FadeClasses.ANIMATE_FADE)
-        console.log(currentEl)
         prevEl.addEventListener("animationend", () => {
             for (let i = 0; i < context.fadeLists.length; i++) {
                 context.fadeLists[i].classList.remove(FadeClasses.ANIMATE_FADE)

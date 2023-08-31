@@ -1,5 +1,5 @@
 export {newAuthMenu, AuthMenu};
-import {newAccount, Account} from './account.js';
+import {newAccount} from './account.js';
 import { newModal } from './modal.js';
 
 const AuthMenuClasses = {

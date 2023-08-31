@@ -1,9 +1,8 @@
-export {Account , newAccount};
-import {newModal, Modal} from './modal.js';
-import {newForm, Form} from './form.js';
-import {newAuthMenu, AuthMenu} from './auth.js';
-import {newCard, Card} from './card.js';
-import {newProfile, Profile} from './profile.js';
+export {newAccount};
+import {newModal} from './modal.js';
+import {newAuthMenu} from './auth.js';
+import {newCard} from './card.js';
+import {newProfile} from './profile.js';
 
 const AccountClasses = {
     inactiveBuyButton: "books__button_inactive",
@@ -47,7 +46,7 @@ class Account {
             isRegistered: true,
             rentedBooks: [],
             visits: 1,
-            bonuses: `${rentedBooks.length * 2}`,
+            bonuses: 0,
             boughtCard: false,
         }
         return data;
@@ -78,6 +77,7 @@ class Account {
         newAuthMenu.fillAuthMenu(userKey);
         newCard.changeCardSection(userKey);
         newProfile.fillProfileInfo(userKey);
+        this.fillButtonsBook(userKey);
     }
 
     bindListenersNewAuth() {
@@ -94,6 +94,17 @@ class Account {
         this.changePage();
     }
 
+    checkUserIsRegistered(inputEmail) {
+        let isRegistered = false;
+        for (let i = 0; i < localStorage.length; i++) {
+            let user = JSON.parse(localStorage.getItem(String(i)));
+            if (inputEmail.value === user.userEmail || inputEmail.value === user.userCardNumber) {
+                isRegistered = true;
+            }
+        }
+        return isRegistered;
+    }
+
     loginUser() {
         for (let i = 0; i < localStorage.length; i++) {
             let user = JSON.parse(localStorage.getItem(String(i)));
@@ -105,19 +116,41 @@ class Account {
         }
     }
 
-    buyBook(element) {
+    fillButtonsBook(userKey) {
+        if (userKey !== undefined) {
+            const authorizedUser = JSON.parse(localStorage.getItem(String(userKey)));
+            for (let i = 0; i < this.buttonsBuy.length; i++) {
+                if(authorizedUser.rentedBooks.includes(this.buttonsBuy[i].id)) {
+                    newProfile.fillRentedBooks(this.buttonsBuy[i].id);
+                    this.changeButtonBook(this.buttonsBuy[i]);
+                }
+            }
+        }
+    }
+
+    changeButtonBook(element) {
         element.classList.add(AccountClasses.inactiveBuyButton);
         element.innerHTML = `Own`;
         element.setAttribute("disabled", "disabled");
         element.blur();
-        const parent = element.closest(".books__item");
-        this.changeUser(parent.id);
-        newProfile.fillRentedBooks(parent.id);
-
     }
 
-    changeUser(bookId) {
+    buyBook(element) {
+        this.changeButtonBook(element);
+        this.changeUserData(element.id);
+        newProfile.fillRentedBooks(element.id);
+        newProfile.changeProfileInfo(this.userKey);
+        newCard.fillCardInfoBlock(this.authorizedUser);
+    }
+
+    changeUserData(bookId) {
         this.authorizedUser.rentedBooks.push(bookId);
+        this.authorizedUser.bonuses = `${this.authorizedUser.rentedBooks.length * 2}`;
+        localStorage.setItem(`${this.userKey}`, JSON.stringify(this.authorizedUser));
+    }
+
+    buyLibraryCard() {
+        this.authorizedUser.boughtCard = true;
         localStorage.setItem(`${this.userKey}`, JSON.stringify(this.authorizedUser));
     }
 
@@ -126,8 +159,12 @@ class Account {
         for (let i = 0; i < this.buttonsBuy.length; i++) {
             this.buttonsBuy[i].addEventListener("click", () => {
                 if (context.userKey !== undefined) {
-                    const element = this.buttonsBuy[i];
-                    context.buyBook(element);
+                    if(context.authorizedUser.boughtCard === true) {
+                        const element = this.buttonsBuy[i];
+                        context.buyBook(element);
+                    } else {
+                        newModal.showCard();
+                    }
                 } else {
                     newModal.showLogin();
                 }
@@ -135,6 +172,9 @@ class Account {
         }
 
         document.addEventListener("DOMContentLoaded", () => context.fillPage());
+        window.addEventListener('storage', function(e) {
+            console.log(e.key);
+        });
     }
 
 }

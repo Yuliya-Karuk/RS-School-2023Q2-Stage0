@@ -1,4 +1,4 @@
-export {newModal, Modal};
+export {newModal};
 
 const ModalClasses = {
     authMenu: "menu-auth_active",
@@ -25,22 +25,28 @@ class Modal {
         // для фокуса первых инпутов
         this.modalRegisterName = document.querySelector("#register-first-name");
         this.modalLoginEmail = document.querySelector("#login-login");
+        this.modalCardNumber = document.querySelector("#bank-card-number");
 
         this.bindListeners();
     }
 
     showLogin() {
         this.modalLogin.classList.add(ModalClasses.showModal);
-        this.modalLoginEmail.focus();
+        // this.modalLoginEmail.focus();
     }
 
     showRegister() {
         this.modalRegister.classList.add(ModalClasses.showModal);
-        this.modalRegisterName.focus();
+        // this.modalRegisterName.focus();
     }
 
     showProfile() {
         this.modalProfile.classList.add(ModalClasses.showModal);
+    }
+
+    showCard() {
+        this.modalCard.classList.add(ModalClasses.showModal);
+        // this.modalCardNumber.focus();
     }
 
     closeLogin() {

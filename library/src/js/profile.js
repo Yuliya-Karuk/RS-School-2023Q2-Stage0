@@ -1,9 +1,5 @@
-export {newProfile, Profile};
+export {newProfile};
 import booksJSON from '../data/books.json' assert { type: 'json' }
-
-const ProfileClasses = {
-
-}
 
 class Profile {
     constructor() {
@@ -15,8 +11,6 @@ class Profile {
         this.profileBooksList = document.querySelector(".profile-books__list");
         this.profileCardNumber = document.querySelector(".profile-card__number");
         this.profileButtonCopy = document.querySelector(".profile-card__copy");
-
-        // this.bindListeners();
     }
 
     fillProfileInfo(userKey) {
@@ -31,14 +25,29 @@ class Profile {
         }
     }
 
-    fillRentedBooks(id) {
-        console.log(booksJSON[id]);
-        const book = booksJSON[id];
-        const newBook = document.createElement("li");
-        newBook.classList.add("modal__text");
-        newBook.classList.add("profile-books__item");
-        newBook.innerHTML = `${book.books__title}, ${book.books__author}`;
-        profileBooksList.append(newLi);
+    changeProfileInfo(userKey) {
+        const authorizedUser = JSON.parse(localStorage.getItem(String(userKey)));
+        this.profileInfoBonuses.innerHTML = `${authorizedUser.bonuses}`;
+        this.profileInfoBooks.innerHTML = `${authorizedUser.rentedBooks.length}`;
+    }
+
+    addRentedBook(bookId) {
+        const book = booksJSON[bookId];
+
+        const bookElement = document.createElement("li");
+        bookElement.classList.add("modal__text");
+        bookElement.classList.add("profile-books__item");
+        bookElement.innerHTML = `${book.books__title}, ${book.books__author}`;
+        this.profileBooksList.append(bookElement);
+    }
+
+    fillRentedBooks(bookId) {// сделать для массива сразу заполнение
+        const book = booksJSON[bookId];
+        const bookElement = document.createElement("li");
+        bookElement.classList.add("modal__text");
+        bookElement.classList.add("profile-books__item");
+        bookElement.innerHTML = `${book.books__title}, ${book.books__author}`;
+        this.profileBooksList.append(bookElement);
     }
 }
 

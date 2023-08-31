@@ -17,8 +17,7 @@
     opacity: 0;
     &_active {
         opacity: 1;
-        transition-delay: 0.5s;
-        transition: opacity 0.5s linear;
+        transition: opacity 0.8s ease-in-out;
     }
     @include media-desktop-additional {
         justify-content: center;
@@ -42,7 +41,7 @@
     @include media-tablet-additional {
         height: 500px;
     }
-    @include media-tablet-additional {
+    @include media-mobile {
         height: 600px;
     }
 }

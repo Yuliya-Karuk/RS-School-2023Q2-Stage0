@@ -1,4 +1,4 @@
-export {newCard, Card};
+export {newCard};
 
 const CardClasses = {
     buttonCardCheckInactive: "book-card__button_inactive",
@@ -26,6 +26,7 @@ class Card {
     }
 
     checkCard(e) {
+        e.stopPropagation();
         e.preventDefault();
         for (let i = 0; i < localStorage.length; i++) {
             let user = JSON.parse(localStorage.getItem(String(i)));

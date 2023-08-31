@@ -4,15 +4,22 @@
     width: 600px;
     display: flex;
     background: $color-basic-white;
+    @include media-mobile {
+        flex-wrap: wrap;
+    }
 }
 
 .profile__avatar {
-    width: 28.3%;
-    max-width: 170px;
+    width: 170px;
     @include flex-column(15px);
     justify-content: center;
     align-items: center;
     background-color: $color-basic-dark;
+    @include media-mobile {
+        max-width: unset;
+        width: 100%;
+        padding: 20px 0;
+    }
 }
 
 .profile__name {
@@ -24,15 +31,22 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        @include media-mobile {
+            display: none;
+        }
     }
     &_long {
         padding: 5px 15px;
+        @include media-mobile {
+            font-size: 2rem;
+        }
     }
 }
 
 .profile__content {
     padding: 40px 20px;
     @include flex-column(20px);
+    width: 430px;
 }
 
 .profile__title {
@@ -75,16 +89,20 @@
 }
 
 .profile-books__list {
-    max-height: 50px;
+    width: 100%;
+    height: 50px;
     list-style-type: disc;
     @include flex-column(10px);
-    margin-left: 30px;
+    padding-left: 12px;
     overflow: scroll;
 }
 
 .profile-books__item {
     letter-spacing: 0.2rem;
     text-transform: capitalize;
+    list-style: disc;
+    list-style-position: inside;
+    white-space: nowrap;
 }
 
 .profile-card {
@@ -101,4 +119,12 @@
     width: 14px;
     height: 12px;
     background: center no-repeat url("../img/icons/icon_copy.svg");
+}
+
+.modal__close-icon {
+    .profile & {
+        @include media-mobile {
+            background: center no-repeat url("../img/icons/close_btn_white.svg");
+        }
+    }
 }
