@@ -1,5 +1,8 @@
 .favorites__container {
-    @include flex-column(25px);
+    @include flex-column(35px);
+    @include media-tablet {
+        row-gap: 25px;
+    }
 }
 
 .favorites__books {
@@ -87,8 +90,11 @@
 
 .books__short {
     @include font("Inter", 1.5rem, 400, 4rem, 0.2rem, capitalize);
+    @media screen and (max-width: 767px) {
+        line-height: 3rem;
+    }
     @include media-tablet-additional {
-        font-size: 1.3rem;
+        font-size: 1.4rem;
         line-height: 2rem;
     }
     @include media-mobile {

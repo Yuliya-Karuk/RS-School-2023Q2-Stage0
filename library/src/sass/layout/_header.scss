@@ -28,10 +28,12 @@
 }
 
 .header__login {
+    display: flex;
     position: relative;
     z-index: 10;
     padding: 10px 0;
     border-radius: 50%;
+    @extend %transition;
     @include media-hover-start {
         &:hover {
             box-shadow: none;
@@ -45,11 +47,8 @@
     background: center no-repeat url("../img/icons/icon_profile.svg");
     background-size: cover;
     border-radius: 50%;
-    @include media-hover-start {
-        .header__login:hover & {
-            box-shadow: 0 0 10px $color-basic-white;
-        }
-    }
+    @extend %transition;
+
     .header__login_active & {
         display: flex;
         align-items: center;
@@ -60,6 +59,15 @@
         background-color: $color-basic-white;
     }
 
+    @include media-hover-start {
+        .header__login:hover & {
+            background: center no-repeat url("../img/icons/icon_profile_orange.svg");
+        }
+        .header__login_active:hover & {
+            color: $color-basic-white;
+            background: $color-basic-primary;
+        }
+    }
     @include media-mobile {
         width: 20px;
         height: 20px;

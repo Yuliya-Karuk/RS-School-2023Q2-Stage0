@@ -63,7 +63,6 @@ class Account {
             if (user.isAuthorized) {
                 this.authorizedUser = JSON.parse(localStorage.getItem(String(i)));
                 this.userKey = i;
-                return this.userKey;
             }
         }
     }
@@ -73,11 +72,11 @@ class Account {
     }
 
     fillPage() {
-        const userKey = this.findAuthorized();
-        newAuthMenu.fillAuthMenu(userKey);
-        newCard.changeCardSection(userKey);
-        newProfile.fillProfileInfo(userKey);
-        this.fillButtonsBook(userKey);
+        this.findAuthorized();
+        newAuthMenu.fillAuthMenu(this.authorizedUser);
+        newCard.changeCardSection(this.authorizedUser);
+        newProfile.fillProfileInfo(this.authorizedUser);
+        this.fillBooksInfo(this.authorizedUser);
     }
 
     bindListenersNewAuth() {
@@ -96,10 +95,12 @@ class Account {
 
     checkUserIsRegistered(inputEmail) {
         let isRegistered = false;
-        for (let i = 0; i < localStorage.length; i++) {
-            let user = JSON.parse(localStorage.getItem(String(i)));
-            if (inputEmail.value === user.userEmail || inputEmail.value === user.userCardNumber) {
-                isRegistered = true;
+        if (localStorage.length > 0) {
+            for (let i = 0; i < localStorage.length; i++) {
+                let user = JSON.parse(localStorage.getItem(String(i)));
+                if (inputEmail.value === user.userEmail || inputEmail.value === user.userCardNumber) {
+                    isRegistered = true;
+                }
             }
         }
         return isRegistered;
@@ -116,12 +117,11 @@ class Account {
         }
     }
 
-    fillButtonsBook(userKey) {
-        if (userKey !== undefined) {
-            const authorizedUser = JSON.parse(localStorage.getItem(String(userKey)));
+    fillBooksInfo(authorizedUser) {
+        if (authorizedUser !== undefined) {
             for (let i = 0; i < this.buttonsBuy.length; i++) {
                 if(authorizedUser.rentedBooks.includes(this.buttonsBuy[i].id)) {
-                    newProfile.fillRentedBooks(this.buttonsBuy[i].id);
+                    newProfile.addRentedBook(this.buttonsBuy[i].id);
                     this.changeButtonBook(this.buttonsBuy[i]);
                 }
             }
@@ -138,8 +138,8 @@ class Account {
     buyBook(element) {
         this.changeButtonBook(element);
         this.changeUserData(element.id);
-        newProfile.fillRentedBooks(element.id);
-        newProfile.changeProfileInfo(this.userKey);
+        newProfile.addRentedBook(element.id);
+        newProfile.changeProfileInfo(this.authorizedUser);
         newCard.fillCardInfoBlock(this.authorizedUser);
     }
 
@@ -158,7 +158,7 @@ class Account {
         const context = this;
         for (let i = 0; i < this.buttonsBuy.length; i++) {
             this.buttonsBuy[i].addEventListener("click", () => {
-                if (context.userKey !== undefined) {
+                if (context.authorizedUser !== undefined) {
                     if(context.authorizedUser.boughtCard === true) {
                         const element = this.buttonsBuy[i];
                         context.buyBook(element);
@@ -172,11 +172,7 @@ class Account {
         }
 
         document.addEventListener("DOMContentLoaded", () => context.fillPage());
-        window.addEventListener('storage', function(e) {
-            console.log(e.key);
-        });
     }
-
 }
 
 const newAccount = new Account();

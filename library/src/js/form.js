@@ -1,6 +1,6 @@
 import {newAccount} from './account.js';
 import {newModal} from './modal.js';
-export {newForm};
+export {Form};
 
 const FormClasses = {
     activeInput: "modal__input_active",
@@ -16,7 +16,7 @@ class Form {
         this.registerUserRegisteredError = document.querySelector(".modal__form_register .modal__error_registered")
 
         this.loginInputs = document.querySelectorAll(".modal__form_login .modal__input");
-        this.loginInputEmail = document.querySelectorAll("#login-login");
+        this.loginInputEmail = document.querySelector("#login-login");
         this.loginErrors = document.querySelectorAll(".modal__form_login .modal__error");
         this.loginForm = document.querySelector(".modal__form_login");
         this.loginUserRegisteredError = document.querySelector(".modal__form_login .modal__error_registered");
@@ -109,7 +109,7 @@ class Form {
     checkInputCardNumber(check, input) {
         const patternFirst = /([\d]{4}[\s]){3}[\d]{4}/g;
         const patternSecond = /([\d]{16})/g;
-        if (!input.value.match(patternFirst) || !input.value.match(patternSecond)) {
+        if (!input.value.match(patternFirst) && !input.value.match(patternSecond)) {
             check = false;
         }
         return check;
@@ -154,5 +154,3 @@ class Form {
         localStorage.setItem(`${localStorage.length}`, JSON.stringify(value));
     }
 }
-
-const newForm = new Form();

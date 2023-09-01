@@ -46,6 +46,38 @@
     }
 }
 
+.social-sites__icon {
+    width: 24px;
+    height: 24px;
+    background-size: cover;
+    @extend %transition;
+    &_twitter {
+        background: center no-repeat url("../img/icons/twitter.svg");
+        @include media-hover-start {
+            &:hover {
+                background: center no-repeat url("../img/icons/twitter_orange.svg");
+            }
+        }
+    }
+    &_instagram {
+        background: center no-repeat url("../img/icons/instagram.svg");
+        @include media-hover-start {
+            &:hover {
+                background: center no-repeat url("../img/icons/instagram_orange.svg");
+            }
+        }
+    }
+    &_facebook {
+        background: center no-repeat url("../img/icons/facebook.svg");
+        @include media-hover-start {
+            &:hover {
+                background: center no-repeat url("../img/icons/facebook_orange.svg");
+            }
+        }
+    }
+
+}
+
 .footer__work-hours {
     width: 149px;
 }

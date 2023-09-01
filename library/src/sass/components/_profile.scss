@@ -36,7 +36,10 @@
         }
     }
     &_long {
+        max-width: 80%;
         padding: 5px 15px;
+        text-align: center;
+        word-break: break-all;
         @include media-mobile {
             font-size: 2rem;
         }
@@ -79,7 +82,7 @@
 }
 
 .profile-books {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .profile-books__title {
@@ -90,11 +93,22 @@
 
 .profile-books__list {
     width: 100%;
-    height: 50px;
+    height: 55px;
     list-style-type: disc;
     @include flex-column(10px);
     padding-left: 12px;
     overflow: scroll;
+    &::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+    }
+    &::-webkit-scrollbar-track {
+        background-color: rgba(41, 41, 41, 0.1);
+    }
+    &::-webkit-scrollbar-thumb {
+        border-radius: 2px;
+        background-color: $color-basic-neutral;
+    }
 }
 
 .profile-books__item {
@@ -112,6 +126,13 @@
 }
 
 .profile-card__number {
+    color: $color-basic-primary;
+}
+
+.profile-card__input {
+    max-width: 150px;
+    width: fit-content;
+    border: none;
     color: $color-basic-primary;
 }
 

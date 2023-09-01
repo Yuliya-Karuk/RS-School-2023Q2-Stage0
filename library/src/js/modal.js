@@ -14,6 +14,8 @@ class Modal {
         this.cardLinkRegister = document.querySelector(".get-card__button_sign");
         this.modalLogin = document.querySelector(".modal_login");
         this.modalRegister = document.querySelector(".modal_register");
+        this.linkLoginFromRegister = document.querySelector(".modal_register .modal__link");
+        this.linkRegisterFromLogin = document.querySelector(".modal_login .modal__link");
 
         this.authLinkProfile;
         this.cardButtonProfile = document.querySelector(".get-card__button_profile");
@@ -22,22 +24,15 @@ class Modal {
 
         this.closeButtons = document.querySelectorAll(".modal__close-btn");
 
-        // для фокуса первых инпутов
-        this.modalRegisterName = document.querySelector("#register-first-name");
-        this.modalLoginEmail = document.querySelector("#login-login");
-        this.modalCardNumber = document.querySelector("#bank-card-number");
-
         this.bindListeners();
     }
 
     showLogin() {
         this.modalLogin.classList.add(ModalClasses.showModal);
-        // this.modalLoginEmail.focus();
     }
 
     showRegister() {
         this.modalRegister.classList.add(ModalClasses.showModal);
-        // this.modalRegisterName.focus();
     }
 
     showProfile() {
@@ -46,7 +41,6 @@ class Modal {
 
     showCard() {
         this.modalCard.classList.add(ModalClasses.showModal);
-        // this.modalCardNumber.focus();
     }
 
     closeLogin() {
@@ -70,6 +64,14 @@ class Modal {
 
         this.authLinkLogin.addEventListener("click", () => context.showLogin());
         this.authLinkRegister.addEventListener("click", () => context.showRegister());
+        this.linkLoginFromRegister.addEventListener("click", () => {
+            context.closeRegister();
+            context.showLogin();
+        });
+        this.linkRegisterFromLogin.addEventListener("click", () => {
+            context.closeLogin();
+            context.showRegister();
+        });
         this.cardLinkLogin.addEventListener("click", () => context.showLogin());
         this.cardLinkRegister.addEventListener("click", () => context.showRegister());
         this.cardButtonProfile.addEventListener("click", () => context.showProfile());

@@ -34,13 +34,13 @@
                     </ul>
                 </nav>
                 <div class="header__auth">
-                    <a class="link-icon header__login" href="#no_scroll" aria-label="login link">
+                    <button class="header__login" type="button" aria-label="login link">
                         <span class="header__icon"></span>
-                    </a>
+                    </button>
                     <div class="menu-auth">
                         <h5 class="menu-auth__title">Profile</h5>
-                        <a class="link menu-auth__link menu-auth__link_login" href="#">Log In</a>
-                        <a class="link menu-auth__link menu-auth__link_register" href="#">Register</a>
+                        <button class="link menu-auth__link menu-auth__link_login" type="button">Log In</button>
+                        <button class="link menu-auth__link menu-auth__link_register" type="button">Register</button>
                     </div>
                 </div>
                 <button class="button burger" type="button">
@@ -51,9 +51,10 @@
     </header>
     <main class="main">
         <section class="welcome">
+            <div class="welcome__overlay"></div>
             <div class="wrapper welcome__wrapper">
                 <h2 class="visually-hidden">Welcome</h2>
-                <div class="welcome__overlay"></div>
+                <!-- <div class="welcome__overlay"></div> -->
                 <div class="welcome__content">
                     <strong class="welcome__title">Welcome&nbsp;</strong>
                     <strong class="welcome__title">to the Brooklyn</strong>
@@ -493,22 +494,19 @@
                             <a class="link-icon footer__social-link"
                                 href="https://twitter.com/i/flow/login?redirect_after_login=%2Fbklynlibrary"
                                 aria-label="link on twitter">
-                                <object class="link-icon__object" type="image/svg+xml" data="src/img/icons/twitter.svg"
-                                    width="24" height="24"></object>
+                                <span class="social-sites__icon social-sites__icon_twitter"></span>
                             </a>
                         </li>
                         <li class="social-sites__item">
                             <a class="link-icon footer__social-link" href="https://www.instagram.com/bklynlibrary/"
                                 aria-label="link on Instagram">
-                                <object class="link-icon__object" type="image/svg+xml" data="src/img/icons/instagram.svg"
-                                    width="24" height="24"></object>
+                                <span class="social-sites__icon social-sites__icon_instagram"></span>
                             </a>
                         </li>
                         <li class="social-sites__item">
                             <a class="link-icon footer__social-link" href="https://www.facebook.com/BrooklynPublicLibrary/"
                                 aria-label="link on facebook">
-                                <object class="link-icon__object" type="image/svg+xml" data="src/img/icons/facebook.svg"
-                                    width="24" height="24"></object>
+                                <span class="social-sites__icon social-sites__icon_facebook"></span>
                             </a>
                         </li>
                     </ul>
@@ -688,6 +686,5 @@
         </div>
     </div>
     <script src="script.js" type="module"></script>
-    <script src="js/index.js"></script>
 </body>
 </html>

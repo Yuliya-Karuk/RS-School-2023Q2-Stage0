@@ -12,6 +12,7 @@ class Card {
         this.inputCardNumber = document.querySelector("#card-number");
         this.buttonCardCheck = document.querySelector(".book-card__button");
 
+        this.findCardTitle = document.querySelector(".find-card__title");
         this.getCardTitle = document.querySelector(".get-card__title");
         this.getCardText = document.querySelector(".get-card__text");
         this.getCardButtons = document.querySelector(".get-card__buttons");
@@ -56,9 +57,9 @@ class Card {
         this.inputCardNumber.value = "";
     }
 
-    changeCardSection(userKey) {
-        if (userKey !== undefined) {
-            const authorizedUser = JSON.parse(localStorage.getItem(String(userKey)));
+    changeCardSection(authorizedUser) {
+        if (authorizedUser !== undefined) {
+            this.findCardTitle.innerHTML = `Your Library card`;
             this.inputReaderName.setAttribute("disabled", "disabled");
             this.inputReaderName.placeholder = `${authorizedUser.userName} ${authorizedUser.userSurname}`;
             this.inputCardNumber.setAttribute("disabled", "disabled");

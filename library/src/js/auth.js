@@ -20,17 +20,15 @@ class AuthMenu {
         this.authMenu.classList.toggle(AuthMenuClasses.authMenu);
     }
 
-    fillAuthMenu(userKey) {
-        // const userKey = newAccount.findAuthorized();
-        if (userKey !== undefined) {
-            const authorizedUser = JSON.parse(localStorage.getItem(String(userKey)));
+    fillAuthMenu(authorizedUser) {
+        if (authorizedUser !== undefined) {
             this.loginButton.classList.add(AuthMenuClasses.loginIconActive);
             this.loginButton.title = `${authorizedUser.userName} ${authorizedUser.userSurname}`;
             this.loginIcon.innerHTML = `${authorizedUser.userName[0]}${authorizedUser.userSurname[0]}`;
 
             this.authMenu.innerHTML = `<h5 class="menu-auth__title menu-auth__title_active">${authorizedUser.userCardNumber}</h5>
-                <a class="link menu-auth__link menu-auth__link_profile" href="#">My profile</a>
-                <a class="link menu-auth__link menu-auth__link_logout" href="#">Log Out</a>`
+                <button class="link menu-auth__link menu-auth__link_profile" href="#">My profile</button>
+                <button class="link menu-auth__link menu-auth__link_logout" href="#">Log Out</button>`
             newAccount.bindListenersNewAuth();
             newModal.bindListenersNewAuth();
         }

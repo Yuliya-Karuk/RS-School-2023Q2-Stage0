@@ -11,11 +11,12 @@ class Profile {
         this.profileBooksList = document.querySelector(".profile-books__list");
         this.profileCardNumber = document.querySelector(".profile-card__number");
         this.profileButtonCopy = document.querySelector(".profile-card__copy");
+
+        this.bindListeners();
     }
 
-    fillProfileInfo(userKey) {
-        if (userKey !== undefined) {
-            const authorizedUser = JSON.parse(localStorage.getItem(String(userKey)));
+    fillProfileInfo(authorizedUser) {
+        if (authorizedUser !== undefined) {
             this.profileNameLong.innerHTML = `${authorizedUser.userName} ${authorizedUser.userSurname}`;
             this.profileNameShort.innerHTML = `${authorizedUser.userName[0]}${authorizedUser.userSurname[0]}`;
             this.profileInfoVisits.innerHTML = `${authorizedUser.visits}`;
@@ -25,8 +26,7 @@ class Profile {
         }
     }
 
-    changeProfileInfo(userKey) {
-        const authorizedUser = JSON.parse(localStorage.getItem(String(userKey)));
+    changeProfileInfo(authorizedUser) {
         this.profileInfoBonuses.innerHTML = `${authorizedUser.bonuses}`;
         this.profileInfoBooks.innerHTML = `${authorizedUser.rentedBooks.length}`;
     }
@@ -41,13 +41,17 @@ class Profile {
         this.profileBooksList.append(bookElement);
     }
 
-    fillRentedBooks(bookId) {// сделать для массива сразу заполнение
-        const book = booksJSON[bookId];
-        const bookElement = document.createElement("li");
-        bookElement.classList.add("modal__text");
-        bookElement.classList.add("profile-books__item");
-        bookElement.innerHTML = `${book.books__title}, ${book.books__author}`;
-        this.profileBooksList.append(bookElement);
+    async copyLibraryCardNumber(text) {
+        try {
+            await navigator.clipboard.writeText(text);
+        } catch (err) {
+            console.error('Error in copying text: ', err);
+        }
+    }
+
+    bindListeners() {
+        const context = this;
+        this.profileButtonCopy.addEventListener("click", () => context.copyLibraryCardNumber(this.profileCardNumber.innerHTML));
     }
 }
 

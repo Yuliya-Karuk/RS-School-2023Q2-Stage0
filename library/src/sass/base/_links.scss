@@ -21,10 +21,4 @@
 .link-icon {
     display: flex;
     @extend %transition;
-    @include media-hover-start {
-        &:hover {
-            transform: scale(1.2);
-            box-shadow: 0 0 10px $color-basic-primary;
-        }
-    }
 }
