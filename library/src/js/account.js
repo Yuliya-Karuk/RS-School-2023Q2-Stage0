@@ -1,8 +1,9 @@
-export {newAccount};
 import {newModal} from './modal.js';
 import {newAuthMenu} from './auth.js';
 import {newCard} from './card.js';
 import {newProfile} from './profile.js';
+import {newUtils} from './utils.js';
+export {newAccount};
 
 const AccountClasses = {
     inactiveBuyButton: "books__button_inactive",
@@ -28,17 +29,11 @@ class Account {
         this.bindListeners();
     }
 
-    generateCardNumber() {
-        const number = Math.floor(Math.random() * (68719476736 - 4294967296) + 4294967296);
-        const hexNumber = number.toString(16).toUpperCase();
-        return hexNumber;
-    }
-
     setUser() {
-        const cardNumber = this.generateCardNumber();
+        const cardNumber = newUtils.generateCardNumber();
         const data = {
-            userName: this.registerName.value,
-            userSurname: this.registerSurname.value,
+            userName: newUtils.capitalizeFirstChar(this.registerName.value),
+            userSurname: newUtils.capitalizeFirstChar(this.registerSurname.value),
             userEmail: this.registerEmail.value,
             userPassword: this.registerPassword.value,
             userCardNumber: cardNumber,

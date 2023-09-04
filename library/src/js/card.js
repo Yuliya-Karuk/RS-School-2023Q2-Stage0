@@ -1,3 +1,4 @@
+import {newUtils} from './utils.js';
 export {newCard};
 
 const CardClasses = {
@@ -31,7 +32,7 @@ class Card {
         e.preventDefault();
         for (let i = 0; i < localStorage.length; i++) {
             let user = JSON.parse(localStorage.getItem(String(i)));
-            if (this.inputReaderName.value === `${user.userName} ${user.userSurname}` && this.inputCardNumber.value === user.userCardNumber) {
+            if ((newUtils.capitalizeFirstChar(this.inputReaderName.value) === `${user.userName} ${user.userSurname}` || newUtils.capitalizeFirstChar(this.inputReaderName.value) === `${user.userName}`) && this.inputCardNumber.value === user.userCardNumber) {
                 this.showCardInfo(user);
                 setTimeout(() => this.hideCardInfo(), 10000);
             }
