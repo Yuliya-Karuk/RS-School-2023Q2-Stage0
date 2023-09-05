@@ -107,12 +107,6 @@
     position: absolute;
     bottom: -1px;
     right: -41px;
-    @media screen and (max-width: 767px) {
-        // right: -51px;
-    }
-    @include media-tablet-additional {
-        // width: 75%;
-    }
     @include media-mobile {
         position: unset;
         margin-bottom: 20px;

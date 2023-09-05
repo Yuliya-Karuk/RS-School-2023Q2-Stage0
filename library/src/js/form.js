@@ -42,7 +42,7 @@ class Form {
         this.registerForm.addEventListener("submit", (e) => {
             e.stopPropagation();
             e.preventDefault();
-            if (context.checkValidityForm(this.registerInputs)) {
+            if (context.checkValidityForm(this.registerInputs, this.registerErrors)) {
                 if(newAccount.checkUserIsRegistered(context.registerInputEmail) === false) {
                     newAccount.registerUser();
                     newModal.closeRegister();
@@ -64,7 +64,7 @@ class Form {
         this.loginForm.addEventListener("submit", (e) => {
             e.stopPropagation();
             e.preventDefault();
-            if (context.checkValidityForm(this.loginInputs)) {// запуталась
+            if (context.checkValidityForm(this.loginInputs, context.loginErrors)) {
                 if (newAccount.checkUserIsRegistered(context.loginInputEmail)) {
                     newAccount.loginUser();
                     newModal.closeLogin();
@@ -78,7 +78,9 @@ class Form {
         for (let i = 0; i < this.cardInputs.length; i++) {
             this.cardInputs[i].addEventListener("blur", () => {
                 context.checkValidityInput(context.cardInputs[i], context.cardErrors[i]);
-                context.checkValidityCardForm(context.cardInputs);
+                if (i === this.cardInputs.length - 1) {
+                    context.checkValidityCardForm(context.cardInputs, context.cardErrors);
+                }
             });
         }
 
@@ -88,6 +90,23 @@ class Form {
             newAccount.buyLibraryCard();
         });
 
+    }
+
+    checkValidityInput(input, error) {
+        input.classList.add(FormClasses.activeInput);
+        let check = true;
+        if (!input.checkValidity()) {
+            check = false;
+        } else {
+            if (input.id === "bank-card-number") {
+                check = this.checkInputCardNumber(check, input);
+            }
+            if (input.id === "register-email") {
+                check = this.checkInputEmail(check, input);
+            }
+        }
+        this.checkError(check, error);
+        return check;
     }
 
     checkError(check, error) {
@@ -115,38 +134,21 @@ class Form {
         return check;
     }
 
-    checkValidityForm(inputs) {
+    checkValidityForm(inputs, errors) {
         let check = true;
         for (let i = 0; i < inputs.length; i++) {
-            if (!inputs[i].checkValidity()) {
+            if (!this.checkValidityInput(inputs[i], errors[i])) {
                 check = false;
             }
         }
         return check;
     }
 
-    checkValidityCardForm(inputs) {
-        let check = this.checkValidityForm(inputs);
+    checkValidityCardForm(inputs, errors) {
+        let check = this.checkValidityForm(inputs, errors);
         if (check) {
             this.cardSubmitButton.removeAttribute("disabled");
         }
-    }
-
-    checkValidityInput(input, error) {
-        input.classList.add(FormClasses.activeInput);
-        let check = true;
-        if (!input.checkValidity()) {
-            check = false;
-        } else {
-            if (input.id === "bank-card-number") {
-                check = this.checkInputCardNumber(check, input);
-            }
-            if (input.id === "register-email") {
-                check = this.checkInputEmail(check, input);
-            }
-        }
-        this.checkError(check, error);
-        return check;
     }
 
     registerUser() {
