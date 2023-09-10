@@ -45,7 +45,7 @@ class Form {
             if (context.checkValidityForm(this.registerInputs, this.registerErrors)) {
                 if(newAccount.checkUserIsRegistered(context.registerInputEmail) === false) {
                     newAccount.registerUser();
-                    newModal.closeRegister();
+                    newModal.closeModal(newModal.modalRegister);
                     newAccount.changePage();
                 } else {
                     this.registerUserRegisteredError.classList.add(FormClasses.showModalError);
@@ -67,7 +67,7 @@ class Form {
             if (context.checkValidityForm(this.loginInputs, context.loginErrors)) {
                 if (newAccount.checkUserIsRegistered(context.loginInputEmail)) {
                     newAccount.loginUser();
-                    newModal.closeLogin();
+                    newModal.closeModal(newModal.modalLogin);
                     newAccount.changePage();
                 } else {
                     this.loginUserRegisteredError.classList.add(FormClasses.showModalError);
@@ -86,7 +86,7 @@ class Form {
 
         this.cardForm.addEventListener("submit", (e) => {
             e.preventDefault();
-            newModal.closeCard();
+            newModal.closeModal(newModal.modalCard);
             newAccount.buyLibraryCard();
         });
 
