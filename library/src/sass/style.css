@@ -438,7 +438,6 @@ body {
 
 .no-scroll {
   overflow: hidden;
-  padding-right: 15px;
 }
 
 h1 {
@@ -1123,14 +1122,14 @@ input[type=radio]:checked + label:after {
 .welcome {
   position: relative;
   background-color: #0C0C0E;
-  background-image: url("../img/welcome_desktop.jpg");
+  background-image: url("../img/welcome_desktop_img.jpg");
   background-repeat: no-repeat;
   background-position: 0 0;
   background-size: cover;
 }
 @media (max-width: 768px) {
   .welcome {
-    background-image: url("../img/welcome_tablet.jpg");
+    background-image: url("../img/welcome_tablet_img.jpg");
   }
 }
 
