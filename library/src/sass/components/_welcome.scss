@@ -1,12 +1,12 @@
 .welcome {
     position: relative;
     background-color: $color-basic-dark;
-    background-image: url("../img/welcome_desktop.jpg");
+    background-image: url("../img/welcome_desktop_img.jpg");
     background-repeat: no-repeat;
     background-position: 0 0;
     background-size: cover;
     @include media-tablet {
-        background-image: url("../img/welcome_tablet.jpg");
+        background-image: url("../img/welcome_tablet_img.jpg");
     }
 }
 

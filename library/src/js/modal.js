@@ -4,12 +4,10 @@ const ModalClasses = {
     authMenu: "menu-auth_active",
     showModal: "modal_active",
     loginIconActive: "header__login_active",
-    bodyNoScroll: "no-scroll",
 }
 
 class Modal {
     constructor() {
-        this.body =  document.querySelector("body");
         this.authLinkLogin = document.querySelector(".menu-auth__link_login");
         this.authLinkRegister = document.querySelector(".menu-auth__link_register");
         this.cardLinkLogin = document.querySelector(".get-card__button_log");
@@ -31,12 +29,10 @@ class Modal {
 
     showModal(modal) {
         modal.classList.add(ModalClasses.showModal);
-        this.body.classList.add(ModalClasses.bodyNoScroll);
     }
 
     closeModal(modal) {
         modal.classList.remove(ModalClasses.showModal);
-        this.body.classList.remove(ModalClasses.bodyNoScroll);
     }
 
     bindListeners() {
