@@ -438,6 +438,7 @@ body {
 
 .no-scroll {
   overflow: hidden;
+  padding-right: 15px;
 }
 
 h1 {
@@ -2209,7 +2210,8 @@ input[type=radio]:checked + label:after {
   flex-direction: column;
   row-gap: 10px;
   padding-left: 12px;
-  overflow: scroll;
+  overflow-x: auto;
+  overflow-y: auto;
 }
 .profile-books__list::-webkit-scrollbar {
   width: 5px;

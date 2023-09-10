@@ -97,7 +97,8 @@
     list-style-type: disc;
     @include flex-column(10px);
     padding-left: 12px;
-    overflow: scroll;
+    overflow-x: auto;
+    overflow-y: auto;
     &::-webkit-scrollbar {
         width: 5px;
         height: 5px;

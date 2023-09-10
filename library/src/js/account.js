@@ -158,10 +158,10 @@ class Account {
                         const element = this.buttonsBuy[i];
                         context.buyBook(element);
                     } else {
-                        newModal.showCard();
+                        newModal.showModal(newModal.modalCard);
                     }
                 } else {
-                    newModal.showLogin();
+                    newModal.showModal(newModal.modalLogin);
                 }
             });
         }

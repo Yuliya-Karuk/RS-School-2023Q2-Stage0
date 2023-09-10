@@ -4,10 +4,12 @@ const ModalClasses = {
     authMenu: "menu-auth_active",
     showModal: "modal_active",
     loginIconActive: "header__login_active",
+    bodyNoScroll: "no-scroll",
 }
 
 class Modal {
     constructor() {
+        this.body =  document.querySelector("body");
         this.authLinkLogin = document.querySelector(".menu-auth__link_login");
         this.authLinkRegister = document.querySelector(".menu-auth__link_register");
         this.cardLinkLogin = document.querySelector(".get-card__button_log");
@@ -27,69 +29,47 @@ class Modal {
         this.bindListeners();
     }
 
-    showLogin() {
-        this.modalLogin.classList.add(ModalClasses.showModal);
+    showModal(modal) {
+        modal.classList.add(ModalClasses.showModal);
+        this.body.classList.add(ModalClasses.bodyNoScroll);
     }
 
-    showRegister() {
-        this.modalRegister.classList.add(ModalClasses.showModal);
-    }
-
-    showProfile() {
-        this.modalProfile.classList.add(ModalClasses.showModal);
-    }
-
-    showCard() {
-        this.modalCard.classList.add(ModalClasses.showModal);
-    }
-
-    closeLogin() {
-        this.modalLogin.classList.remove(ModalClasses.showModal);
-    }
-
-    closeRegister() {
-        this.modalRegister.classList.remove(ModalClasses.showModal);
-    }
-
-    closeProfile() {
-        this.modalProfile.classList.remove(ModalClasses.showModal);
-    }
-
-    closeCard() {
-        this.modalCard.classList.remove(ModalClasses.showModal);
+    closeModal(modal) {
+        modal.classList.remove(ModalClasses.showModal);
+        this.body.classList.remove(ModalClasses.bodyNoScroll);
     }
 
     bindListeners() {
         const context = this;
 
-        this.authLinkLogin.addEventListener("click", () => context.showLogin());
-        this.authLinkRegister.addEventListener("click", () => context.showRegister());
+        this.authLinkLogin.addEventListener("click", () => context.showModal(context.modalLogin));
+        this.authLinkRegister.addEventListener("click", () => context.showModal(context.modalRegister));
         this.linkLoginFromRegister.addEventListener("click", () => {
-            context.closeRegister();
-            context.showLogin();
+            context.closeModal(context.modalRegister);
+            context.showModal(context.modalLogin);
         });
         this.linkRegisterFromLogin.addEventListener("click", () => {
-            context.closeLogin();
-            context.showRegister();
+            context.closeModal(context.modalLogin)
+            context.showModal(context.modalRegister);
         });
-        this.cardLinkLogin.addEventListener("click", () => context.showLogin());
-        this.cardLinkRegister.addEventListener("click", () => context.showRegister());
-        this.cardButtonProfile.addEventListener("click", () => context.showProfile());
+        this.cardLinkLogin.addEventListener("click", () => context.showModal(context.modalLogin));
+        this.cardLinkRegister.addEventListener("click", () => context.showModal(context.modalRegister));
+        this.cardButtonProfile.addEventListener("click", () => context.showModal(context.modalProfile));
 
         document.addEventListener("click", function(e) {
-            if (context.modalLogin.classList.contains(ModalClasses.showModal) && e.target.classList.contains("modal_login")) context.closeLogin();
-            if (context.modalRegister.classList.contains(ModalClasses.showModal) && e.target.classList.contains("modal_register")) context.closeRegister();
-            if (context.modalProfile.classList.contains(ModalClasses.showModal) && e.target.classList.contains("modal_profile")) context.closeProfile();
-            if (context.modalCard.classList.contains(ModalClasses.showModal) && e.target.classList.contains("modal_card")) context.closeProfile();
+            if (context.modalLogin.classList.contains(ModalClasses.showModal) && e.target.classList.contains("modal_login")) context.closeModal(context.modalLogin);
+            if (context.modalRegister.classList.contains(ModalClasses.showModal) && e.target.classList.contains("modal_register")) context.closeModal(context.modalRegister);
+            if (context.modalProfile.classList.contains(ModalClasses.showModal) && e.target.classList.contains("modal_profile")) context.closeModal(context.modalProfile);
+            if (context.modalCard.classList.contains(ModalClasses.showModal) && e.target.classList.contains("modal_card")) context.closeModal(context.modalCard);
         });
 
 
         for (let i = 0; i < this.closeButtons.length; i++) {
             this.closeButtons[i].addEventListener("click", () => {
-                context.closeRegister();
-                context.closeLogin();
-                context.closeProfile();
-                context.closeCard();
+                context.closeModal(context.modalRegister);
+                context.closeModal(context.modalLogin);
+                context.closeModal(context.modalProfile);
+                context.closeModal(context.modalCard);
             });
         }
     }
@@ -97,7 +77,7 @@ class Modal {
     bindListenersNewAuth() {
         const context = this;
         this.authLinkProfile = document.querySelector(".menu-auth__link_profile");
-        this.authLinkProfile.addEventListener("click", () => context.showProfile());
+        this.authLinkProfile.addEventListener("click", () => context.showModal(context.modalProfile));
     }
 }
 
