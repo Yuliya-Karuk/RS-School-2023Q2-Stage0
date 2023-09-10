@@ -1,0 +1,57 @@
+input[type=radio] + label {
+    @include font("Inter", 2rem, 400, normal);
+    color: $color-basic-black;
+    display: block;
+    @extend %transition;
+    cursor: pointer;
+    &:hover {
+        text-shadow: 0 0 2px rgba(18, 18, 21, 0.50);
+    }
+}
+
+input[type=radio]:checked + label {
+    font-weight: 700;
+    text-shadow: none;
+    pointer-events: none;
+    cursor: default;
+}
+
+input[type=radio]:checked + label:before,
+input[type=radio]:not(:checked) + label:before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: -5px;
+
+    width: 27px;
+    height: 27px;
+    padding: 5px;
+
+    outline: 2px solid $color-basic-black;
+    outline-offset: -7px;
+    border-radius: 50%;
+
+    @include media-mobile {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+input[type=radio]:checked + label:after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 15px;
+
+    width: 7px;
+    height: 7px;
+
+    background-color: $color-basic-black;
+    border-radius: 50%;
+    @include media-mobile {
+        top: 14px;
+        left: 4px;
+        width: 6px;
+        height: 6px;
+    }
+}

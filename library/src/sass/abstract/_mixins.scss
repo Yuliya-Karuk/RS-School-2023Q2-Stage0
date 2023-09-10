@@ -1,0 +1,58 @@
+@mixin font($font_family, $font-size, $font-weight, $line-height, $letter-spacing: normal, $text-transform: none) {
+    font-family: $font_family;
+    font-size: $font-size;
+    font-weight: $font-weight;
+    line-height: $line-height;
+    letter-spacing: $letter-spacing;
+    text-transform: $text-transform;
+}
+
+@mixin section-title {
+    position: relative;
+    margin-bottom: 61px;
+    @include media-mobile {
+        margin-bottom: 41px;
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        left: calc(50% - 25px);
+        top: 60px;
+        width: 50px;
+        height: 1px;
+        background: $color-basic-dark;
+        @include media-mobile {
+            top: 40px;
+        }
+    }
+}
+
+@mixin flex-column($row-gap: unset) {
+    display: flex;
+    flex-direction: column;
+    row-gap: $row-gap;
+}
+
+@mixin media-desktop-additional {
+    @media (max-width: $desktop-additional) { @content; }
+}
+
+@mixin media-hover-start {
+    @media (min-width: $hover-start) { @content; }
+}
+
+@mixin media-laptop {
+    @media (max-width: $laptop) { @content; }
+}
+
+@mixin media-tablet {
+    @media (max-width: $tablet) { @content; }
+}
+
+@mixin media-tablet-additional {
+    @media (max-width: $tablet-additional) { @content; }
+}
+
+@mixin media-mobile {
+    @media (max-width: $mobile) { @content; }
+}

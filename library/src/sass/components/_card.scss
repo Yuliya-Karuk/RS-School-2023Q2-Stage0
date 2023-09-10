@@ -1,0 +1,64 @@
+.card {
+    position: relative;
+    z-index: 30;
+    width: 640px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card__title {
+    line-height: 2rem;
+    letter-spacing: 0.08rem;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 20px 0;
+    margin: 0;
+    background-color: $color-basic-dark;
+    color: $color-basic-white;
+    &::after {
+        display: none;
+    }
+}
+
+.card__content {
+    background-color: $color-basic-white;
+    padding: 30px 35px;
+    display: flex;
+    gap: 40px;
+    @include media-mobile {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+}
+
+.modal__form_card{
+    width: 200px;
+    flex-shrink: 0;
+}
+
+#cvc {
+    margin-bottom: 10px;
+}
+
+.card__total {
+    display: flex;
+    column-gap: 25px;
+    align-items: flex-end;
+}
+
+.card__text {
+    margin-bottom: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2rem;
+}
+
+.card__condition {
+    @include font("Inter", 1.5rem, 400, 2rem, 0.2rem);
+    color: $color-basic-neutral;
+    @include media-mobile {
+        text-align: justify;
+        font-size: 1.3rem;
+        line-height: 1.5rem;
+    }
+}

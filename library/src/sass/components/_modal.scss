@@ -1,0 +1,125 @@
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(41, 41, 41, .6);
+    &_active {
+        display: flex
+    }
+}
+
+.modal__title {
+    @include font("Forum", 2rem, 400, 2rem, 0.04rem, uppercase);
+    text-align: center;
+}
+
+.modal__inputs {
+    @include flex-column(10px);
+    margin-bottom: 20px;
+}
+
+.modal__auth-text {
+    @include font("Inter", 1rem, 400, normal);
+    text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.16);
+}
+
+.modal__label {
+    display: block;
+    margin-bottom: 10px;
+    @include font("Inter", 1.5rem, 400, 2rem, 0.03rem);
+}
+
+.modal__input {
+    width: 100%;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    @include font("Inter", 1.2rem, 400, normal, 0.06rem);
+    border: 1px solid $color-basic-primary;
+    @extend %transition;
+
+    &_small {
+        width: 45px;
+    }
+
+    &:focus {
+        background-color: rgba(187, 148, 95, 0.15);
+    }
+
+    @include media-hover-start {
+        &:hover {
+            box-shadow: 0px 0px 2px 1px rgba(41, 41, 41, 0.3);
+        }
+    }
+    &_active {
+        &:invalid {
+            border: 1px solid $color-basic-error;
+        }
+    }
+    &_active {
+        &:valid {
+            border: 2px solid $color-basic-neutral;
+        }
+    }
+}
+
+.modal__error {
+    display: none;
+    margin-top: 5px;
+    @include font("Inter", 1rem, 700, normal, 0.03rem);
+    color: $color-basic-error;
+    &_active{
+        display: block;
+    }
+}
+
+.modal__link {
+    margin-left: 10px;
+    display: inline-flex;
+    text-decoration: underline;
+    @include font("Inter", 1rem, 700, normal, 0.1rem);
+    color: $color-basic-dark;
+}
+
+.modal__button {
+    margin-bottom: 10px;
+}
+
+.modal__close-btn {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    .profile & {
+        right: 25px;
+        top: 25px;
+    }
+    .card & {
+        right: 20px;
+        top: 25px;
+    }
+}
+
+.modal__close-icon {
+    display: block;
+    width: 15px;
+    height: 15px;
+    background: center no-repeat url("../img/icons/close_btn_black.svg");
+    &_card {
+        background: center no-repeat url("../img/icons/close_btn_white.svg");
+    }
+}
+
+.modal__text {
+    @include font("Inter", 2rem, 400, 2rem);
+}
+
+.modal__double {
+    display: flex;
+    column-gap: 10px;
+}

@@ -1,0 +1,39 @@
+.filters__list {
+    display: flex;
+    column-gap: 90px;
+    @media screen and (max-width: 767px) {
+        column-gap: 40px;
+    }
+    @include media-tablet-additional {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.filters__item {
+    position: relative;
+    padding-left: 32px;
+    &:nth-of-type(1) {
+        width: 104px;
+    }
+    &:nth-of-type(2) {
+        width: 99px;
+    }
+    &:nth-of-type(3) {
+        width: 116px;
+    }
+    &:nth-of-type(4) {
+        width: 116px;
+    }
+}
+
+.filter__label {
+    padding: 5px;
+    line-height: normal;
+}
+
+.filter__input {
+    &:checked {
+        pointer-events: none;
+    }
+}
