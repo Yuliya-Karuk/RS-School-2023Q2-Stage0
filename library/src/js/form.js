@@ -46,7 +46,7 @@ class Form {
                 if(newAccount.checkUserIsRegistered(context.registerInputEmail) === false) {
                     newAccount.registerUser();
                     newModal.closeModal(newModal.modalRegister);
-                    newAccount.changePage();
+                    newAccount.fillPage();
                 } else {
                     this.registerUserRegisteredError.classList.add(FormClasses.showModalError);
                 }
@@ -68,7 +68,7 @@ class Form {
                 if (newAccount.checkUserIsRegistered(context.loginInputEmail)) {
                     newAccount.loginUser();
                     newModal.closeModal(newModal.modalLogin);
-                    newAccount.changePage();
+                    newAccount.fillPage();
                 } else {
                     this.loginUserRegisteredError.classList.add(FormClasses.showModalError);
                 }
