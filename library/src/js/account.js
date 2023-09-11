@@ -54,16 +54,14 @@ class Account {
 
     findAuthorized() {
         for (let i = 0; i < localStorage.length; i++) {
-            let user = JSON.parse(localStorage.getItem(String(i)));
-            if (user.isAuthorized) {
-                this.authorizedUser = JSON.parse(localStorage.getItem(String(i)));
-                this.userKey = i;
+            if (localStorage.getItem(String(i)) !== null) {
+                let user = JSON.parse(localStorage.getItem(String(i)));
+                if (user.isAuthorized) {
+                    this.authorizedUser = JSON.parse(localStorage.getItem(String(i)));
+                    this.userKey = i;
+                }
             }
         }
-    }
-
-    changePage() {
-        location.reload();
     }
 
     fillPage() {
@@ -85,16 +83,18 @@ class Account {
         localStorage.setItem(`${this.userKey}`, JSON.stringify(this.authorizedUser));
         this.authorizedUser = undefined;
         this.userKey = undefined;
-        this.changePage();
+        location.reload();
     }
 
     checkUserIsRegistered(inputEmail) {
         let isRegistered = false;
         if (localStorage.length > 0) {
             for (let i = 0; i < localStorage.length; i++) {
-                let user = JSON.parse(localStorage.getItem(String(i)));
-                if (inputEmail.value === user.userEmail || inputEmail.value === user.userCardNumber) {
-                    isRegistered = true;
+                if (localStorage.getItem(String(i)) !== null) {
+                    let user = JSON.parse(localStorage.getItem(String(i)));
+                    if (inputEmail.value === user.userEmail || inputEmail.value === user.userCardNumber) {
+                        isRegistered = true;
+                    }
                 }
             }
         }
@@ -103,11 +103,13 @@ class Account {
 
     loginUser() {
         for (let i = 0; i < localStorage.length; i++) {
-            let user = JSON.parse(localStorage.getItem(String(i)));
-            if ((this.loginLogin.value === user.userEmail || this.loginLogin.value === user.userCardNumber) && this.loginPassword.value === user.userPassword) {
-                user.isAuthorized = true;
-                user.visits += 1;
-                localStorage.setItem(`${i}`, JSON.stringify(user));
+            if (localStorage.getItem(String(i)) !== null) {
+                let user = JSON.parse(localStorage.getItem(String(i)));
+                if ((this.loginLogin.value === user.userEmail || this.loginLogin.value === user.userCardNumber) && this.loginPassword.value === user.userPassword) {
+                    user.isAuthorized = true;
+                    user.visits += 1;
+                    localStorage.setItem(`${i}`, JSON.stringify(user));
+                }
             }
         }
     }
