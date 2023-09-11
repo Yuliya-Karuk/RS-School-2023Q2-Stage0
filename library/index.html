@@ -635,22 +635,22 @@
                     <ul class="modal__inputs">
                         <li class="modal__item">
                             <label class="modal__label" for="bank-card-number">Bank card number</label>
-                            <input class="modal__input" id="bank-card-number" type="text" name="bank-card-number" required>
+                            <input class="modal__input" id="bank-card-number" type="text" name="bank-card-number" required minlength="16" maxlength="19">
                             <span class="modal__error">Fill the field with 16 digits card number, please<br>Space is allowed between every 4 digits</span>
                         </li>
                         <li class="modal__item">
                             <label class="modal__label" for="expiration-code-month">Expiration code</label>
                             <div class="modal__double">
-                                <input class="modal__input modal__input_small" id="expiration-code-month" type="text" name="expiration-month" required pattern="[0-9]{2}">
+                                <input class="modal__input modal__input_small" id="expiration-code-month" type="text" name="expiration-month" required minlength="2" maxlength="2" pattern="^(?:[0-1][1-2])">
                                 <label class="visually-hidden modal__label" for="expiration-code-year">Expiration code</label>
-                                <input class="modal__input modal__input_small" id="expiration-code-year" type="text" name="expiration-year" required pattern="[0-9]{2}">
+                                <input class="modal__input modal__input_small" id="expiration-code-year" type="text" name="expiration-year" required minlength="2" maxlength="2" pattern="^\d{2}$">
                             </div>
-                            <span class="modal__error">Fill the field with 2 digits expiration month, please</span>
+                            <span class="modal__error">Fill the field with expiration month from 01 to 12, please</span>
                             <span class="modal__error">Fill the field with 2 digits expiration year, please</span>
                         </li>
                         <li class="modal__item">
                             <label class="modal__label" for="cvc">CVC</label>
-                            <input class="modal__input modal__input_small" id="cvc" type="password" name="card-cvc" required pattern="[0-9]{3}">
+                            <input class="modal__input modal__input_small" id="cvc" type="password" name="card-cvc" required maxlength="3" minlength="3" pattern="^\d{3}$">
                             <span class="modal__error">Fill the field with 3 digits cvc, please</span>
                         </li>
                         <li class="modal__item">

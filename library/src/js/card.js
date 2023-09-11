@@ -31,10 +31,12 @@ class Card {
         e.stopPropagation();
         e.preventDefault();
         for (let i = 0; i < localStorage.length; i++) {
-            let user = JSON.parse(localStorage.getItem(String(i)));
-            if ((newUtils.capitalizeFirstChar(this.inputReaderName.value) === `${user.userName} ${user.userSurname}` || newUtils.capitalizeFirstChar(this.inputReaderName.value) === `${user.userName}`) && this.inputCardNumber.value === user.userCardNumber) {
-                this.showCardInfo(user);
-                setTimeout(() => this.hideCardInfo(), 10000);
+            if (localStorage.getItem(String(i)) !== null) {
+                let user = JSON.parse(localStorage.getItem(String(i)));
+                if ((newUtils.capitalizeFirstChar(this.inputReaderName.value) === `${user.userName} ${user.userSurname}` || newUtils.capitalizeFirstChar(this.inputReaderName.value) === `${user.userName}`) && this.inputCardNumber.value === user.userCardNumber) {
+                    this.showCardInfo(user);
+                    setTimeout(() => this.hideCardInfo(), 10000);
+                }
             }
         }
     }
