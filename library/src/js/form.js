@@ -84,6 +84,8 @@ class Form {
             });
         }
 
+        this.cardNumber.addEventListener('input', (e) => context.listenCardNumber(e));
+
         this.cardForm.addEventListener("submit", (e) => {
             e.preventDefault();
             newModal.closeModal(newModal.modalCard);
@@ -126,12 +128,19 @@ class Form {
     }
 
     checkInputCardNumber(check, input) {
-        const patternFirst = /([\d]{4}[\s]){3}[\d]{4}/g;
+        const patternFirst = /([\d]{4}[\s]{1}){3}[\d]{4}/g;
         const patternSecond = /([\d]{16})/g;
         if (!input.value.match(patternFirst) && !input.value.match(patternSecond)) {
             check = false;
         }
         return check;
+    }
+
+    listenCardNumber(e) {
+        const cardInputNumber = e.target;
+        const digitValue = cardInputNumber.value.replace(/\D/g, '');
+        const formattedValue = digitValue.replace(/(\d{4})(?=\d)/g, '$1 ');
+        cardInputNumber.value = formattedValue;
     }
 
     checkValidityForm(inputs, errors) {
