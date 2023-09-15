@@ -1,0 +1,48 @@
+@include font-face(Bitsumishi, BITSUMIS, 400, normal);
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.visually-hidden:not(:focus):not(:active),
+input[type='checkbox'].visually-hidden,
+input[type='radio'].visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+html {
+    font-size: 10px;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: linear-gradient(113deg, #2C3137 8.7%, #17191D 89.31%);;
+    color: $color-basic-font;
+}
+
+
+h1 {
+    @include font("Bitsumishi", 3rem, 400, 5rem, 0.06rem);
+    color: $color-basic-white;
+}
+
+p {
+    @include font("Bitsumishi", 2rem, 400, 2.4rem, normal);
+    color: $color-basic-white;
+    @include media-mobile {
+        font-size: 1.6rem;
+    }
+}
+
+img {
+    height: auto;
+}

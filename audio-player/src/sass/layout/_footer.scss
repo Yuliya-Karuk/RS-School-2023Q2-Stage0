@@ -1,0 +1,19 @@
+.footer {
+    @extend %container;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include media-mobile {
+        padding: 20px 10px;
+    }
+}
+
+
+.footer__link_rs {
+    @include media-tablet {
+        width: 50%;
+        text-align: center;
+    }
+}
