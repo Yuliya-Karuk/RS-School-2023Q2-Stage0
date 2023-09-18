@@ -25,10 +25,12 @@ html {
 }
 
 body {
-    background-color: $color-basic-bg;
+    background-image: url("../img/lemonade.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
     color: $color-basic-font;
 }
-
 
 h1 {
     @include font("Bitsumishi", 3rem, 400, 5rem, 0.06rem);

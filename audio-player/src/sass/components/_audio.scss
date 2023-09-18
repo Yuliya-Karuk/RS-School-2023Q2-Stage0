@@ -1,5 +1,8 @@
 .audio-wrapper {
+    max-width: 360px;
     margin: 0 auto;
+    border-radius: 30px;
+    background-color: $color-basic-bg;
 }
 
 .audio-player {

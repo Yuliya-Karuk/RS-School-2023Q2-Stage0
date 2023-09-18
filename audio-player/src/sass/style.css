@@ -420,7 +420,10 @@ html {
 }
 
 body {
-  background-color: #1E1E1E;
+  background-image: url("../img/lemonade.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
   color: #666666;
 }
 
@@ -512,7 +515,10 @@ img {
 }
 
 .audio-wrapper {
+  max-width: 360px;
   margin: 0 auto;
+  border-radius: 30px;
+  background-color: #1E1E1E;
 }
 
 .audio-player {
@@ -620,6 +626,9 @@ input[type=range]::-webkit-slider-thumb {
 .control {
   width: 34px;
   height: 56px;
+}
+.control_hidden {
+  display: none;
 }
 
 .controls__heart_usial {
