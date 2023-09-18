@@ -1,0 +1,31 @@
+.timer {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: 10px;
+}
+
+.timer__input {
+    width: 100%;
+    height: 5px;
+    border-radius: 81px;
+    border: 1px solid $color-basic-font;
+    background: linear-gradient(to right, $color-basic-primary 0%, $color-basic-primary 10%, $color-basic-light 10%, $color-basic-light 100%);
+    -webkit-appearance: none;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    width: 7px;
+    height: 7px;
+    border-radius: 50px;
+    background: $color-basic-primary;
+
+    cursor: pointer;
+    -webkit-appearance: none;
+}
+
+.timer_time {
+    @include font("Bitsumishi", 1.4rem, 400, normal, normal);
+    color: $color-basic-light;
+}

@@ -1,0 +1,48 @@
+.audio-wrapper {
+    margin: 0 auto;
+}
+
+.audio-player {
+    max-width: 360px;
+    // height: 800px;
+    margin: 0 auto;
+    padding: 30px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    row-gap: 20px;
+    border-radius: 30px;
+    background: linear-gradient(169deg, rgba(8, 8, 8, 1) 2.76%, rgba(8, 8, 8, 0) 97.75%), linear-gradient(169deg, rgba(255, 0, 0, 1) 2.76%, rgba(255, 0, 0, 0)) 97.75%;
+    box-shadow: -10px 4px 10px 0px rgba(0, 0, 0, 0.77);
+}
+
+
+.audio-player__img-container {
+    width: 300px;
+    margin-bottom: 60px;
+}
+
+.audio-player__img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.audio-player__song {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.song__title {
+    color: $color-basic-light;
+    @include font("Bitsumishi", 2.4rem, 400, 2.4rem, normal);
+    text-align: center;
+}
+
+.song__singer {
+    color: $color-basic-font;
+    @include font("Bitsumishi", 2.0rem, 400, 2.4rem, normal);
+    text-align: center;
+}
