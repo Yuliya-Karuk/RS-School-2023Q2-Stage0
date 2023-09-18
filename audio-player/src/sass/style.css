@@ -587,7 +587,7 @@ img {
   height: 5px;
   border-radius: 81px;
   border: 1px solid #666666;
-  background: linear-gradient(to right, #B01C25 0%, #B01C25 10%, #999999 10%, #999999 100%);
+  background: linear-gradient(to right, #B01C25 0%, #B01C25 0%, #999999 0%, #999999 100%);
   -webkit-appearance: none;
 }
 

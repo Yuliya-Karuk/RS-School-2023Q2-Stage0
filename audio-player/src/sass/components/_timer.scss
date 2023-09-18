@@ -11,7 +11,8 @@
     height: 5px;
     border-radius: 81px;
     border: 1px solid $color-basic-font;
-    background: linear-gradient(to right, $color-basic-primary 0%, $color-basic-primary 10%, $color-basic-light 10%, $color-basic-light 100%);
+    // background: $color-basic-light;
+    background: linear-gradient(to right, $color-basic-primary 0%, $color-basic-primary 0%, $color-basic-light 0%, $color-basic-light 100%);
     -webkit-appearance: none;
 }
 
