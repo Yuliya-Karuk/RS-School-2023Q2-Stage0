@@ -9,21 +9,29 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    @extend %transition;
 }
 
 .control {
     width: 34px;
     height: 56px;
+    @extend %transition;
+
     &_hidden {
         display: none;
+    }
+    @include media-hover-start {
+        .player-btn:hover & {
+            opacity: 0.4;
+        }
     }
 }
 
 .controls__heart {
-    &_usial {
+    &_usual {
         background: center center no-repeat url("../img/icons/heart.svg");
     }
-    &_usial {
+    &_selected {
         background: center center no-repeat url("../img/icons/heart_black.svg");
     }
 }

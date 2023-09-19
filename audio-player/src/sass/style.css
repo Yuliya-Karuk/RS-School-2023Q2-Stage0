@@ -379,7 +379,7 @@ fieldset {
   border: none;
 }
 
-.link {
+.home__icon, .control, .player-btn, .link {
   transition: all 0.5s ease-out;
 }
 
@@ -577,12 +577,13 @@ img {
   }
 }
 
-.audio-player__img-container {
-  width: 250px;
+.audio-player__container {
+  width: 280px;
   z-index: 5;
+  font-size: 0;
 }
 @media screen and (max-height: 645px) and (max-width: 500px) {
-  .audio-player__img-container {
+  .audio-player__container {
     position: absolute;
     width: 100px;
     top: 20px;
@@ -591,7 +592,7 @@ img {
 }
 
 .audio-player__img {
-  width: 100%;
+  width: 250px;
   object-fit: cover;
 }
 
@@ -612,7 +613,7 @@ img {
 }
 
 .audio-player__song {
-  width: 90%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   row-gap: 5px;
@@ -708,11 +709,16 @@ input[type=range]::-webkit-slider-thumb {
 .control_hidden {
   display: none;
 }
+@media (min-width: 1025px) {
+  .player-btn:hover .control {
+    opacity: 0.4;
+  }
+}
 
-.controls__heart_usial {
+.controls__heart_usual {
   background: center center no-repeat url("../img/icons/heart.svg");
 }
-.controls__heart_usial {
+.controls__heart_selected {
   background: center center no-repeat url("../img/icons/heart_black.svg");
 }
 
@@ -770,6 +776,59 @@ input[type=range]::-webkit-slider-thumb {
 }
 .home__icon_shelf {
   background: center center no-repeat url("../img/icons/book.svg");
+}
+@media (min-width: 1025px) {
+  .home-btn:hover .home__icon, .home-btn:focus .home__icon {
+    opacity: 0.4;
+  }
+}
+
+.songs {
+  height: 250px;
+  padding-top: 10px;
+  display: none;
+  flex-direction: column;
+  row-gap: 10px;
+  overflow: auto;
+}
+.songs_active {
+  display: flex;
+}
+.songs::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+.songs::-webkit-scrollbar-track {
+  background-color: rgba(8, 8, 8, 0.3);
+}
+.songs::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  background-color: #B01C25;
+}
+
+.songs__title {
+  font-family: "Bitsumishi";
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 2rem;
+  letter-spacing: normal;
+  text-transform: none;
+  color: #999999;
+}
+.songs__item_active .songs__title {
+  color: #B01C25;
+}
+
+.songs__singer {
+  font-family: "Bitsumishi";
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.6rem;
+  letter-spacing: normal;
+  text-transform: none;
+}
+.songs__item_active .songs__singer {
+  color: #B01C25;
 }
 
 /*# sourceMappingURL=style.css.map */

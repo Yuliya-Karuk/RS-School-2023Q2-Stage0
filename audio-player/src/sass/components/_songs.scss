@@ -1,0 +1,38 @@
+.songs {
+    height: 250px;
+    padding-top: 10px;
+    display: none;
+    flex-direction: column;
+    row-gap: 10px;
+    overflow: auto;
+    &_active {
+        display: flex;
+    }
+    &::-webkit-scrollbar {
+        width: 4px;
+        height: 4px;
+    }
+    &::-webkit-scrollbar-track {
+        background-color: rgba(8, 8, 8, 0.3);
+    }
+    &::-webkit-scrollbar-thumb {
+        border-radius: 2px;
+        background-color: $color-basic-primary;
+    }
+
+}
+
+.songs__title {
+    @include font("Bitsumishi", 1.8rem, 400, 2rem, normal);
+    color: $color-basic-light;
+    .songs__item_active & {
+        color: $color-basic-primary;
+    }
+}
+
+.songs__singer {
+    @include font("Bitsumishi", 1.4rem, 400, 1.6rem, normal);
+    .songs__item_active & {
+        color: $color-basic-primary;
+    }
+}

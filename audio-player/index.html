@@ -19,8 +19,14 @@
         </header>
         <main class="main">
             <div class="audio-player">
-                <div class="audio-player__img-container">
+                <div class="audio-player__container">
                     <img class="audio-player__img" src="" alt="album img">
+                    <ul class="songs audio-player__songs">
+                        <!-- <li class="songs__item">
+                            <h2 class="songs__title"></h2>
+                            <h3 class="songs__singer"></h3>
+                        </li> -->
+                    </ul>
                 </div>
                 <div class="audio-player__content">
                     <div class="song audio-player__song">
@@ -34,8 +40,8 @@
                     </div>
                     <div class="controls audio-player__controls">
                         <button class="player-btn" type="button">
-                            <span class="control controls__heart controls__heart_usial"></span>
-                            <span class="control controls__heart controls__heart_selected control_hidden"></span>
+                            <span class="control controls__heart_usual"></span>
+                            <span class="control controls__heart_selected control_hidden"></span>
                         </button>
                         <button class="player-btn" type="button">
                             <span class="control controls__previous"></span>
@@ -53,18 +59,18 @@
                         </button>
                     </div>
                     <div class="home audio-player__home">
-                        <a class="home-btn" href="#">
+                        <button class="home-btn" type="button">
                             <span class="home__icon home__icon_home"></span>
-                        </a>
-                        <a class="home-btn" href="#">
+                        </button>
+                        <button class="home-btn" type="button">
                             <span class="home__icon home__icon_search"></span>
-                        </a>
-                        <a class="home-btn" href="#">
+                        </button>
+                        <button class="home-btn" type="button">
                             <span class="home__icon home__icon_favorites"></span>
-                        </a>
-                        <a class="home-btn" href="#">
+                        </button>
+                        <button class="home-btn" type="button">
                             <span class="home__icon home__icon_shelf"></span>
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>

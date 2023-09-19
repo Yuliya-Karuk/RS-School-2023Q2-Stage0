@@ -17,6 +17,7 @@
 .home__icon {
     width: 37px;
     height: 32px;
+    @extend %transition;
     &_home {
         background: center center no-repeat url("../img/icons/home.svg");
     }
@@ -28,5 +29,11 @@
     }
     &_shelf {
         background: center center no-repeat url("../img/icons/book.svg");
+    }
+    @include media-hover-start {
+    .home-btn:hover &,
+    .home-btn:focus & {
+            opacity: 0.4;
+        }
     }
 }
