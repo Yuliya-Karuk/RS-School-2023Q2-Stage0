@@ -9,7 +9,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    row-gap: 15px;
+    gap: 30px;
     border-radius: 30px;
     background-color: $color-basic-bg;
     // background: linear-gradient(169deg, rgba(8, 8, 8, 1) 2.76%, rgba(8, 8, 8, 0) 97.75%), linear-gradient(169deg, rgba(255, 0, 0, 1) 2.76%, rgba(255, 0, 0, 0)) 97.75%;
@@ -25,13 +25,26 @@
         border-radius: 30px;
         background: linear-gradient(169deg, rgba(8, 8, 8, 1) 2.76%, rgba(8, 8, 8, 0) 97.75%), linear-gradient(169deg, rgba(255, 0, 0, 1) 2.76%, rgba(255, 0, 0, 0)) 97.75%;
     }
+
+    @media screen and (max-height: 645px) {
+        width: 720px;
+        max-width: 700px;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
 }
 
 
 .audio-player__img-container {
     width: 250px;
-    margin-bottom: 20px;
     z-index: 5;
+
+    @media screen and (max-height: 645px) and (max-width: 500px){
+        position: absolute;
+        width: 100px;
+        top: 20px;
+        left: 20px;
+    }
 }
 
 .audio-player__img {
@@ -39,12 +52,31 @@
     object-fit: cover;
 }
 
+.audio-player__content {
+    width: 100%;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    row-gap: 15px;
+
+    @media screen and (max-height: 645px) {
+        width: unset;
+        flex: 1 0 auto;
+    }
+}
+
 .audio-player__song {
     width: 90%;
     display: flex;
     flex-direction: column;
     row-gap: 5px;
-    z-index: 5;
+
+    @media screen and (max-height: 645px) and (max-width: 500px) {
+        width: 60%;
+        align-self: flex-end;
+    }
 }
 
 .song__title {

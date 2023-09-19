@@ -4,7 +4,11 @@
     flex-wrap: wrap;
     justify-content: space-between;
     row-gap: 10px;
-    z-index: 5;
+
+    @media screen and (max-height: 645px) and (max-width: 500px) {
+        width: 60%;
+        align-self: flex-end;
+    }
 }
 
 .timer__input {
