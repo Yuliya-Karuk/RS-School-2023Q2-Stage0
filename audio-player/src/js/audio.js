@@ -23,6 +23,7 @@ class AudioPlayer {
         this.buttonShelf = document.querySelector('.home__icon_shelf');
         this.buttonHome = document.querySelector('.home__icon_home');
         this.buttonFavorites = document.querySelector('.home__icon_favorites');
+        this.timerBlock = document.querySelector('.timer');
 
         this.songTitle = document.querySelector('.song__title');
         this.songSinger = document.querySelector('.song__singer');
@@ -172,12 +173,16 @@ class AudioPlayer {
 
     showSongList() {
         this.albumImage.style.display = 'none';
+        if (window.innerWidth < 501) {
+            this.timerBlock.style.visibility = 'hidden';
+        }
         newAudioList.showSongList(songsJSON, this.singId);
         this.isListShown = true;
     }
 
     hideSongList() {
         this.albumImage.style.display = 'block';
+        this.timerBlock.style.visibility = 'visible';
         newAudioList.hideSongList();
         this.isListShown = false;
         this.isFavoritesShown = false;
@@ -186,6 +191,9 @@ class AudioPlayer {
     showFavoritesList() {
         this.isListShown = false;
         this.albumImage.style.display = 'none';
+        if (window.innerWidth < 501) {
+            this.timerBlock.style.visibility = 'hidden';
+        }
         newAudioList.showFavoritesList(songsJSON, this.singId);
         this.isFavoritesShown = true;
     }

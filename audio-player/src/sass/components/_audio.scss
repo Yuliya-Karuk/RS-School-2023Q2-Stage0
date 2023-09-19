@@ -1,3 +1,8 @@
+.ann {
+    height: 100px;
+    width: 100px;
+}
+
 .audio-player {
     position: relative;
     width: 360px;
@@ -9,7 +14,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    gap: 30px;
+    row-gap: 30px;
     border-radius: 30px;
     background-color: $color-basic-bg;
     // background: linear-gradient(169deg, rgba(8, 8, 8, 1) 2.76%, rgba(8, 8, 8, 0) 97.75%), linear-gradient(169deg, rgba(255, 0, 0, 1) 2.76%, rgba(255, 0, 0, 0)) 97.75%;
@@ -37,8 +42,17 @@
 
 .audio-player__container {
     width: 280px;
-    z-index: 5;
+    z-index: 10;
     font-size: 0;
+
+    @media screen and (max-height: 645px) and (max-width: 500px){
+        width: 100%;
+    }
+}
+
+.audio-player__img {
+    width: 250px;
+    object-fit: cover;
 
     @media screen and (max-height: 645px) and (max-width: 500px){
         position: absolute;
@@ -46,11 +60,6 @@
         top: 20px;
         left: 20px;
     }
-}
-
-.audio-player__img {
-    width: 250px;
-    object-fit: cover;
 }
 
 .audio-player__content {
@@ -81,12 +90,22 @@
 }
 
 .song__title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
     color: $color-basic-light;
     @include font("Bitsumishi", 2rem, 400, 2rem, normal);
     text-align: center;
 }
 
 .song__singer {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
     color: $color-basic-font;
     @include font("Bitsumishi", 1.6rem, 400, 1.6rem, normal);
     text-align: center;

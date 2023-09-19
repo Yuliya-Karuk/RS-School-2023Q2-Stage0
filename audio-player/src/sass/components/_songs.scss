@@ -8,6 +8,19 @@
     &_active {
         display: flex;
     }
+    @media screen and (max-height: 645px) and (max-width: 500px) {
+        &_active {
+            position: absolute;
+            left: 0;
+            top: 30px;
+            z-index: 10;
+            width: 100%;
+            height: 120px;
+            padding: 20px;
+            backdrop-filter: blur(20px);
+            border-radius: 30px
+        }
+    }
     &::-webkit-scrollbar {
         width: 4px;
         height: 4px;
