@@ -1,29 +1,37 @@
-.audio-wrapper {
-    max-width: 360px;
-    margin: 0 auto;
-    border-radius: 30px;
-    background-color: $color-basic-bg;
-}
-
 .audio-player {
+    position: relative;
+    width: 360px;
     max-width: 360px;
     // height: 800px;
     margin: 0 auto;
-    padding: 30px 10px;
+    padding: 20px 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    row-gap: 20px;
+    row-gap: 15px;
     border-radius: 30px;
-    background: linear-gradient(169deg, rgba(8, 8, 8, 1) 2.76%, rgba(8, 8, 8, 0) 97.75%), linear-gradient(169deg, rgba(255, 0, 0, 1) 2.76%, rgba(255, 0, 0, 0)) 97.75%;
+    background-color: $color-basic-bg;
+    // background: linear-gradient(169deg, rgba(8, 8, 8, 1) 2.76%, rgba(8, 8, 8, 0) 97.75%), linear-gradient(169deg, rgba(255, 0, 0, 1) 2.76%, rgba(255, 0, 0, 0)) 97.75%;
     box-shadow: -10px 4px 10px 0px rgba(0, 0, 0, 0.77);
+
+    &::before {
+        position: absolute;
+        content: '';
+        top: 0;
+        left: 0;;
+        height: 100%;
+        width: 100%;
+        border-radius: 30px;
+        background: linear-gradient(169deg, rgba(8, 8, 8, 1) 2.76%, rgba(8, 8, 8, 0) 97.75%), linear-gradient(169deg, rgba(255, 0, 0, 1) 2.76%, rgba(255, 0, 0, 0)) 97.75%;
+    }
 }
 
 
 .audio-player__img-container {
-    width: 300px;
-    margin-bottom: 60px;
+    width: 250px;
+    margin-bottom: 20px;
+    z-index: 5;
 }
 
 .audio-player__img {
@@ -35,17 +43,18 @@
     width: 90%;
     display: flex;
     flex-direction: column;
-    row-gap: 10px;
+    row-gap: 5px;
+    z-index: 5;
 }
 
 .song__title {
     color: $color-basic-light;
-    @include font("Bitsumishi", 2.4rem, 400, 2.4rem, normal);
+    @include font("Bitsumishi", 2rem, 400, 2rem, normal);
     text-align: center;
 }
 
 .song__singer {
     color: $color-basic-font;
-    @include font("Bitsumishi", 2.0rem, 400, 2.4rem, normal);
+    @include font("Bitsumishi", 1.6rem, 400, 1.6rem, normal);
     text-align: center;
 }

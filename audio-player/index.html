@@ -8,69 +8,76 @@
     <title>Audio Player</title>
 </head>
 <body>
-    <header class="header">
-        <div class="header__logo">
-            <img class="header__icon" src="src/img/logo.png" width="50" height="50" alt="header logo">
-            <h1 class="header__title">Audio player</h1>
-        </div>
-    </header>
-    <main class="main">
-        <div class="audio-wrapper">
-            <div class="audio-player">
-                <div class="audio-player__img-container">
-                    <img class="audio-player__img" src="" alt="album img">
-                </div>
-                <div class="song audio-player__song">
-                    <span class="song__title"></span>
-                    <span class="song__singer"></span>
-                </div>
-                <div class="timer audio-player__timer">
-                    <input class="timer__input" type="range" name="timer" min="0" max="100" step="1" value="0">
-                    <span class="timer_time timer_time_current">0:00</span>
-                    <span class="timer_time timer_time_duration">0:00</span>
-                </div>
-                <div class="controls audio-player__controls">
-                    <button class="player-btn" type="button">
-                        <span class="control controls__heart controls__heart_usial"></span>
-                        <span class="control controls__heart controls__heart_selected control_hidden"></span>
-                    </button>
-                    <button class="player-btn" type="button">
-                        <span class="control controls__previous"></span>
-                    </button>
-                    <button class="player-btn" type="button">
-                        <span class="control controls__play_play"></span>
-                        <span class="control controls__play_pause control_hidden"></span>
-                    </button>
-                    <button class="player-btn" type="button">
-                        <span class="control controls__next"></span>
-                    </button>
-                    <button class="player-btn" type="button">
-                        <span class="control controls__volume_volume"></span>
-                        <span class="control controls__volume_mute control_hidden"></span>
-                    </button>
-                </div>
-                <div class="home audio-player__home">
-                    <a class="home-btn" href="#">
-                        <span class="home__icon home__icon_home"></span>
-                    </a>
-                    <a class="home-btn" href="#">
-                        <span class="home__icon home__icon_search"></span>
-                    </a>
-                    <a class="home-btn" href="#">
-                        <span class="home__icon home__icon_favorites"></span>
-                    </a>
-                    <a class="home-btn" href="#">
-                        <span class="home__icon home__icon_shelf"></span>
-                    </a>
+    <div class="container">
+        <header class="header">
+            <div class="header__wrapper">
+                <div class="header__logo">
+                    <img class="header__icon" src="src/img/logo.png" width="30" height="30" alt="header logo">
+                    <h1 class="header__title">Audio player</h1>
                 </div>
             </div>
-        </div>
-    </main>
-    <footer class="footer">
-        <p class="footer__year">2023</p>
-        <a class="link footer__link footer__link_rs" href="https://rs.school/js-stage0/">The Rolling Scopes School</a>
-        <a class="link footer__link footer__link_github" href="https://github.com/Yuliya-Karuk">Yuliya</a>
-    </footer>
+        </header>
+        <main class="main">
+            <!-- <div class="audio-wrapper"> -->
+                <div class="audio-player">
+                    <div class="audio-back"></div>
+                    <div class="audio-player__img-container">
+                        <img class="audio-player__img" src="" alt="album img">
+                    </div>
+                    <div class="song audio-player__song">
+                        <span class="song__title"></span>
+                        <span class="song__singer"></span>
+                    </div>
+                    <div class="timer audio-player__timer">
+                        <input class="timer__input" type="range" name="timer" min="0" max="100" step="1" value="0">
+                        <span class="timer_time timer_time_current">0:00</span>
+                        <span class="timer_time timer_time_duration">0:00</span>
+                    </div>
+                    <div class="controls audio-player__controls">
+                        <button class="player-btn" type="button">
+                            <span class="control controls__heart controls__heart_usial"></span>
+                            <span class="control controls__heart controls__heart_selected control_hidden"></span>
+                        </button>
+                        <button class="player-btn" type="button">
+                            <span class="control controls__previous"></span>
+                        </button>
+                        <button class="player-btn" type="button">
+                            <span class="control controls__play_play"></span>
+                            <span class="control controls__play_pause control_hidden"></span>
+                        </button>
+                        <button class="player-btn" type="button">
+                            <span class="control controls__next"></span>
+                        </button>
+                        <button class="player-btn" type="button">
+                            <span class="control controls__volume_volume"></span>
+                            <span class="control controls__volume_mute control_hidden"></span>
+                        </button>
+                    </div>
+                    <div class="home audio-player__home">
+                        <a class="home-btn" href="#">
+                            <span class="home__icon home__icon_home"></span>
+                        </a>
+                        <a class="home-btn" href="#">
+                            <span class="home__icon home__icon_search"></span>
+                        </a>
+                        <a class="home-btn" href="#">
+                            <span class="home__icon home__icon_favorites"></span>
+                        </a>
+                        <a class="home-btn" href="#">
+                            <span class="home__icon home__icon_shelf"></span>
+                        </a>
+                    </div>
+                </div>
+            <!-- </div> -->
+        </main>
+        <footer class="footer">
+            <div class="footer__wrapper">
+                <p class="footer__year">2023</p>
+                <a class="link footer__link footer__link_rs" href="https://rs.school/js-stage0/">The Rolling Scopes School</a>
+                <a class="link footer__link footer__link_github" href="https://github.com/Yuliya-Karuk">Yuliya</a>
+            </div>
+        </footer>
+    </div>
     <script src="script.js" type="module"></script>
 </body>
 </html>

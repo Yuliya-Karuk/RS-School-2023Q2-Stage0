@@ -28,16 +28,21 @@ body {
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+    backdrop-filter: blur(12.5px);
     color: $color-basic-font;
 }
 
+.container {
+    height: 100vh;
+}
+
 h1 {
-    @include font("Bitsumishi", 3rem, 400, 5rem, 0.06rem);
+    @include font("Bitsumishi", 3rem, 400, 3rem, 0.06rem);
     color: $color-basic-white;
 }
 
 p {
-    @include font("Bitsumishi", 2rem, 400, 2.4rem, normal);
+    @include font("Bitsumishi", 1.8rem, 400, 2rem, normal);
     color: $color-basic-white;
     @include media-mobile {
         font-size: 1.6rem;
