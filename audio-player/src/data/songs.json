@@ -1,0 +1,42 @@
+[
+  {
+    "id": 0,
+    "title": "Freak",
+    "singer": "Sub Urban",
+    "img": "src/img/trek1.jpg",
+    "src": "src/audio/trek1.mp3",
+    "favorite": false
+  },
+  {
+    "id": 1,
+    "title": "What a life",
+    "singer": "Scarlet Pleasure",
+    "img": "src/img/trek2.jpg",
+    "src": "src/audio/trek2.mp3",
+    "favorite": false
+  },
+  {
+    "id": 2,
+    "title": "Part of me",
+    "singer": "Call Me Karizma, Three Days of Rain",
+    "img": "src/img/trek3.jpg",
+    "src": "src/audio/trek3.mp3",
+    "favorite": false
+  },
+  {
+    "id": 3,
+    "title": "Sugar",
+    "singer": "Zubi, anatu",
+    "img": "src/img/trek4.jpg",
+    "src": "src/audio/trek4.mp3",
+    "favorite": false
+  },
+  {
+    "id": 4,
+    "title": "Lion",
+    "singer": "Saint Mesa",
+    "img": "src/img/trek5.jpg",
+    "src": "src/audio/trek5.mp3",
+    "favorite": false
+  }
+]

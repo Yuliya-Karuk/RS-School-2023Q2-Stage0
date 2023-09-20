@@ -1,0 +1,22 @@
+.link {
+    display: flex;
+    @include font("Bitsumishi", 1.8rem, 400, 2rem, normal);
+    color: $color-basic-white;
+    @extend %transition;
+
+    @include media-hover-start {
+        &:hover,
+        &:focus {
+            color: $color-basic-primary;
+            text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.5);
+        }
+    }
+
+    &:active {
+        text-decoration: underline;
+    }
+
+    @include media-mobile {
+        font-size: 1.6rem;
+    }
+}
