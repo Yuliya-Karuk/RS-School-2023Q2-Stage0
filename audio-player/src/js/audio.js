@@ -52,6 +52,8 @@ class AudioPlayer {
         this.buttonShelf.addEventListener('click', () => context.showSongList());
         this.buttonHome.addEventListener('click', () => context.hideSongList());
         this.buttonFavorites.addEventListener('click', () => context.showFavoritesList());
+        this.buttonVolume.addEventListener('click', () => context.toggleAudioVolume());
+        this.buttonMute.addEventListener('click', () => context.toggleAudioVolume());
     }
 
     createAudio() {
@@ -66,8 +68,8 @@ class AudioPlayer {
 
     fillAudioInfo() {
         this.findActiveSong(this.singId);
-        this.audio.src = this.song.src;
         this.audio.currentTime = 0;
+        this.audio.src = this.song.src;
         this.songTitle.innerHTML = this.song.title;
         this.songSinger.innerHTML = this.song.singer;
         this.albumImage.src = this.song.img;
@@ -78,20 +80,19 @@ class AudioPlayer {
         this.fillButtonFavorites();
     }
 
-
     playAudio() {
         this.audio.play();
         this.isPlayed = true;
-        this.fillButtonPlay();
+        this.toggleButtonPlay();
     }
 
     pauseAudio() {
         this.audio.pause();
         this.isPlayed = false;
-        this.fillButtonPlay();
+        this.toggleButtonPlay();
     }
 
-    fillButtonPlay() {
+    toggleButtonPlay() {
         if (this.isPlayed) {
             this.buttonPlay.classList.add(AudioPlayerClasses.buttonHide);
             this.buttonPause.classList.remove(AudioPlayerClasses.buttonHide);
@@ -196,5 +197,17 @@ class AudioPlayer {
         }
         newAudioList.showFavoritesList(songsJSON, this.singId);
         this.isFavoritesShown = true;
+    }
+
+    toggleAudioVolume() {
+        if (!this.audio.muted) {
+            this.buttonVolume.classList.add(AudioPlayerClasses.buttonHide);
+            this.buttonMute.classList.remove(AudioPlayerClasses.buttonHide);
+            this.audio.muted = true;
+        } else {
+            this.buttonVolume.classList.remove(AudioPlayerClasses.buttonHide);
+            this.buttonMute.classList.add(AudioPlayerClasses.buttonHide);
+            this.audio.muted = false;
+        }
     }
 }

@@ -1,13 +1,7 @@
-.ann {
-    height: 100px;
-    width: 100px;
-}
-
 .audio-player {
     position: relative;
     width: 360px;
     max-width: 360px;
-    // height: 800px;
     margin: 0 auto;
     padding: 20px 10px;
     display: flex;
@@ -17,7 +11,6 @@
     row-gap: 30px;
     border-radius: 30px;
     background-color: $color-basic-bg;
-    // background: linear-gradient(169deg, rgba(8, 8, 8, 1) 2.76%, rgba(8, 8, 8, 0) 97.75%), linear-gradient(169deg, rgba(255, 0, 0, 1) 2.76%, rgba(255, 0, 0, 0)) 97.75%;
     box-shadow: -10px 4px 10px 0px rgba(0, 0, 0, 0.77);
 
     &::before {
