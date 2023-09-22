@@ -24,6 +24,7 @@ html {
 
 body {
     background: $color-bg-dark;
+    color: $color-basic-white;
 }
 
 .container {
@@ -32,8 +33,11 @@ body {
 
 h1 {
     @include font("Pattaya", 3rem, 400, normal, normal);
-    color: $color-basic-white;
     white-space: nowrap;
+}
+
+h2 {
+    @include font("Montserrat", 3.2rem, 700, normal, -0.64px);
 }
 
 img {
