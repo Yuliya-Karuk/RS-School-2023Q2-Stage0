@@ -1,0 +1,41 @@
+.footer__wrapper {
+    @extend %container;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 25px;
+}
+
+.footer__year {
+    @include font("Montserrat", 2rem, 700, normal, normal);
+    color: $color-basic-white;
+}
+
+.footer__link {
+    display: flex;
+}
+
+.footer__icon {
+    display: block;
+    height: 30px;
+    @extend %transition;
+    &_rs {
+        width: 80px;
+        background: center center no-repeat url("../img/icons/rs_school.svg");
+    }
+    &_github {
+        width: 30px;
+        background: center center no-repeat url("../img/icons/github.svg");
+    }
+    @include media-hover-start {
+        .footer__link:hover & {
+            opacity: 0.4;
+            transform: scale(1.1);
+        }
+    }
+    .footer__link:active & {
+        opacity: 0.4;
+        transform: none;
+    }
+}

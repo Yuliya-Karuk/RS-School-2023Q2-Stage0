@@ -3,11 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Pattaya&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="icon" href="src/img/favicon.ico" type="image/ico" sizes="32x32">
     <link href="src/sass/style.css" rel="stylesheet">
     <title>YK gallery</title>
 </head>
 <body>
-    
+    <header class="header">
+        <div class="header__wrapper">
+            <h1 class="header__title">YK gallery</h1>
+            <div class="search header__search">
+                <span class="search__icon"></span>
+                <form class="search__form">
+                    <input class="search__input" type="text" placeholder="Search images here" aria-label="search for images" autocomplete="off">
+                    <button class="search__btn-clear" type="button" aria-label="button to clear search">
+                        <span class="search__icon-clear"></span>
+                    </button>
+                </form>
+            </div>
+            <nav class="navigation header__nav">
+                <ul class="navigation__list">
+                    <li class="navigation__item"><button class="navigation__btn" type="button">Popular</button></li>
+                    <li class="navigation__item"><button class="navigation__btn" type="button">TOP 10</button></li>
+                    <li class="navigation__item"><button class="navigation__btn" type="button">Photo</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <footer class="footer">
+        <div class="footer__wrapper">
+            <p class="footer__year">2023</p>
+            <a class="link footer__link" href="https://rs.school/js-stage0/">
+                <span class="footer__icon footer__icon_rs"></span>
+            </a>
+            <a class="link footer__link" href="https://github.com/Yuliya-Karuk">
+                <span class="footer__icon footer__icon_github"></span>
+            </a>
+        </div>
+    </footer>
 </body>
 </html>

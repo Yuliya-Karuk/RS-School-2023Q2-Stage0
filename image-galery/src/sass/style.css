@@ -371,12 +371,22 @@ a {
 
 input {
   outline: none;
+  background-color: transparent;
 }
 
 fieldset {
   padding: 0;
   margin: 0;
   border: none;
+}
+
+.navigation__btn::after, .navigation__btn, .footer__icon {
+  transition: all 0.5s ease-out;
+}
+
+.footer__wrapper, .header__wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 *,
@@ -403,12 +413,159 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  background: #232323;
+}
+
 .container {
   height: 100vh;
 }
 
+h1 {
+  font-family: "Pattaya";
+  font-size: 3rem;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: normal;
+  text-transform: none;
+  color: #FFFFFF;
+  white-space: nowrap;
+}
+
 img {
   height: auto;
+}
+
+.header__wrapper {
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 25px;
+}
+
+.search {
+  max-width: 420px;
+  height: 45px;
+  padding: 13px;
+  flex-basis: 100%;
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  border-radius: 6px;
+  border: 1px solid #858484;
+  background: #4F4F4F;
+  box-shadow: 0px 4px 19px 0px rgba(0, 0, 0, 0.05) inset;
+}
+@media (max-width: 768px) {
+  .search {
+    display: none;
+  }
+}
+
+.search__icon {
+  display: block;
+  width: 19px;
+  height: 19px;
+  background: center center no-repeat url("../img/icons/search.svg");
+}
+
+.search__form {
+  flex: 1 0 0;
+  display: flex;
+}
+
+.search__input {
+  border: none;
+  font-family: "Montserrat";
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: normal;
+  text-transform: none;
+  color: #8D8D8D;
+}
+
+.footer__wrapper {
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 25px;
+}
+
+.footer__year {
+  font-family: "Montserrat";
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: normal;
+  text-transform: none;
+  color: #FFFFFF;
+}
+
+.footer__link {
+  display: flex;
+}
+
+.footer__icon {
+  display: block;
+  height: 30px;
+}
+.footer__icon_rs {
+  width: 80px;
+  background: center center no-repeat url("../img/icons/rs_school.svg");
+}
+.footer__icon_github {
+  width: 30px;
+  background: center center no-repeat url("../img/icons/github.svg");
+}
+@media (min-width: 1025px) {
+  .footer__link:hover .footer__icon {
+    opacity: 0.4;
+    transform: scale(1.1);
+  }
+}
+.footer__link:active .footer__icon {
+  opacity: 0.4;
+  transform: none;
+}
+
+.navigation__list {
+  display: flex;
+  align-items: center;
+  column-gap: 35px;
+}
+
+.navigation__btn {
+  position: relative;
+  font-family: "Montserrat";
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: normal;
+  text-transform: none;
+  color: #FFFFFF;
+  white-space: nowrap;
+}
+.navigation__btn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #FFFFFF;
+  transform-origin: left;
+  transform: scaleX(0);
+}
+@media (min-width: 1025px) {
+  .navigation__btn:hover::after {
+    transform: scaleX(1);
+  }
+}
+.navigation__btn:active {
+  opacity: 0.4;
 }
 
 /*# sourceMappingURL=style.css.map */

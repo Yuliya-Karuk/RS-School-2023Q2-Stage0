@@ -1,13 +1,3 @@
-@mixin font-face($font_name, $file_path, $weight, $style) {
-    @font-face {
-        font-family: $font_name;
-        src: url("../fonts/#{$file_path}.ttf") format("truetype");
-        font-weight: $weight;
-        font-style: $style;
-        font-display: swap;
-    }
-}
-
 @mixin font($font_family, $font-size, $font-weight, $line-height, $letter-spacing: normal, $text-transform: none) {
     font-family: $font_family;
     font-size: $font-size;

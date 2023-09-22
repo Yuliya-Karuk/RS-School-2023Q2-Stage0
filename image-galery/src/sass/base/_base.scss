@@ -23,7 +23,7 @@ html {
 }
 
 body {
-
+    background: $color-bg-dark;
 }
 
 .container {
@@ -31,11 +31,9 @@ body {
 }
 
 h1 {
-
-}
-
-p {
-
+    @include font("Pattaya", 3rem, 400, normal, normal);
+    color: $color-basic-white;
+    white-space: nowrap;
 }
 
 img {
