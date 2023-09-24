@@ -384,7 +384,7 @@ fieldset {
   transition: all 0.5s ease-out;
 }
 
-.welcome, .footer__wrapper, .header__wrapper {
+.results, .welcome, .footer__wrapper, .header__wrapper {
   max-width: 1440px;
   margin: 0 auto;
 }
@@ -649,6 +649,38 @@ img {
   letter-spacing: normal;
   text-transform: none;
   color: #8D8D8D;
+}
+
+.results {
+  padding: 50px 25px;
+  display: grid;
+  grid-gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-auto-rows: 200px;
+  grid-auto-flow: dense;
+}
+
+.results__img-wrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  font-size: 0;
+  overflow: hidden;
+  border-radius: 8px;
+}
+.results__img-wrapper_horizontal {
+  grid-row: span 2;
+}
+.results__img-wrapper_vertical {
+  grid-row: span 3;
+}
+
+.results__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 /*# sourceMappingURL=style.css.map */
