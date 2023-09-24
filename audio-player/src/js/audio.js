@@ -36,6 +36,7 @@ class AudioPlayer {
         this.song;
         this.isListShown = false;
         this.isFavoritesShown = false;
+        this.isGrab = false;
 
         this.bindListeners();
     }
@@ -150,9 +151,22 @@ class AudioPlayer {
     }
 
     moveTimeControl() {
+        const context = this;
+        context.audio.pause();
+
         const progress = this.controlTimer.value * this.audio.duration / 100;
         this.audio.currentTime = progress;
+
+        this.controlTimer.addEventListener('mouseup', () => {
+            context.audio.play();
+        })
+        this.controlTimer.addEventListener('touchend', () => {
+            context.audio.play();
+        })
+
     }
+
+
 
     addToFavorites(id) {
         songsJSON[id].favorite = true;
