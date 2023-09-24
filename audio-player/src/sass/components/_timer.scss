@@ -17,7 +17,8 @@
     border-radius: 81px;
     border: 1px solid $color-basic-font;
     background: linear-gradient(to right, $color-basic-primary 0%, $color-basic-primary 0%, $color-basic-light 0%, $color-basic-light 100%);
-    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
 }
 
 input[type=range]::-webkit-slider-thumb {
@@ -27,7 +28,7 @@ input[type=range]::-webkit-slider-thumb {
     background: $color-basic-primary;
 
     cursor: pointer;
-    -webkit-appearance: none;
+    appearance: none;
 }
 
 .timer_time {

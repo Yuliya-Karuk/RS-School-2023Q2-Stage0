@@ -5,7 +5,8 @@
     "singer": "Sub Urban",
     "img": "src/img/trek1.jpg",
     "src": "src/audio/trek1.mp3",
-    "favorite": false
+    "favorite": false,
+    "duration": "3:14"
   },
   {
     "id": 1,
@@ -13,7 +14,8 @@
     "singer": "Scarlet Pleasure",
     "img": "src/img/trek2.jpg",
     "src": "src/audio/trek2.mp3",
-    "favorite": false
+    "favorite": false,
+    "duration": "3:05"
   },
   {
     "id": 2,
@@ -21,7 +23,8 @@
     "singer": "Call Me Karizma, Three Days of Rain",
     "img": "src/img/trek3.jpg",
     "src": "src/audio/trek3.mp3",
-    "favorite": false
+    "favorite": false,
+    "duration": "2:52"
   },
   {
     "id": 3,
@@ -29,7 +32,8 @@
     "singer": "Zubi, anatu",
     "img": "src/img/trek4.jpg",
     "src": "src/audio/trek4.mp3",
-    "favorite": false
+    "favorite": false,
+    "duration": "3:25"
   },
   {
     "id": 4,
@@ -37,6 +41,7 @@
     "singer": "Saint Mesa",
     "img": "src/img/trek5.jpg",
     "src": "src/audio/trek5.mp3",
-    "favorite": false
+    "favorite": false,
+    "duration": "2:50"
   }
 ]
