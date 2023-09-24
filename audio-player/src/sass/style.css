@@ -379,7 +379,7 @@ fieldset {
   border: none;
 }
 
-.home__icon, .control, .player-btn, .link {
+.home__icon, .control, .player-btn, .footer__icon_rs, .link {
   transition: all 0.5s ease-out;
 }
 
@@ -472,7 +472,7 @@ img {
 }
 @media (min-width: 1025px) {
   .link:hover, .link:focus {
-    color: #B01C25;
+    opacity: 0.4;
     text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.5);
   }
 }
@@ -528,10 +528,14 @@ img {
   }
 }
 
-@media (max-width: 768px) {
-  .footer__link_rs {
-    width: 50%;
-    text-align: center;
+.footer__icon_rs {
+  width: 55px;
+  height: 21px;
+  background: center center no-repeat url("../img/icons/rs_school.svg");
+}
+@media (min-width: 1025px) {
+  .footer__link_rs:hover .footer__icon_rs {
+    opacity: 0.4;
   }
 }
 
@@ -682,7 +686,8 @@ img {
   border-radius: 81px;
   border: 1px solid #666666;
   background: linear-gradient(to right, #B01C25 0%, #B01C25 0%, #999999 0%, #999999 100%);
-  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
 }
 
 input[type=range]::-webkit-slider-thumb {
@@ -691,7 +696,7 @@ input[type=range]::-webkit-slider-thumb {
   border-radius: 50px;
   background: #B01C25;
   cursor: pointer;
-  -webkit-appearance: none;
+  appearance: none;
 }
 
 .timer_time {

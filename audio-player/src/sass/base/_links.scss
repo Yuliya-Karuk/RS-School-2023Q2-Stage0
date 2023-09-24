@@ -7,7 +7,7 @@
     @include media-hover-start {
         &:hover,
         &:focus {
-            color: $color-basic-primary;
+            opacity: 0.4;
             text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.5);
         }
     }

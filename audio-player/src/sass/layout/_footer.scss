@@ -17,10 +17,14 @@
     }
 }
 
-
-.footer__link_rs {
-    @include media-tablet {
-        width: 50%;
-        text-align: center;
+.footer__icon_rs {
+    width: 55px;
+    height: 21px;
+    background: center center no-repeat url("../img/icons/rs_school.svg");
+    @extend %transition;
+    @include media-hover-start {
+        .footer__link_rs:hover & {
+            opacity: 0.4;
+        }
     }
 }

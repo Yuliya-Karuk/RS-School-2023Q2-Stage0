@@ -44,7 +44,7 @@ class AudioPlayer {
     bindListeners() {
         const context = this;
 
-        document.addEventListener("DOMContentLoaded", () => context.createAudio());
+        window.addEventListener('load', () => context.createAudio());
         this.buttonPlay.addEventListener('click', () => context.playAudio());
         this.buttonPause.addEventListener('click', () => context.pauseAudio());
         this.buttonPrevious.addEventListener('click', () => context.changeAudioTrack(-1));
@@ -70,14 +70,15 @@ class AudioPlayer {
     fillAudioInfo() {
         this.findActiveSong(this.singId);
         this.audio.currentTime = 0;
+        this.controlTimer.value = 0;
         this.audio.src = this.song.src;
         this.songTitle.innerHTML = this.song.title;
         this.songSinger.innerHTML = this.song.singer;
         this.albumImage.src = this.song.img;
         this.body.style.backgroundImage = `url(${this.song.img})`;
-        this.audio.onloadeddata = () => {
+        this.audio.addEventListener('loadeddata', () => {
             this.showAudioTime();
-        }
+        });
         this.fillButtonFavorites();
     }
 
@@ -141,7 +142,7 @@ class AudioPlayer {
         const durationSeconds = Math.floor(this.audio.duration - durationMinutes * 60);
 
         this.currentTimeElement.innerHTML = `${currentMinutes}:${currentSeconds < 10 ? '0' + currentSeconds : currentSeconds}`;
-        this.durationTimeElement.innerHTML = `${durationMinutes}:${durationSeconds < 10 ? '0' + durationSeconds : durationSeconds}`;
+        this.durationTimeElement.innerHTML = `${this.song.duration}`;
     }
 
     showAudioTimeControl() {
