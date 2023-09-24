@@ -36,7 +36,7 @@ class AudioPlayer {
         this.song;
         this.isListShown = false;
         this.isFavoritesShown = false;
-        this.isGrab = false;
+        this.isPlayedBeforeGrab = false;
 
         this.bindListeners();
     }
@@ -126,7 +126,7 @@ class AudioPlayer {
         const context = this;
         this.audio.addEventListener('timeupdate', () => context.handleAudioTime());
         this.audio.addEventListener('ended', () => context.changeAudioTrack(1));
-        this.controlTimer.addEventListener('input', () => context.moveTimeControl());
+        this.controlTimer.addEventListener('input', () => context.moveTimeControl(this.isPlayed));
     }
 
     handleAudioTime() {
@@ -150,18 +150,19 @@ class AudioPlayer {
         this.controlTimer.value = percent;
     }
 
-    moveTimeControl() {
+    moveTimeControl(isPlayed) {
         const context = this;
+        this.isPlayedBeforeGrab = isPlayed;
         context.audio.pause();
 
         const progress = this.controlTimer.value * this.audio.duration / 100;
         this.audio.currentTime = progress;
 
-        this.controlTimer.addEventListener('mouseup', () => {
-            context.audio.play();
+        this.controlTimer.addEventListener('mouseup', (e) => {
+            if (context.isPlayedBeforeGrab) context.playAudio();
         })
-        this.controlTimer.addEventListener('touchend', () => {
-            context.audio.play();
+        this.controlTimer.addEventListener('touchend', (e) => {
+            if (context.isPlayedBeforeGrab) context.playAudio();
         })
 
     }

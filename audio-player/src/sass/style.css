@@ -389,7 +389,7 @@ fieldset {
 }
 
 @font-face {
-  font-family: Bitsumishi;
+  font-family: "Bitsumishi";
   src: url("../fonts/BITSUMIS.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
@@ -589,7 +589,7 @@ img {
 }
 
 .audio-player__img {
-  width: 250px;
+  width: 100%;
   object-fit: cover;
 }
 @media screen and (max-height: 645px) and (max-width: 500px) {
