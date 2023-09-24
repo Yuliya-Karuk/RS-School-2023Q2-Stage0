@@ -12,16 +12,11 @@
     grid-auto-flow: dense;
 }
 
-.results__img-wrapper {
-    // width: calc(100%/3 - 40px - 70px);
+.result {
     height: 100%;
-    // max-height: 450px;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    flex-grow: 1;
-    font-size: 0;
-    overflow: hidden;
-    border-radius: 8px;
     &_horizontal {
         grid-row: span 2;
     }
@@ -30,16 +25,67 @@
     }
 }
 
-.results__img {
+.result__img-wrapper {
+    width: 100%;
+    height: 90%;
+    font-size: 0;
+    overflow: hidden;
+    border-radius: 8px 8px 0 0;
+}
+
+.result__img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 8px;
-    &_horizontal {
-        // aspect-ratio: 320 / 216;
+    @extend %transition;
+    &:hover {
+        transform: scale(1.2);
     }
-    &_vertical {
-        // aspect-ratio: 320 / 333;
-    }
+}
 
+.result__info {
+    width: 100%;
+    height: 10%;
+    min-height: 65px;
+    padding: 10px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: #141414;
+    border-radius: 0 0 8px 8px;
+}
+
+.result__author {
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+}
+
+.result__author-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.result__author-name {
+    @include font("Montserrat", 1.2rem, 700, normal, normal);
+    color: #E5E5E5;
+}
+
+.result__author-instagram {
+    @include font("Poppins", 1rem, 600, normal, normal);
+    color: #A7A7A7;
+    font-style: italic;
+}
+
+.result__likes {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.result__likes-number {
+    @include font("Montserrat", 1rem, 700, normal, normal);
+    color: #E5E5E5;
 }

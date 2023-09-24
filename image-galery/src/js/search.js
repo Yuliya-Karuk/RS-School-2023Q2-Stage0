@@ -38,25 +38,51 @@ class Search {
     showSearchImages(array) {
         this.searchResults.innerHTML = '';
         array.map((el) => {
-            const imgWrapper = document.createElement('div');
-            imgWrapper.classList.add('results__img-wrapper');
-            imgWrapper.classList.add(`${(el.width > el.height) ? 'results__img-wrapper_horizontal' : 'results__img-wrapper_vertical'}`);
+            const resultItem = document.createElement('div');
+            resultItem.classList.add('result');
+            resultItem.classList.add(`${(el.width > el.height) ? 'result_horizontal' : 'result_vertical'}`);
 
             const img = this.createImgElement(el);
-            imgWrapper.append(img);
+            const info = this.createInfoElement(el);
+            resultItem.append(img);
+            resultItem.append(info);
 
-            this.searchResults.append(imgWrapper);
-
+            this.searchResults.append(resultItem);
         });
     }
 
     createImgElement(elementData) {
-        const img = document.createElement('img');
-        img.classList.add('results__img');
-        // img.classList.add(`${(elementData.width > elementData.height) ? 'results__img_horizontal' : 'results__img_vertical'}`);
-        img.src = `${elementData.urls.regular}`;
-        img.alt = `image`;
-        return img;
+        const imgWrapper = document.createElement('div');
+        imgWrapper.classList.add('result__img-wrapper');
+        imgWrapper.innerHTML = `<img class="result__img" src="${elementData.urls.regular}" alt="image">`
+        return imgWrapper;
+    }
+
+    createInfoElement(elementData) {
+        const info = document.createElement('div');
+        info.classList.add('result__info');
+
+        const user = document.createElement('div');
+        user.classList.add('result__author');
+        user.insertAdjacentHTML("beforeend",
+            `<img class="result__author-icon" src="src/img/icons/user.svg" width="35" height="35" alt="user icon">
+            <div class="result__author-details">
+                <p class="result__author-name">${elementData.user.first_name} ${(elementData.user.last_name) ? elementData.user.last_name : ''}</p>
+                <a class="link result__author-instagram" href="https://www.instagram.com/${elementData.user.instagram_username}">${elementData.user.instagram_username}</a>
+            </div>`
+        );
+
+        const likes = document.createElement('div');
+        likes.classList.add('result__likes');
+        likes.insertAdjacentHTML("beforeend",
+            `<img class="result__likes-icon" src="src/img/icons/like.svg" width="14" height="14" alt="like icon">
+            <p class="result__likes-number">${elementData.likes}</p>`
+        );
+
+        info.append(user);
+        info.append(likes);
+
+        return info;
     }
 
 }
