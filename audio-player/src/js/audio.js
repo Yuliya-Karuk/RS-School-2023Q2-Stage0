@@ -164,10 +164,7 @@ class AudioPlayer {
         this.controlTimer.addEventListener('touchend', (e) => {
             if (context.isPlayedBeforeGrab) context.playAudio();
         })
-
     }
-
-
 
     addToFavorites(id) {
         songsJSON[id].favorite = true;
