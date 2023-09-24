@@ -77,7 +77,7 @@ class AudioPlayer {
         this.albumImage.src = this.song.img;
         this.body.style.backgroundImage = `url(${this.song.img})`;
         this.audio.addEventListener('loadeddata', () => {
-            this.showAudioTime();
+            this.handleAudioTime();
         });
         this.fillButtonFavorites();
     }
