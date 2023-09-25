@@ -13,43 +13,36 @@
 <body>
     <header class="header">
         <div class="header__wrapper">
-            <h1 class="header__title">YK gallery</h1>
-            <!-- <div class="header-search header__search">
-                <span class="header-search__icon"></span>
-                <form class="header-search__form">
-                    <input class="header-search__input" type="text" placeholder="Search images here" aria-label="search for images" autocomplete="off">
-                    <button class="header-search__btn-clear" type="button" aria-label="button to clear search">
-                        <span class="header-search__icon-clear"></span>
-                    </button>
-                </form>
-            </div> -->
+            <h1 class="header__title">YK&nbsp;<span class="header__part">gallery</span></h1>
             <nav class="navigation header__nav">
                 <ul class="navigation__list">
-                    <li class="navigation__item"><button class="btn navigation__btn" type="button">Popular</button></li>
-                    <li class="navigation__item"><button class="btn navigation__btn" type="button">TOP 10</button></li>
-                    <li class="navigation__item"><button class="btn navigation__btn" type="button">Photo</button></li>
+                    <li class="navigation__item"><button class="btn navigation__btn navigation__btn_random" type="button">Random</button></li>
+                    <li class="navigation__item"><button class="btn navigation__btn navigation__btn_top" type="button">TOP 10</button></li>
+                    <li class="navigation__item"><button class="btn navigation__btn navigation__btn_people" type="button">People</button></li>
                 </ul>
             </nav>
         </div>
     </header>
     <main class="main">
         <section class="welcome">
-            <h2 class="welcome__title">Search High Quality Images by creators</h2>
-            <p class="welcome__text">Over 3 million+ free high-resolution Images by our talented community</p>
-            <div class="search welcome__search">
-                <span class="search__icon"></span>
-                <form class="search__form">
-                    <input class="search__input" type="text" placeholder="Search high resolution Images" aria-label="search for images"
-                        autocomplete="off">
-                    <button class="search__btn-clear" type="button" aria-label="button to clear search">
-                        <span class="search__icon-clear"></span>
-                    </button>
-                </form>
+            <div class="welcome__wrapper">
+                <h2 class="welcome__title">Search High Quality Images by creators</h2>
+                <p class="welcome__text">Over 3 million+ free high-resolution Images by our talented community</p>
+                <div class="search welcome__search">
+                    <span class="search__icon"></span>
+                    <form class="search__form">
+                        <input class="search__input" type="text" placeholder="Search high resolution Images"
+                            aria-label="search for images" autocomplete="off">
+                        <button class="search__btn-clear" type="button" aria-label="button to clear search">
+                            <span class="search__icon-clear"></span>
+                        </button>
+                    </form>
+                </div>
             </div>
         </section>
         <section class="results">
-
         </section>
+        <div class="overlay"></div>
     </main>
     <footer class="footer">
         <div class="footer__wrapper">

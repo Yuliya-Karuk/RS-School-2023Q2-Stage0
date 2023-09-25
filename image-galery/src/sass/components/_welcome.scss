@@ -1,17 +1,28 @@
 .welcome {
+    height: 500px;
+    margin-top: -90px;
+    background: center no-repeat url("../img/bg.png");
+    background-size: cover;
+}
+
+.welcome__wrapper {
+    height: 100%;
     @extend %container;
-    height: 385px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     row-gap: 15px;
-    background: center no-repeat url("../img/background.png");
+}
+
+.welcome__title {
+    text-align: center;
 }
 
 .welcome__text {
     @include font("Montserrat", 1.4rem, 500, normal, normal);
-    color: #C4C4C4;
+    color: rgba(0, 0, 0, 0.8);
+    text-align: center;
 }
 
 .search {
@@ -26,6 +37,10 @@
 
     border-radius: 8px;
     background: $color-basic-white;
+    @extend %transition;
+    &:focus-within {
+        box-shadow: 0px 0px 5px 3px $color-font-gray;
+    }
 }
 
 .search__icon {
@@ -36,6 +51,7 @@
 }
 
 .search__form {
+    position: relative;
     flex: 1 0 0;
     display: flex;
 }
@@ -49,5 +65,24 @@
         @include font("Montserrat", 1.4rem, 500, normal, normal);
         color: $color-font-gray;
     }
+}
 
+.search__btn-clear {
+    position: absolute;
+    top: 0;
+    right: -5px;
+    visibility: hidden;
+    opacity: 0;
+    @extend %transition;
+    .search__input:focus ~ & {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+.search__icon-clear {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: center center no-repeat url("../img/icons/clear.svg");
 }

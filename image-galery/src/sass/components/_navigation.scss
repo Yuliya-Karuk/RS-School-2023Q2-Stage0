@@ -2,10 +2,16 @@
     display: flex;
     align-items: center;
     column-gap: 35px;
+    @include media-mobile {
+        column-gap: 20px;
+    }
 }
 
 .navigation__btn {
     @include font("Montserrat", 1.8rem, 700, normal, normal);
     color: $color-basic-white;
     white-space: nowrap;
+    @include media-mobile {
+        font-size: 1.2rem;
+    }
 }

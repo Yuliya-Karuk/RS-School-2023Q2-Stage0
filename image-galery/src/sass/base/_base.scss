@@ -32,7 +32,7 @@ body {
 }
 
 h1 {
-    @include font("Pattaya", 3rem, 400, normal, normal);
+    @include font("Pattaya", 3rem, 400, 4rem, normal);
     white-space: nowrap;
 }
 
