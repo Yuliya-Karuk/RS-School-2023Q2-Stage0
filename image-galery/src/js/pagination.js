@@ -70,6 +70,7 @@ class Pagination {
     }
 
     createPagination(totalPages, active) {
+        console.log(totalPages, active)
         this.lastPage = totalPages;
         this.pagination.classList.add(PaginationClasses.PaginationActive);
 
@@ -96,6 +97,9 @@ class Pagination {
         this.makeDisabledButton(newSearch.page);
     }
 
+    hidePagination() {
+        this.pagination.classList.remove(PaginationClasses.PaginationActive);
+    }
 
     bindListeners() {
         const context = this;

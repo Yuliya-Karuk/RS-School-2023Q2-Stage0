@@ -141,6 +141,7 @@ class Search {
 
     startSearchPage(e) {
         e.preventDefault();
+        this.page = 1;
         const url = `${SearchClasses.BASIC_URL}search/photos?client_id=${SearchClasses.API_KEY}&page=${this.page}&per_page=15&query=${this.searchInput.value ? this.searchInput.value : this.startRequest}`;
         this.newRequest = true;
         this.getImages(url);
@@ -155,20 +156,25 @@ class Search {
     fillStartPage() {
         const url = `${SearchClasses.BASIC_URL}/photos/random?client_id=${SearchClasses.API_KEY}&query=${this.startRequest}&count=15`;
         this.getPhoto(url);
+        newPagination.hidePagination();
     }
 
     fillRandomPage() {
         const url = `${SearchClasses.BASIC_URL}/photos/random?client_id=${SearchClasses.API_KEY}&count=15`;
         this.getPhoto(url);
+        newPagination.hidePagination();
     }
 
     fillTopPage() {
         const url = `${SearchClasses.BASIC_URL}/photos?client_id=${SearchClasses.API_KEY}&per_page=10&order_by=popular`;
         this.getPhoto(url);
+        newPagination.hidePagination();
     }
 
     fillPeoplePage() {
+        this.page = 1;
         const url = `${SearchClasses.BASIC_URL}search/photos?client_id=${SearchClasses.API_KEY}&query=people&page=${this.page}&per_page=15`;
+        this.newRequest = true;
         this.getImages(url);
     }
 
