@@ -1,4 +1,5 @@
-export { Search };
+import { newPagination } from './pagination.js';
+export { newSearch };
 
 const SearchClasses = {
     API_KEY: 'LS-5GJspuCOXPYhOpfr1SmJ-fmLEq1LX5bvlR4mGjCM',
@@ -10,13 +11,18 @@ class Search {
         this.searchForm = document.querySelector('.search__form');
         this.searchInput = document.querySelector(".search__input");
         this.searchResults = document.querySelector('.results');
+        this.buttonSearch = document.querySelector('.search__btn-search');
         this.buttonSearchClear = document.querySelector('.search__btn-clear');
         this.buttonRandomPhoto = document.querySelector(".navigation__btn_random");
         this.buttonTopPhoto = document.querySelector(".navigation__btn_top");
         this.buttonPeoplePhoto = document.querySelector(".navigation__btn_people");
+        this.paginationList = document.querySelector(".pagination__list");
 
         this.startRequest = 'sea';
         this.numberOfRows;
+        this.page = 1;
+        this.data;
+        this.newRequest = false;
 
         this.bindListeners();
     }
@@ -28,7 +34,8 @@ class Search {
         document.addEventListener("DOMContentLoaded", () => context.fillStartPage());
         document.addEventListener("DOMContentLoaded", () => context.generateConst());
         window.addEventListener('resize', () => context.changeLayout());
-        this.searchForm.addEventListener("submit", (e) => context.fillSearchPage(e));
+        this.searchForm.addEventListener("submit", (e) => context.startSearchPage(e));
+        this.buttonSearch.addEventListener("click", (e) => context.startSearchPage(e));
         this.buttonSearchClear.addEventListener("click", () => context.clearInput());
         this.buttonRandomPhoto.addEventListener("click", () => context.fillRandomPage());
         this.buttonTopPhoto.addEventListener("click", () => context.fillTopPage());
@@ -41,24 +48,25 @@ class Search {
 
     async getImages(url) {
         const res = await fetch(url);
-        const data = await res.json();
-        this.showSearchImages(data.results);
+        this.data = await res.json();
+        this.showSearchImages(this.data.results);
+        if (this.newRequest) newPagination.createPagination(this.data.total_pages, this.page);
     }
 
     async getPhoto(url) {
         const res = await fetch(url);
-        const data = await res.json();
-        this.showSearchImages(data);
+        this.data = await res.json();
+        this.showSearchImages(this.data);
     }
 
     generateConst() {
         if (window.innerWidth <= 480) {
             this.numberOfRows = 1;
         };
-        if (window.innerWidth < 768 && window.innerWidth > 480) {
+        if (window.innerWidth <= 768 && window.innerWidth > 480) {
             this.numberOfRows = 2;
         };
-        if (window.innerWidth >= 768) {
+        if (window.innerWidth > 768) {
             this.numberOfRows = 3;
         };
     }
@@ -73,11 +81,7 @@ class Search {
 
     changeLayout() {
         this.generateConst();
-        this.createRows();
-        const results = document.querySelectorAll('.result');
-        for (let i = 0; i < results.length; i += 1) {
-            this.rows[i % this.numberOfRows].append(results[i])
-        }
+        this.showSearchImages(this.data.results);
     }
 
     showSearchImages(array) {
@@ -99,27 +103,11 @@ class Search {
         });
     }
 
-    // showSearchImages(array) {
-    //     this.searchResults.innerHTML = '';
-    //     array.map((el) => {
-    //         const resultItem = document.createElement('div');
-    //         resultItem.classList.add('result');
-    //         resultItem.classList.add(`${el.width <  el.height ? 'result_vertical' : 'result_horizontal'}`);
-    //         // resultItem.classList.add(`${(el.width / el.height > 0.8 && el.width / el.height < 1.2) ? 'result_squared' :
-    //         //     el.width <  el.height ? 'result_vertical' : 'result_horizontal'}`);
-
-    //         const img = this.createImgElement(el);
-    //         const info = this.createInfoElement(el);
-    //         resultItem.append(img);
-    //         resultItem.append(info);
-
-    //         this.searchResults.append(resultItem);
-    //     });
-    // }
-
     createImgElement(elementData) {
-        const imgWrapper = document.createElement('div');
+        const imgWrapper = document.createElement('a');
         imgWrapper.classList.add('result__img-wrapper');
+        imgWrapper.href = `${elementData.urls.regular}`;
+        imgWrapper.target = '_blank';
         imgWrapper.innerHTML = `<img class="result__img" src="${elementData.urls.regular}" alt="image">`
         return imgWrapper;
     }
@@ -134,7 +122,7 @@ class Search {
             `<img class="result__author-icon" src="src/img/icons/user.svg" width="35" height="35" alt="user icon">
             <div class="result__author-details">
                 <p class="result__author-name">${elementData.user.first_name} ${(elementData.user.last_name) ? elementData.user.last_name : ''}</p>
-                <a class="link result__author-instagram" href="https://www.instagram.com/${elementData.user.instagram_username}">${elementData.user.instagram_username}</a>
+                <a class="link result__author-instagram" href="https://www.instagram.com/${elementData.user.instagram_username}" target="_blank">${elementData.user.instagram_username}</a>
             </div>`
         );
 
@@ -151,15 +139,22 @@ class Search {
         return info;
     }
 
-    fillSearchPage(e) {
+    startSearchPage(e) {
         e.preventDefault();
-        const url = `${SearchClasses.BASIC_URL}search/photos?client_id=${SearchClasses.API_KEY}&per_page=15&query=${this.searchInput.value}`;
+        const url = `${SearchClasses.BASIC_URL}search/photos?client_id=${SearchClasses.API_KEY}&page=${this.page}&per_page=15&query=${this.searchInput.value ? this.searchInput.value : this.startRequest}`;
+        this.newRequest = true;
+        this.getImages(url);
+    }
+
+    changeSearchPage() {
+        const url = `${SearchClasses.BASIC_URL}search/photos?client_id=${SearchClasses.API_KEY}&page=${this.page}&per_page=15&query=${this.searchInput.value ? this.searchInput.value : this.startRequest}`;
+        this.newRequest = false;
         this.getImages(url);
     }
 
     fillStartPage() {
-        const url = `${SearchClasses.BASIC_URL}search/photos?client_id=${SearchClasses.API_KEY}&query=${this.startRequest}&per_page=15`;
-        this.getImages(url);
+        const url = `${SearchClasses.BASIC_URL}/photos/random?client_id=${SearchClasses.API_KEY}&query=${this.startRequest}&count=15`;
+        this.getPhoto(url);
     }
 
     fillRandomPage() {
@@ -173,7 +168,7 @@ class Search {
     }
 
     fillPeoplePage() {
-        const url = `${SearchClasses.BASIC_URL}search/photos?client_id=${SearchClasses.API_KEY}&query=people&per_page=15`;
+        const url = `${SearchClasses.BASIC_URL}search/photos?client_id=${SearchClasses.API_KEY}&query=people&page=${this.page}&per_page=15`;
         this.getImages(url);
     }
 
@@ -183,3 +178,5 @@ class Search {
         this.fillStartPage();
     }
 }
+
+const newSearch = new Search();

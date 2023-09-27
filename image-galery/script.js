@@ -1,3 +1,4 @@
-import { Search } from './src/js/search.js';
+import { newSearch } from './src/js/search.js';
+import { selfAssessment } from './src/js/assessment.js';
 
-const newSearch = new Search();
+console.log(selfAssessment);

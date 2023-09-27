@@ -29,7 +29,9 @@
                 <h2 class="welcome__title">Search High Quality Images by creators</h2>
                 <p class="welcome__text">Over 3 million+ free high-resolution Images by our talented community</p>
                 <div class="search welcome__search">
-                    <span class="search__icon"></span>
+                    <button class="search__btn-search" type="button">
+                        <span class="search__icon"></span>
+                    </button>
                     <form class="search__form">
                         <input class="search__input" type="text" placeholder="Search high resolution Images"
                             aria-label="search for images" autocomplete="off">
@@ -40,9 +42,27 @@
                 </div>
             </div>
         </section>
-        <section class="results">
-        </section>
+        <div class="results">
+        </div>
         <div class="overlay"></div>
+        <div class="pagination">
+            <div class="pagination__wrapper">
+                <button class="pagination__btn pagination__btn_first" type="button">
+                    <span class="pagination__icon pagination__icon_first"></span>
+                </button>
+                <button class="pagination__btn pagination__btn_previous" type="button">
+                    <span class="pagination__icon pagination__icon_previous"></span>
+                </button>
+                <ul class="pagination__list">
+                </ul>
+                <button class="pagination__btn pagination__btn_next" type="button">
+                    <span class="pagination__icon pagination__icon_next"></span>
+                </button>
+                <button class="pagination__btn pagination__btn_last" type="button">
+                    <span class="pagination__icon pagination__icon_last"></span>
+                </button>
+            </div>
+        </div>
     </main>
     <footer class="footer">
         <div class="footer__wrapper">

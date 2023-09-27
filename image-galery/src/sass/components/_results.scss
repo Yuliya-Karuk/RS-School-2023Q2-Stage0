@@ -1,6 +1,6 @@
 .results {
     @extend %container;
-    padding: 50px 25px;
+    padding: 50px 25px 20px;
     // display: flex;
     // flex-wrap: wrap;
     // align-items: center;
@@ -44,18 +44,18 @@
     align-items: center;
     border-radius: 8px;
     @extend %transition;
-    &_horizontal {
-        grid-row: span 3;
-        grid-column: span 4;
-    }
-    &_vertical {
-        grid-row: span 4;
-        grid-column: span 3;
-    }
-    &_squared {
-        grid-column: span 3;
-        grid-row: span 3;
-    }
+    // &_horizontal {
+    //     grid-row: span 3;
+    //     grid-column: span 4;
+    // }
+    // &_vertical {
+    //     grid-row: span 4;
+    //     grid-column: span 3;
+    // }
+    // &_squared {
+    //     grid-column: span 3;
+    //     grid-row: span 3;
+    // }
     @include media-hover-start {
         &:hover {
             box-shadow: 0 0 10px 2px #A7A7A7;
@@ -71,6 +71,7 @@
     font-size: 0;
     overflow: hidden;
     border-radius: 8px 8px 0 0;
+    @extend %transition;
 }
 
 .result__img {
@@ -78,7 +79,7 @@
     height: 100%;
     object-fit: cover;
     @extend %transition;
-    &:hover {
+    .result__img-wrapper:hover & {
         transform: scale(1.2);
     }
 }
