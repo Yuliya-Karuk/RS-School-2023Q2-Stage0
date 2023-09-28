@@ -380,6 +380,16 @@ fieldset {
   border: none;
 }
 
+@keyframes open {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 .pagination__btn, .result__img, .result__img-wrapper, .result, .search__btn-clear, .search, .footer__icon, .link, .btn::after, .btn {
   transition: all 0.5s ease-out;
 }
@@ -719,6 +729,7 @@ img {
   flex-direction: column;
   align-items: center;
   border-radius: 8px;
+  animation: open 0.8s ease-in-out;
 }
 @media (min-width: 1025px) {
   .result:hover {

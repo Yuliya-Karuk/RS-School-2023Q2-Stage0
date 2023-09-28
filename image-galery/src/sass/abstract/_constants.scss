@@ -8,3 +8,15 @@ $color-font-gray: #8D8D8D;
 $hover-start: 1025px;
 $tablet: 768px;
 $mobile: 480px;
+
+@keyframes open {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
