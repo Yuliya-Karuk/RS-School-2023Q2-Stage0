@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Pattaya&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,600&display=swap" rel="stylesheet">
+    <link rel="icon" href="src/img/favicon.ico" type="image/ico" sizes="32x32">
+    <link href="src/sass/style.css" rel="stylesheet">
+    <title>YK gallery</title>
+</head>
+<body>
+    <header class="header">
+        <div class="header__wrapper">
+            <h1 class="header__title">YK&nbsp;<span class="header__part">gallery</span></h1>
+            <nav class="navigation header__nav">
+                <ul class="navigation__list">
+                    <li class="navigation__item"><button class="btn navigation__btn navigation__btn_random" type="button">Random</button></li>
+                    <li class="navigation__item"><button class="btn navigation__btn navigation__btn_top" type="button">TOP 15</button></li>
+                    <li class="navigation__item"><button class="btn navigation__btn navigation__btn_people" type="button">People</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="main">
+        <section class="welcome">
+            <div class="welcome__wrapper">
+                <h2 class="welcome__title">Search High Quality Images by creators</h2>
+                <p class="welcome__text">Over 3 million+ free high-resolution Images by our talented community</p>
+                <div class="search welcome__search">
+                    <button class="search__btn-search" type="button">
+                        <span class="search__icon"></span>
+                    </button>
+                    <form class="search__form">
+                        <input class="search__input" type="text" placeholder="Search high resolution Images"
+                            aria-label="search for images" autocomplete="off">
+                        <button class="search__btn-clear" type="button" aria-label="button to clear search">
+                            <span class="search__icon-clear"></span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <div class="results">
+        </div>
+        <div class="overlay"></div>
+        <div class="pagination">
+            <div class="pagination__wrapper">
+                <button class="pagination__btn pagination__btn_first" type="button">
+                    <span class="pagination__icon pagination__icon_first"></span>
+                </button>
+                <button class="pagination__btn pagination__btn_previous" type="button">
+                    <span class="pagination__icon pagination__icon_previous"></span>
+                </button>
+                <ul class="pagination__list">
+                </ul>
+                <button class="pagination__btn pagination__btn_next" type="button">
+                    <span class="pagination__icon pagination__icon_next"></span>
+                </button>
+                <button class="pagination__btn pagination__btn_last" type="button">
+                    <span class="pagination__icon pagination__icon_last"></span>
+                </button>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer__wrapper">
+            <p class="footer__year">2023</p>
+            <a class="link footer__link" href="https://rs.school/js-stage0/">
+                <span class="footer__icon footer__icon_rs"></span>
+            </a>
+            <a class="link footer__link" href="https://github.com/Yuliya-Karuk">
+                <span class="footer__icon footer__icon_github"></span>
+            </a>
+        </div>
+    </footer>
+    <script src="script.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+.search {
+    width: 95%;
+    max-width: 810px;
+    height: 55px;
+    padding: 18px 25px;
+
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+
+    border-radius: 8px;
+    background: $color-basic-white;
+    @extend %transition;
+
+    &:focus-within {
+        box-shadow: 0px 0px 5px 3px $color-font-gray;
+    }
+}
+
+.search__icon {
+    display: block;
+    width: 19px;
+    height: 19px;
+    background: center center no-repeat url("../img/icons/search.svg");
+}
+
+.search__form {
+    position: relative;
+    flex: 1 0 0;
+    display: flex;
+}
+
+.search__input {
+    width: 100%;
+    border: none;
+    @include font("Montserrat", 1.4rem, 500, normal, normal);
+    color: $color-font-gray;
+
+    &::placeholder {
+        @include font("Montserrat", 1.4rem, 500, normal, normal);
+        color: $color-font-gray;
+    }
+}
+
+.search__btn-clear {
+    position: absolute;
+    top: 0;
+    right: -5px;
+    visibility: hidden;
+    opacity: 0;
+    @extend %transition;
+
+    .search__input:focus~& {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+.search__icon-clear {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: center center no-repeat url("../img/icons/clear.svg");
+}

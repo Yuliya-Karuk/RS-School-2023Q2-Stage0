@@ -1,0 +1,14 @@
+.link {
+    @extend %transition;
+
+    @include media-hover-start {
+        &:hover {
+            opacity: 0.4;
+        }
+    }
+
+    &:active {
+        opacity: 1;
+        text-decoration: underline;
+    }
+}

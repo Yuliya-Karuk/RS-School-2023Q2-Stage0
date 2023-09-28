@@ -1,0 +1,26 @@
+.welcome {
+    height: 500px;
+    margin-top: -90px;
+    background: center no-repeat url("../img/bg.png");
+    background-size: cover;
+}
+
+.welcome__wrapper {
+    height: 100%;
+    @extend %container;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 15px;
+}
+
+.welcome__title {
+    text-align: center;
+}
+
+.welcome__text {
+    @include font("Montserrat", 1.4rem, 500, normal, normal);
+    color: rgba(0, 0, 0, 0.8);
+    text-align: center;
+}

@@ -1,0 +1,21 @@
+.header {
+    position: relative;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(12.5px);
+}
+
+.header__wrapper {
+    @extend %container;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 25px;
+}
+
+.header__part {
+    @include media-mobile {
+        display: none;
+    }
+}

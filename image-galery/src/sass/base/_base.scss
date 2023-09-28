@@ -1,0 +1,45 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.visually-hidden:not(:focus):not(:active),
+input[type='checkbox'].visually-hidden,
+input[type='radio'].visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+html {
+    font-size: 10px;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: $color-bg-dark;
+    color: $color-basic-white;
+}
+
+.container {
+    height: 100vh;
+}
+
+h1 {
+    @include font("Pattaya", 3rem, 400, 4rem, normal);
+    white-space: nowrap;
+}
+
+h2 {
+    @include font("Montserrat", 3.2rem, 700, normal, -0.64px);
+}
+
+img {
+    height: auto;
+}

@@ -1,0 +1,80 @@
+.pagination {
+    padding: 15px 0;
+    display: none;
+    justify-content: center;
+    &_active {
+        display: flex;
+    }
+}
+
+.pagination__wrapper {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 1vw;
+}
+
+.pagination__btn {
+    width: 5vw;
+    max-width: 50px;
+    height: 5vw;
+    max-height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include font("Montserrat", 2.2rem, 700, normal, normal);
+    color: $color-font-gray;
+    text-align: center;
+    background-color: $color-basic-white;
+    border-radius: 4px;
+    @extend %transition;
+    &:disabled {
+        background-color: $color-font-gray;
+    }
+    &_active {
+        background-color: $color-gray-dark;
+    }
+    @include media-tablet {
+        width: 8.75vw;
+        height: 8.75vw;
+        font-size: 2rem;
+    }
+}
+
+.pagination__icon {
+    display: block;
+    width: 4vw;
+    max-width: 40px;
+    height: 4vw;
+    max-height: 40px;
+    &_previous {
+        background: center no-repeat url("../img/icons/pgn_previous.svg");
+        background-size: cover;
+    }
+    &_next {
+        background: center no-repeat url("../img/icons/pgn_previous.svg");
+        background-size: cover;
+        transform: rotate(180deg);
+    }
+    &_first {
+        background: center center no-repeat url("../img/icons/pgn_first.svg");
+        background-size: cover;
+    }
+    &_last {
+        background: center center no-repeat url("../img/icons/pgn_first.svg");
+        background-size: cover;
+        transform: rotate(180deg);
+    }
+
+}
+
+.pagination__list {
+    display: flex;
+    column-gap: 1vw;
+}
+
+#more {
+    background-color: $color-basic-white;
+}
