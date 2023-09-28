@@ -46,17 +46,23 @@ class Search {
         this.searchInput.focus();
     }
 
+    sortArray(array) {
+        const sortedArray = array.sort((a, b) => b.height / b.width - a.height / a.width);
+        const resultArray = [...sortedArray.slice(0, 3), ...sortedArray.slice(12).reverse(), ...sortedArray.slice(3, 6), ...sortedArray.slice(9, 12).reverse(), ...sortedArray.slice(6, 9).reverse()];
+        return resultArray;
+    }
+
     async getImages(url) {
         const res = await fetch(url);
         this.data = await res.json();
-        this.showSearchImages(this.data.results);
+        this.showSearchImages(this.sortArray(this.data.results));
         if (this.newRequest) newPagination.createPagination(this.data.total_pages, this.page);
     }
 
     async getPhoto(url) {
         const res = await fetch(url);
         this.data = await res.json();
-        this.showSearchImages(this.data);
+        this.showSearchImages(this.sortArray(this.data));
     }
 
     generateConst() {
@@ -91,13 +97,12 @@ class Search {
         array.map((el, index) => {
             const resultItem = document.createElement('div');
             resultItem.classList.add('result');
-            resultItem.classList.add(`${el.width <  el.height ? 'result_vertical' : 'result_horizontal'}`);
 
             const img = this.createImgElement(el);
             const info = this.createInfoElement(el);
             resultItem.append(img);
             resultItem.append(info);
-
+            console.log(el.width, el.height, el.height / el.width)
             this.rows[index % this.numberOfRows].append(resultItem)
 
         });
@@ -122,7 +127,7 @@ class Search {
             `<img class="result__author-icon" src="src/img/icons/user.svg" width="35" height="35" alt="user icon">
             <div class="result__author-details">
                 <p class="result__author-name">${elementData.user.first_name} ${(elementData.user.last_name) ? elementData.user.last_name : ''}</p>
-                <a class="link result__author-instagram" href="https://www.instagram.com/${elementData.user.instagram_username}" target="_blank">${elementData.user.instagram_username}</a>
+                <a class="link result__author-instagram" href="https://www.instagram.com/${elementData.user.instagram_username}" target="_blank">${elementData.user.instagram_username ? elementData.user.instagram_username : ''}</a>
             </div>`
         );
 
@@ -166,7 +171,7 @@ class Search {
     }
 
     fillTopPage() {
-        const url = `${SearchClasses.BASIC_URL}/photos?client_id=${SearchClasses.API_KEY}&per_page=10&order_by=popular`;
+        const url = `${SearchClasses.BASIC_URL}/photos?client_id=${SearchClasses.API_KEY}&per_page=15&order_by=popular`;
         this.getPhoto(url);
         newPagination.hidePagination();
     }

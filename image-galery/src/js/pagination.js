@@ -70,7 +70,6 @@ class Pagination {
     }
 
     createPagination(totalPages, active) {
-        console.log(totalPages, active)
         this.lastPage = totalPages;
         this.pagination.classList.add(PaginationClasses.PaginationActive);
 
