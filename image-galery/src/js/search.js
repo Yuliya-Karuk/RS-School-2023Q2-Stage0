@@ -2,8 +2,11 @@ import { newPagination } from './pagination.js';
 export { newSearch };
 
 const SearchClasses = {
-    API_KEY: 'LS-5GJspuCOXPYhOpfr1SmJ-fmLEq1LX5bvlR4mGjCM',
-    BASIC_URL: 'https://api.unsplash.com/',
+    ApiKey: 'LS-5GJspuCOXPYhOpfr1SmJ-fmLEq1LX5bvlR4mGjCM',
+    BasicUrl: 'https://api.unsplash.com/',
+    ResultsErrorClass: 'results_error',
+    ErrorRequestMessage : 'The API request limit has been exceeded. Please try again later',
+    ErrorImageMessage : 'There are no images found for your request. Please try another request'
 }
 
 class Search {
@@ -53,16 +56,29 @@ class Search {
     }
 
     async getImages(url) {
-        const res = await fetch(url);
-        this.data = await res.json();
-        this.showSearchImages(this.sortArray(this.data.results));
-        if (this.newRequest) newPagination.createPagination(this.data.total_pages, this.page);
+        try {
+            const res = await fetch(url);
+            this.data = await res.json();
+            if (this.data.total > 0) {
+                this.showSearchImages(this.sortArray(this.data.results));
+                if (this.newRequest) newPagination.createPagination(this.data.total_pages, this.page);
+            } else {
+                this.showError(SearchClasses.ErrorImageMessage);
+            }
+        } catch (error) {
+            this.showError(SearchClasses.ErrorRequestMessage);
+        }
+
     }
 
     async getPhoto(url) {
-        const res = await fetch(url);
-        this.data = await res.json();
-        this.showSearchImages(this.sortArray(this.data));
+        try {
+            const res = await fetch(url);
+            this.data = await res.json();
+            this.showSearchImages(this.sortArray(this.data));
+        } catch (error) {
+            this.showError(SearchClasses.ErrorRequestMessage);
+        }
     }
 
     generateConst() {
@@ -102,7 +118,6 @@ class Search {
             const info = this.createInfoElement(el);
             resultItem.append(img);
             resultItem.append(info);
-            console.log(el.width, el.height, el.height / el.width)
             this.rows[index % this.numberOfRows].append(resultItem)
 
         });
@@ -147,38 +162,38 @@ class Search {
     startSearchPage(e) {
         e.preventDefault();
         this.page = 1;
-        const url = `${SearchClasses.BASIC_URL}search/photos?client_id=${SearchClasses.API_KEY}&page=${this.page}&per_page=15&query=${this.searchInput.value ? this.searchInput.value : this.startRequest}`;
+        const url = `${SearchClasses.BasicUrl}search/photos?client_id=${SearchClasses.ApiKey}&page=${this.page}&per_page=15&query=${this.searchInput.value ? this.searchInput.value : this.startRequest}`;
         this.newRequest = true;
         this.getImages(url);
     }
 
     changeSearchPage() {
-        const url = `${SearchClasses.BASIC_URL}search/photos?client_id=${SearchClasses.API_KEY}&page=${this.page}&per_page=15&query=${this.searchInput.value ? this.searchInput.value : this.startRequest}`;
+        const url = `${SearchClasses.BasicUrl}search/photos?client_id=${SearchClasses.ApiKey}&page=${this.page}&per_page=15&query=${this.searchInput.value ? this.searchInput.value : this.startRequest}`;
         this.newRequest = false;
         this.getImages(url);
     }
 
     fillStartPage() {
-        const url = `${SearchClasses.BASIC_URL}/photos/random?client_id=${SearchClasses.API_KEY}&query=${this.startRequest}&count=15`;
+        const url = `${SearchClasses.BasicUrl}/photos/random?client_id=${SearchClasses.ApiKey}&query=${this.startRequest}&count=15`;
         this.getPhoto(url);
         newPagination.hidePagination();
     }
 
     fillRandomPage() {
-        const url = `${SearchClasses.BASIC_URL}/photos/random?client_id=${SearchClasses.API_KEY}&count=15`;
+        const url = `${SearchClasses.BasicUrl}/photos/random?client_id=${SearchClasses.ApiKey}&count=15`;
         this.getPhoto(url);
         newPagination.hidePagination();
     }
 
     fillTopPage() {
-        const url = `${SearchClasses.BASIC_URL}/photos?client_id=${SearchClasses.API_KEY}&per_page=15&order_by=popular`;
+        const url = `${SearchClasses.BasicUrl}/photos?client_id=${SearchClasses.ApiKey}&per_page=15&order_by=popular`;
         this.getPhoto(url);
         newPagination.hidePagination();
     }
 
     fillPeoplePage() {
         this.page = 1;
-        const url = `${SearchClasses.BASIC_URL}search/photos?client_id=${SearchClasses.API_KEY}&query=people&page=${this.page}&per_page=15`;
+        const url = `${SearchClasses.BasicUrl}search/photos?client_id=${SearchClasses.ApiKey}&query=people&page=${this.page}&per_page=15`;
         this.newRequest = true;
         this.getImages(url);
     }
@@ -187,6 +202,16 @@ class Search {
         this.searchInput.value = '';
         this.buttonSearchClear.blur();
         this.fillStartPage();
+    }
+
+    showError(errorMessage) {
+        this.searchResults.innerHTML = '';
+        this.searchResults.classList.add(SearchClasses.ResultsErrorClass);
+        const errorBlock = document.createElement('h3');
+        errorBlock.classList.add('error');
+        errorBlock.innerHTML = errorMessage;
+        this.searchResults.append(errorBlock);
+        newPagination.hidePagination();
     }
 }
 

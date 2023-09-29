@@ -10,6 +10,10 @@
     @include media-mobile {
         grid-template-columns: repeat(1, minmax(0, 1fr));
     }
+
+    &_error {
+        display: flex;
+    }
 }
 
 .results__row {
@@ -90,12 +94,12 @@
 
 .result__author-name {
     @include font("Montserrat", 1.2rem, 700, normal, normal);
-    color: #E5E5E5;
+    color: $color-basic-white;
 }
 
 .result__author-instagram {
     @include font("Poppins", 1rem, 600, normal, normal);
-    color: #A7A7A7;
+    color: $color-font-gray;
     font-style: italic;
 }
 
@@ -107,5 +111,12 @@
 
 .result__likes-number {
     @include font("Montserrat", 1rem, 700, normal, normal);
-    color: #E5E5E5;
+    color: $color-basic-white;
+}
+
+.error {
+    width: 100%;
+    @include font("Montserrat", 2rem, 700, normal, normal);
+    color: $color-basic-white;
+    text-align: center;
 }
