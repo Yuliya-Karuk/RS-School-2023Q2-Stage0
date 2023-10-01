@@ -21,6 +21,6 @@
 
 .welcome__text {
     @include font("Montserrat", 1.4rem, 500, normal, normal);
-    color: rgba(0, 0, 0, 0.8);
+    color: $color-bg-dark;
     text-align: center;
 }
