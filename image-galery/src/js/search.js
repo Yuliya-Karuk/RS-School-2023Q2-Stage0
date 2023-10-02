@@ -103,7 +103,7 @@ class Search {
 
     changeLayout() {
         this.generateConst();
-        this.showSearchImages(this.data.results);
+        this.showSearchImages(this.data.results ? this.data.results : this.data);
     }
 
     showSearchImages(array) {
