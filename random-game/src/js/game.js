@@ -21,6 +21,7 @@ class Game {
         // window.addEventListener('keydown', (e) => this.player.updatePlayerLocation(e.key))
         window.addEventListener('keydown', (e) => {
             if (this.keys.indexOf(e.key) === -1) this.keys.push(e.key);
+            if (e.keyCode === 32) this.player.shootBullet();
         })
         window.addEventListener('keyup', (e) => {
             const index = this.keys.indexOf(e.key);
@@ -31,6 +32,10 @@ class Game {
     render() {
         this.player.drawPlayer(this.context);
         this.player.updatePlayerLocation();
+        this.player.bulletPool.forEach((bullet) => {
+            bullet.drawBullet(this.context);
+            bullet.updateBulletLocation();
+        })
     }
 
     updatePlayer() {
@@ -38,6 +43,6 @@ class Game {
         ctx.context.clearRect(0, 0, ctx.width, ctx.height);
         ctx.render();
         
-        // window.requestAnimationFrame(() => ctx.updatePlayer());
+        window.requestAnimationFrame(() => ctx.updatePlayer());
     }
 }
