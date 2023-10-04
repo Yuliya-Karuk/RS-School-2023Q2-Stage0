@@ -34,7 +34,6 @@ class Player {
         for (let i = 0; i < BulletConst.numberOFBullets; i += 1) {
             this.bulletPool.push(new Bullet());
         }
-        console.log(this.bulletPool)
     }
 
     getOneBullet() {
@@ -45,7 +44,6 @@ class Player {
 
     shootBullet() {
         const bullet = this.getOneBullet();
-        console.log(bullet)
         if (bullet) bullet.startBulletFlow(this.x + this.width * 0.5, this.y);
     }
 }
