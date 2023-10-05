@@ -17,13 +17,18 @@ input[type='radio'].visually-hidden {
     overflow: hidden;
 }
 
+@include font-face("Bitsumishi", BITSUMIS, 400, normal);
+
 html {
     font-size: 10px;
     scroll-behavior: smooth;
 }
 
 body {
+    height: 100%;
     color: $color-basic-white;
+    background: center no-repeat url("../img/background.jpg");
+    background-size: cover;
 }
 
 .container {
@@ -31,11 +36,16 @@ body {
 }
 
 h1 {
-
+    @include font("Bitsumishi", 3rem, 700, normal, normal);
+    color: $color-basic-white;
+    @include media-tablet {
+        font-size: 2rem;
+    }
 }
 
-h2 {
-
+p {
+    @include font("Bitsumishi", 2rem, 700, normal, normal);
+    color: $color-basic-white;
 }
 
 img {

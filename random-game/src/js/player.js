@@ -4,13 +4,14 @@ import { BulletConst, Bullet } from './bullet.js';
 class Player {
     constructor(game) {
         this.game = game;
-        this.width = 100;
-        this.height = 100;
+        this.width = 80;
+        this.height = 80;
         this.x = this.game.width * 0.5 - this.width * 0.5;
         this.y = this.game.height - this.height;
         this.leftBoundary = 0 - this.width * 0.5;
         this.rightBoundary = this.game.width -  this.width * 0.5;
-        this.speed = 5;
+        this.speed = 2.5;
+        this.lives = 3;
 
         this.bulletPool = [];
         this.createBulletPool();

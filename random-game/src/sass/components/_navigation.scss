@@ -1,0 +1,38 @@
+.nav__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 40px;
+    row-gap: 10px;
+    @include media-mobile {
+        column-gap: 20px;
+    }
+}
+
+.nav__item {
+    @include font("Bitsumishi", 1.6rem, 700, normal, 0.15rem);
+    color: $color-basic-white;
+    white-space: nowrap;
+    @include media-mobile {
+        font-size: 1.2rem;
+    }
+}
+
+.nav__btn {
+    color: inherit;
+    font: inherit;
+    letter-spacing: inherit;
+    @extend %transition;
+
+    @include media-hover-start {
+        &:hover {
+            opacity: 0.4;
+            transform: scale(1.1);
+        }
+    }
+
+    &:active {
+        opacity: 0.4;
+        transform: none;
+        text-decoration: underline;
+    }
+}

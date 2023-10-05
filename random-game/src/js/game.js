@@ -1,27 +1,30 @@
 import { Player } from './player.js';
 import { Enemy } from './enemy.js';
-import { newUtils } from './utils.js';
+import { GameTools } from './game_tools.js';
 export { Game };
 
 const GameConst = {
-    GameWidth : 600,
-    GameHeight : 700,
-    numberOfEnemy : 8,
+    GameWidth : window.innerWidth * 0.8,
+    GameHeight : window.innerHeight * 0.8,
+    numberOfEnemy : 5,
 }
 
 class Game {
     constructor() {
         this.canvas = document.querySelector('.game');
-        this.canvas.width = GameConst.GameWidth;
+        this.canvas.width = GameConst.GameWidth > 600 ? 600 : GameConst.GameWidth;
         this.canvas.height = GameConst.GameHeight;
         this.context = this.canvas.getContext('2d');
-        this.width = this.canvas.width
+        this.width = this.canvas.width;
         this.height = this.canvas.height;
-        this.player = new Player(this)
+        this.player = new Player(this);
         this.keys = [];
         this.enemyPool = [];
+        this.gameTools = new GameTools(this);
+        this.score = 0;
+        this.gameOver = false;
 
-        this.updatePlayer();
+        this.updateGame();
         this.createEnemyPool();
 
         // window.addEventListener('keydown', (e) => this.player.updatePlayerLocation(e.key))
@@ -36,6 +39,8 @@ class Game {
     }
 
     render() {
+        this.gameTools.showScore();
+        this.gameTools.drawGamePlayerLives();
         this.player.drawPlayer(this.context);
         this.player.updatePlayerLocation();
         this.player.bulletPool.forEach((bullet) => {
@@ -46,14 +51,16 @@ class Game {
             enemy.drawEnemy(this.context);
             enemy.updateEnemyLocation();
         })
+
+        if (this.gameOver) this.gameTools.drawGameOverText();
     }
 
-    updatePlayer() {
+    updateGame() {
         const ctx = this;
         ctx.context.clearRect(0, 0, ctx.width, ctx.height);
         ctx.render();
 
-        window.requestAnimationFrame(() => ctx.updatePlayer());
+        window.requestAnimationFrame(() => ctx.updateGame());
     }
 
     // delay(enemy, ms) {
@@ -91,8 +98,15 @@ class Game {
     async startEnemyAttack() {
         for (let i = 0; i < this.enemyPool.length; i += 1) {
             await this.enemyPool[i].resolveEnemy();
-            console.log("start")
         }
+    }
 
+    checkCollision(a, b) {
+        return (
+            a.x < b.x + b.width &&
+            a.x + a.width > b.x &&
+            a.y < b.y + b.height &&
+            a.y + a.height > b.y
+        )
     }
 }

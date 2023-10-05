@@ -8,22 +8,21 @@ const EnemyConst = {
 class Enemy {
     constructor(game) {
         this.game = game;
-        this.width = 30;
-        this.height = 30;
+        this.width = 40;
+        this.height = 40;
         this.x = 0;
         this.y = 0;
-        this.speed = 1;
+        this.speed = 0.5;
         this.isFlown = false;
     }
 
     resolveEnemy() {
         return new Promise((resolve) => {
-            console.log('enemy')
             setTimeout(() => {
                 this.startEnemyFlow();
                 resolve();
-            }, EnemyConst.EnemyDelay)
-        })
+            }, EnemyConst.EnemyDelay);
+        });
     }
 
     drawEnemy(context) {
@@ -38,8 +37,20 @@ class Enemy {
     updateEnemyLocation() {
         if (this.isFlown) {
             this.y += this.speed;
-            if (this.y > this.game.height) this.returnEnemy();
-            // if (this.y > this.game.height) this.y = 0;
+            this.game.player.bulletPool.forEach(bullet => {
+                if (this.game.checkCollision(this, bullet)) {
+                    if (!this.game.gameOver) this.game.score += 1;
+                    this.returnEnemy();
+                };
+            });
+            if (this.y + this.height > this.game.height || this.game.checkCollision(this, this.game.player)) {
+                this.game.player.lives -= 1;
+                console.log(this.game.player.lives)
+                if (this.game.player.lives === 0) {
+                    this.game.gameOver = true;
+                }
+                this.returnEnemy();
+            }
         }
     }
 

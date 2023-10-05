@@ -13,6 +13,8 @@
 // Layouts
 @import "layouts/header";
 @import "layouts/footer";
+@import "layouts/main";
 
 // Components
-@import "components/game"
+@import "components/game";
+@import "components/_navigation";

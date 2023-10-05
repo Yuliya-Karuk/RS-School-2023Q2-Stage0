@@ -380,6 +380,15 @@ fieldset {
   border: none;
 }
 
+.nav__btn, .footer__icon {
+  transition: all 0.5s ease-out;
+}
+
+.footer__wrapper, .header__wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
 *,
 *::before,
 *::after {
@@ -399,21 +408,135 @@ input[type=radio].visually-hidden {
   overflow: hidden;
 }
 
+@font-face {
+  font-family: "Bitsumishi";
+  src: url("../fonts/BITSUMIS.TTF") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 html {
   font-size: 10px;
   scroll-behavior: smooth;
 }
 
 body {
+  height: 100%;
   color: #FFFFFF;
+  background: center no-repeat url("../img/background.jpg");
+  background-size: cover;
 }
 
 .container {
   height: 100vh;
 }
 
+h1 {
+  font-family: "Bitsumishi";
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: normal;
+  text-transform: none;
+  color: #FFFFFF;
+}
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+p {
+  font-family: "Bitsumishi";
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: normal;
+  text-transform: none;
+  color: #FFFFFF;
+}
+
 img {
   height: auto;
+}
+
+.header {
+  width: 100%;
+  height: 8vh;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.header__wrapper {
+  height: 100%;
+  padding: 0px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@media (max-width: 768px) {
+  .header__wrapper {
+    padding: 0 20px;
+    column-gap: 20px;
+  }
+}
+@media (max-width: 480px) {
+  .header__wrapper {
+    padding: 0 10px;
+  }
+}
+
+.footer {
+  width: 100%;
+  height: 7vh;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.footer__wrapper {
+  height: 100%;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@media (max-width: 480px) {
+  .footer__wrapper {
+    padding: 0 10px;
+  }
+}
+
+.footer__link {
+  display: flex;
+  height: 100%;
+}
+
+.footer__icon {
+  display: block;
+  height: 100%;
+}
+.footer__icon_rs {
+  width: 80px;
+  background: center center no-repeat url("../img/icons/rs_school.svg");
+}
+.footer__icon_github {
+  width: 30px;
+  background: center center no-repeat url("../img/icons/github.svg");
+}
+@media (min-width: 1025px) {
+  .footer__link:hover .footer__icon {
+    opacity: 0.4;
+    transform: scale(1.1);
+  }
+}
+.footer__link:active .footer__icon {
+  opacity: 0.4;
+  transform: none;
+}
+
+.main {
+  position: relative;
+  height: 85vh;
 }
 
 .game {
@@ -422,6 +545,52 @@ img {
   top: 50%;
   left: 50%;
   translate: -50% -50%;
+  height: 100%;
+}
+
+.nav__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 40px;
+  row-gap: 10px;
+}
+@media (max-width: 480px) {
+  .nav__list {
+    column-gap: 20px;
+  }
+}
+
+.nav__item {
+  font-family: "Bitsumishi";
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.15rem;
+  text-transform: none;
+  color: #FFFFFF;
+  white-space: nowrap;
+}
+@media (max-width: 480px) {
+  .nav__item {
+    font-size: 1.2rem;
+  }
+}
+
+.nav__btn {
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+}
+@media (min-width: 1025px) {
+  .nav__btn:hover {
+    opacity: 0.4;
+    transform: scale(1.1);
+  }
+}
+.nav__btn:active {
+  opacity: 0.4;
+  transform: none;
+  text-decoration: underline;
 }
 
 /*# sourceMappingURL=style.css.map */

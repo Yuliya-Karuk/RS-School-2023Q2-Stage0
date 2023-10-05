@@ -6,7 +6,7 @@ const BulletConst = {
 
 class Bullet {
     constructor() {
-        this.width = 4;
+        this.width = 6;
         this.height = 20;
         this.x = 0;
         this.y = 0;

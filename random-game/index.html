@@ -7,7 +7,33 @@
     <title>Game</title>
 </head>
 <body>
-    <canvas class="game"></canvas>
+    <header class="header">
+        <div class="header__wrapper">
+            <h1 class="header__title">space crusher</h1>
+            <nav class="nav header__nav">
+                <ul class="nav__list">
+                    <li class="nav__item">Score: <span class="nav__score">0</span></li>
+                    <li class="nav__item">Best: <span class="nav__best">0</span></li>
+                    <li class="nav__item"><button class="nav__btn nav__btn_new-game" type="button">New game</button></li>
+                    <li class="nav__item"><button class="nav__btn nav__btn_top-ten" type="button">Top 10</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="main">
+        <canvas class="game"></canvas>
+    </main>
+    <footer class="footer">
+        <div class="footer__wrapper">
+            <p class="footer__year">2023</p>
+            <a class="link footer__link" href="https://rs.school/js-stage0/">
+                <span class="footer__icon footer__icon_rs"></span>
+            </a>
+            <a class="link footer__link" href="https://github.com/Yuliya-Karuk">
+                <span class="footer__icon footer__icon_github"></span>
+            </a>
+        </div>
+    </footer>
     <script src="script.js" type="module"></script>
 </body>
 </html>
