@@ -42,6 +42,7 @@ class Enemy {
                 if (this.game.checkCollision(this, bullet) && this.lives > 0) {
                     this.lives -= 1;
                     if (!this.game.gameOver) this.game.score += 1;
+                    this.game.player.showAnimation();
                     bullet.returnBullet();
                 };
             });
@@ -64,12 +65,16 @@ class Enemy {
         this.isFlown = false;
         this.y = 0;
         this.imageNumberX = 0;
+        this.imageNumberY = newUtils.generateRandomPosition(0, this.numberOfMonster);
         this.lives = 1;
         this.startEnemyFlow();
     }
 
     showMonsterChanging() {
         this.imageNumberX += 1;
-        if (this.imageNumberX > 2) this.returnEnemy();
+        if (this.imageNumberX > 2) {
+            this.returnEnemy();
+            this.game.player.imageNumberX = 0;
+        }
     }
 }

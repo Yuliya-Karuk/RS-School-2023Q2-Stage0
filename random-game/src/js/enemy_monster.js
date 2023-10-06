@@ -9,8 +9,8 @@ class Monster extends Enemy {
         this.monsterWidth = 140;
         this.monsterHeight = 130;
         this.imageNumberX = 0;
-        this.imageNumberY = 0; // пока 1 моснтр
-        // this.imageNumberY = generateRandomPosition(0, 4); сделаю 4 монстра
+        this.numberOfMonster = 3;
+        this.imageNumberY = newUtils.generateRandomPosition(0, this.numberOfMonster);
         this.lives = 1;
     }
 }

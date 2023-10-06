@@ -3,7 +3,6 @@ import { BulletConst, Bullet } from './bullet.js';
 
 const PlayerConst = {
     playerLives: 3,
-
 }
 
 class Player {
@@ -17,13 +16,16 @@ class Player {
         this.rightBoundary = this.game.width -  this.width * 0.5;
         this.speed = 2.5;
         this.lives = PlayerConst.playerLives;
+        this.imageNumberX = 0;
+        this.image = document.querySelector('.ship__img');
 
         this.bulletPool = [];
         this.createBulletPool();
     }
 
     drawPlayer(context) {
-        context.fillRect(this.x, this.y, this.width, this.height);
+        context.strokeRect(this.x, this.y, this.width, this.height);
+        context.drawImage(this.image, this.imageNumberX * this.width, 0, 80, 80, this.x, this.y, this.width, this.height);
     }
 
     updatePlayerLocation() {
@@ -57,5 +59,9 @@ class Player {
         this.x = this.game.width * 0.5 - this.width * 0.5;
         this.y = this.game.height - this.height;
         this.lives = PlayerConst.playerLives;
+    }
+
+    showAnimation() {
+        this.imageNumberX = 1;
     }
 }

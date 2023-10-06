@@ -6,16 +6,18 @@ const BulletConst = {
 
 class Bullet {
     constructor() {
-        this.width = 6;
-        this.height = 20;
+        this.width = 10;
+        this.height = 30;
         this.x = 0;
         this.y = 0;
-        this.speed = 20;
+        this.speed = 10;
         this.isFlown = false;
+        this.image = document.querySelector('.bullet__img');
     }
 
     drawBullet(context) {
         if(this.isFlown) context.fillRect(this.x, this.y, this.width, this.height);
+        if(this.isFlown) context.drawImage(this.image, 0, 0, 10, 30, this.x, this.y, this.width, this.height);
     }
 
     startBulletFlow(x, y) {
