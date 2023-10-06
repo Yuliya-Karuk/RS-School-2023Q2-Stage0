@@ -1,6 +1,7 @@
 import { Player } from './player.js';
 import { Enemy } from './enemy.js';
 import { GameTools } from './game_tools.js';
+import { Monster } from './enemy_monster.js';
 export { Game };
 
 const GameConst = {
@@ -24,6 +25,11 @@ class Game {
         this.score = 0;
         this.gameOver = false;
 
+        this.frameAnimationUpdate = false;
+        this.frameTimer = 0;
+        this.frameInterval = 300;
+        this.timeInterval = 20;
+
         this.updateGame();
         this.createEnemyPool();
 
@@ -39,6 +45,7 @@ class Game {
     }
 
     render() {
+        this.countTimer();
         this.gameTools.showScore();
         this.gameTools.drawGamePlayerLives();
         this.player.drawPlayer(this.context);
@@ -75,7 +82,7 @@ class Game {
 
     createEnemyPool() {
         for (let i = 0; i < GameConst.numberOfEnemy; i += 1) {
-            this.enemyPool.push(new Enemy(this));
+            this.enemyPool.push(new Monster(this));
         }
         this.startEnemyAttack();
     }
@@ -108,5 +115,22 @@ class Game {
             a.y < b.y + b.height &&
             a.y + a.height > b.y
         )
+    }
+
+    restartGame() {
+        this.player.restartPlayer();
+        this.score = 0;
+        this.createEnemyPool();
+        this.gameOver = false;
+    }
+
+    countTimer() {
+        if (this.frameTimer > this.frameInterval) {
+            this.frameAnimationUpdate = true;
+            this.frameTimer = 0;
+        } else {
+            this.frameAnimationUpdate = false;
+            this.frameTimer += this.timeInterval;
+        }
     }
 }

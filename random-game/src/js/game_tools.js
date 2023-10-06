@@ -4,8 +4,14 @@ class GameTools{
     constructor(game) {
         this.game = game;
         this.score = document.querySelector('.nav__score');
+        this.buttonNewGame = document.querySelector('.nav__btn_new-game');
 
         this.loadFont();
+
+        this.buttonNewGame.addEventListener('click', (e) => {
+            e.preventDefault();
+            this.game.restartGame()
+        });
     }
 
     loadFont() {

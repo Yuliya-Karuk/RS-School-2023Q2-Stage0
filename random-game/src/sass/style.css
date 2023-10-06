@@ -359,6 +359,7 @@ button {
   padding: 0;
   background-color: transparent;
   border: none;
+  outline: none;
   cursor: pointer;
 }
 
@@ -537,6 +538,10 @@ img {
 .main {
   position: relative;
   height: 85vh;
+}
+
+.monster__img {
+  display: none;
 }
 
 .game {

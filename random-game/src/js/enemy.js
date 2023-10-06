@@ -8,8 +8,8 @@ const EnemyConst = {
 class Enemy {
     constructor(game) {
         this.game = game;
-        this.width = 40;
-        this.height = 40;
+        this.width = 60;
+        this.height = 60;
         this.x = 0;
         this.y = 0;
         this.speed = 0.5;
@@ -26,7 +26,8 @@ class Enemy {
     }
 
     drawEnemy(context) {
-        if(this.isFlown) context.fillRect(this.x, this.y, this.width, this.height);
+        if(this.isFlown) context.strokeRect(this.x, this.y, this.width, this.height);
+        if(this.isFlown) context.drawImage(this.image, this.imageNumberX * this.monsterWidth, this.imageNumberY * this.monsterHeight, this.monsterWidth, this.monsterHeight, this.x, this.y, this.width, this.height);
     }
 
     startEnemyFlow() {
@@ -38,16 +39,21 @@ class Enemy {
         if (this.isFlown) {
             this.y += this.speed;
             this.game.player.bulletPool.forEach(bullet => {
-                if (this.game.checkCollision(this, bullet)) {
+                if (this.game.checkCollision(this, bullet) && this.lives > 0) {
+                    this.lives -= 1;
                     if (!this.game.gameOver) this.game.score += 1;
-                    this.returnEnemy();
+                    bullet.returnBullet();
                 };
             });
+            if (this.lives < 1) {
+                if (this.game.frameAnimationUpdate) this.showMonsterChanging();
+            }
             if (this.y + this.height > this.game.height || this.game.checkCollision(this, this.game.player)) {
                 this.game.player.lives -= 1;
                 console.log(this.game.player.lives)
                 if (this.game.player.lives === 0) {
                     this.game.gameOver = true;
+                    this.game.enemyPool = [];
                 }
                 this.returnEnemy();
             }
@@ -57,7 +63,13 @@ class Enemy {
     returnEnemy() {
         this.isFlown = false;
         this.y = 0;
+        this.imageNumberX = 0;
+        this.lives = 1;
         this.startEnemyFlow();
     }
 
+    showMonsterChanging() {
+        this.imageNumberX += 1;
+        if (this.imageNumberX > 2) this.returnEnemy();
+    }
 }

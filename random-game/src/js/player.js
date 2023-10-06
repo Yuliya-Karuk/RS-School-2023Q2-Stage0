@@ -1,6 +1,11 @@
 export { Player };
 import { BulletConst, Bullet } from './bullet.js';
 
+const PlayerConst = {
+    playerLives: 3,
+
+}
+
 class Player {
     constructor(game) {
         this.game = game;
@@ -11,7 +16,7 @@ class Player {
         this.leftBoundary = 0 - this.width * 0.5;
         this.rightBoundary = this.game.width -  this.width * 0.5;
         this.speed = 2.5;
-        this.lives = 3;
+        this.lives = PlayerConst.playerLives;
 
         this.bulletPool = [];
         this.createBulletPool();
@@ -46,5 +51,11 @@ class Player {
     shootBullet() {
         const bullet = this.getOneBullet();
         if (bullet) bullet.startBulletFlow(this.x + this.width * 0.5, this.y);
+    }
+
+    restartPlayer() {
+        this.x = this.game.width * 0.5 - this.width * 0.5;
+        this.y = this.game.height - this.height;
+        this.lives = PlayerConst.playerLives;
     }
 }
