@@ -1,9 +1,10 @@
 .game {
     background: center no-repeat url("../img/background.jpg");;
-    border: 5px solid $color-basic-black;
+    // border: 5px solid $color-basic-black;
     position: absolute;
     top: 50%;
     left: 50%;
     translate: -50% -50%;
     height: 100%;
+    aspect-ratio: unset;
 }

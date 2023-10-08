@@ -31,8 +31,25 @@ class Enemy {
     }
 
     startEnemyFlow() {
-        this.x = newUtils.generateRandomPosition(0, this.game.width - this.width);
+        let enemyCollision = true;
+        let newLocation;
+
+        while (enemyCollision) {
+            newLocation = newUtils.generateRandomPosition(0, this.game.width - this.width);
+            enemyCollision = this.checkCollisionEnemies(newLocation);
+        }
+        this.x = newLocation;
         this.isFlown = true;
+    }
+
+    checkCollisionEnemies(newLocation) {
+        let collision = false;
+        for (let i = 0; i < this.game.enemyPool.length ; i += 1) {
+            if (Math.abs(this.game.enemyPool[i].x - newLocation) < this.width) {
+                collision = true;
+            }
+        }
+        return collision;
     }
 
     updateEnemyLocation() {

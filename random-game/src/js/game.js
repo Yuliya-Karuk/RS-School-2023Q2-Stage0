@@ -19,8 +19,12 @@ class Game {
         this.width = this.canvas.width;
         this.height = this.canvas.height;
         this.player = new Player(this);
-        this.keys = [];
         this.enemyPool = [];
+        this.enemyLocation = [];
+
+        this.buttonKeys = [];
+        this.buttonIsPressed = false;
+
         this.gameTools = new GameTools(this);
         this.score = 0;
         this.gameOver = false;
@@ -35,13 +39,16 @@ class Game {
 
         // window.addEventListener('keydown', (e) => this.player.updatePlayerLocation(e.key))
         window.addEventListener('keydown', (e) => {
-            if (this.keys.indexOf(e.key) === -1) this.keys.push(e.key);
-            if (e.keyCode === 32) this.player.shootBullet();
+            if (this.buttonKeys.indexOf(e.key) === -1) this.buttonKeys.push(e.key);
+            if (e.keyCode === 32 &&  ! this.buttonIsPressed) this.player.shootBullet();
+            this.buttonIsPressed = true;
         })
         window.addEventListener('keyup', (e) => {
-            const index = this.keys.indexOf(e.key);
-            if (index > -1) this.keys.splice(index, 1);
+            this.buttonIsPressed = false;
+            const index = this.buttonKeys.indexOf(e.key);
+            if (index > -1) this.buttonKeys.splice(index, 1);
         })
+        window.addEventListener('resize', () => location.reload());
     }
 
     render() {
@@ -70,16 +77,6 @@ class Game {
         window.requestAnimationFrame(() => ctx.updateGame());
     }
 
-    // delay(enemy, ms) {
-    //     return new Promise((resolve) => {
-    //         console.log(ms)
-    //         setTimeout(() => {
-    //             enemy.startEnemyFlow();
-    //             resolve();
-    //         }, 500)
-    //     })
-    // }
-
     createEnemyPool() {
         for (let i = 0; i < GameConst.numberOfEnemy; i += 1) {
             this.enemyPool.push(new Monster(this));
@@ -87,25 +84,12 @@ class Game {
         this.startEnemyAttack();
     }
 
-    // getOneEnemy() {
-    //     for (let i = 0; i < this.enemyPool.length; i += 1) {
-    //         if (!this.enemyPool[i].isFlown) return this.enemyPool[i];
-    //     }
-    // }
-
-    // async startEnemyAttack() {
-    //     for (let i = 0; i < this.enemyPool.length; i += 1) {
-    //         let enemy = this.enemyPool[i];
-    //          await this.delay(enemy, (i + 1) * 500);
-    //         console.log("start")
-    //     }
-
-    // }
-
     async startEnemyAttack() {
         for (let i = 0; i < this.enemyPool.length; i += 1) {
             await this.enemyPool[i].resolveEnemy();
+            this.enemyLocation.push(this.enemyPool[i].x)
         }
+        console.log(this.enemyLocation)
     }
 
     checkCollision(a, b) {

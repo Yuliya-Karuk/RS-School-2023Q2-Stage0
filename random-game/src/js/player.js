@@ -31,8 +31,8 @@ class Player {
     updatePlayerLocation() {
         // if (movement === 'ArrowLeft') this.x -= this.speed;
         // if (movement === 'ArrowRight') this.x += this.speed;
-        if(this.game.keys.indexOf('ArrowLeft') > -1) this.x -= this.speed;
-        if(this.game.keys.indexOf('ArrowRight') > -1) this.x += this.speed;
+        if(this.game.buttonKeys.indexOf('ArrowLeft') > -1) this.x -= this.speed;
+        if(this.game.buttonKeys.indexOf('ArrowRight') > -1) this.x += this.speed;
 
         if (this.x < this.leftBoundary) this.x = this.leftBoundary;
         if (this.x > this.rightBoundary) this.x = this.rightBoundary;
