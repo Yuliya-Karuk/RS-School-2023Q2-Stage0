@@ -2,6 +2,7 @@ import { Player } from './player.js';
 import { Enemy } from './enemy.js';
 import { GameTools } from './game_tools.js';
 import { Monster } from './enemy_monster.js';
+import { newLocalStorageUtils } from './LS.js';
 export { Game };
 
 const GameConst = {
@@ -74,7 +75,10 @@ class Game {
             enemy.updateEnemyLocation();
         })
 
-        if (this.gameOver) this.gameTools.drawGameOverText();
+        if (this.gameOver) {
+            newLocalStorageUtils.saveGameResult(this.score);
+            this.gameTools.showGameOverModal();
+        }
         if (this.score === GameConst.gameWinScore) this.gameTools.drawGameWinText();
         if (this.score > 0 && this.score % 50 === 0) this.increaseEnemiesSpeed();
     }
@@ -84,7 +88,7 @@ class Game {
         ctx.context.clearRect(0, 0, ctx.width, ctx.height);
         ctx.render();
 
-        if (!ctx.gameWin) window.requestAnimationFrame(() => ctx.updateGame());
+        if (!ctx.gameWin && !ctx.gameOver) window.requestAnimationFrame(() => ctx.updateGame());
     }
 
     createEnemyPool() {
@@ -117,6 +121,7 @@ class Game {
         this.attackIsStarted = false;
         this.gameOver = false;
         this.gameWin = false;
+        this.updateGame();
     }
 
     continueGame() {
@@ -138,7 +143,6 @@ class Game {
         this.score += 1;
         for (let i = 0; i < this.enemyPool.length; i += 1) {
             this.enemyPool[i].speed += 0.05;
-            console.log(this.enemyPool[i].speed)
         }
     }
 }

@@ -14,8 +14,6 @@
                 <ul class="nav__list">
                     <li class="nav__item">Score: <span class="nav__score">0</span></li>
                     <li class="nav__item">Best: <span class="nav__best">0</span></li>
-                    <li class="nav__item"><button class="nav__btn nav__btn_new-game" type="button">New game</button></li>
-                    <li class="nav__item"><button class="nav__btn nav__btn_top-ten" type="button">Top 10</button></li>
                 </ul>
             </nav>
         </div>
@@ -38,13 +36,31 @@
             </a>
         </div>
     </footer>
-    <div class="modal">
-        <div class="start-popup">
-            <h2 class="start-popup__title">Welcome to Space crusher</h2>
-            <p class="start-popup__text">Game goal: to kill as many monsters as possible.</p>
-            <p class="start-popup__text">To move use the left and right arrows.<br>To shoot use the spacebar.</p>
-            <p class="start-popup__text">Good luck, bro</p>
-            <button class="start-popup__button" type="button">Let`s start!</button>
+    <div class="modal modal_start">
+        <div class="modal__content modal__content_start">
+            <h2 class="modal__title">Welcome to Space crusher</h2>
+            <p class="modal__text">Game goal: to kill as many monsters as possible.</p>
+            <p class="modal__text">To move use the left and right arrows.<br>To shoot use the spacebar.</p>
+            <p class="modal__text">Good luck, bro</p>
+            <button class="modal__button modal-start__button" type="button">Let`s start!</button>
+        </div>
+    </div>
+    <div class="modal modal_score modal_inactive">
+        <div class="modal__content modal__content_score">
+            <h2 class="modal__title">Score table</h2>
+            <ul class="modal-score__list">
+            </ul>
+            <button class="modal__button modal-score__button" type="button">Try again!</button>
+        </div>
+    </div>
+    <div class="modal modal_gameover modal_inactive">
+        <div class="modal__content modal__content_gameover">
+            <h2 class="modal__title">Game over!</h2>
+            <p class="modal__text modal-gameover__score"></p>
+            <div class="modal-gameover__buttons">
+                <button class="modal__button modal-gameover__button_game" type="button">Try again!</button>
+                <button class="modal__button modal-gameover__button_score" type="button">Score table!</button>
+            </div>
         </div>
     </div>
     <script src="script.js" type="module"></script>
