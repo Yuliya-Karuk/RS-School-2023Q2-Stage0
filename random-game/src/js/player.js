@@ -17,7 +17,7 @@ class Player {
         this.speed = 2.5;
         this.lives = PlayerConst.playerLives;
         this.imageNumberX = 0;
-        this.image = document.querySelector('.ship__img');
+        this.image = document.querySelector('.ship-img');
 
         this.bulletPool = [];
         this.createBulletPool();

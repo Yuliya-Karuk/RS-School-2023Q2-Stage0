@@ -45,7 +45,8 @@ class Enemy {
     checkCollisionEnemies(newLocation) {
         let collision = false;
         for (let i = 0; i < this.game.enemyPool.length ; i += 1) {
-            if (Math.abs(this.game.enemyPool[i].x - newLocation) < this.width) {
+            if (this.game.enemyPool[i] === this) continue;
+            if (Math.abs(this.game.enemyPool[i].x - newLocation) < this.width && Math.abs(this.game.enemyPool[i].y - this.y) < this.height) {
                 collision = true;
             }
         }

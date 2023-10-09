@@ -12,11 +12,10 @@ class Bullet {
         this.y = 0;
         this.speed = 10;
         this.isFlown = false;
-        this.image = document.querySelector('.bullet__img');
+        this.image = document.querySelector('.bullet-img');
     }
 
     drawBullet(context) {
-        if(this.isFlown) context.fillRect(this.x, this.y, this.width, this.height);
         if(this.isFlown) context.drawImage(this.image, 0, 0, 10, 30, this.x, this.y, this.width, this.height);
     }
 

@@ -7,7 +7,8 @@ export { Game };
 const GameConst = {
     GameWidth : window.innerWidth * 0.8,
     GameHeight : window.innerHeight * 0.8,
-    numberOfEnemy : 5,
+    numberOfEnemy : 7,
+    gameWinScore: 10,
 }
 
 class Game {
@@ -21,6 +22,7 @@ class Game {
         this.player = new Player(this);
         this.enemyPool = [];
         this.enemyLocation = [];
+        this.attackIsStarted = false;
 
         this.buttonKeys = [];
         this.buttonIsPressed = false;
@@ -28,19 +30,19 @@ class Game {
         this.gameTools = new GameTools(this);
         this.score = 0;
         this.gameOver = false;
+        this.gameWin = false;
 
         this.frameAnimationUpdate = false;
         this.frameTimer = 0;
         this.frameInterval = 300;
         this.timeInterval = 20;
 
-        this.updateGame();
         this.createEnemyPool();
 
-        // window.addEventListener('keydown', (e) => this.player.updatePlayerLocation(e.key))
         window.addEventListener('keydown', (e) => {
             if (this.buttonKeys.indexOf(e.key) === -1) this.buttonKeys.push(e.key);
             if (e.keyCode === 32 &&  ! this.buttonIsPressed) this.player.shootBullet();
+            if (this.gameWin && e.keyCode === 13) this.continueGame();
             this.buttonIsPressed = true;
         })
         window.addEventListener('keyup', (e) => {
@@ -55,18 +57,26 @@ class Game {
         this.countTimer();
         this.gameTools.showScore();
         this.gameTools.drawGamePlayerLives();
+
         this.player.drawPlayer(this.context);
         this.player.updatePlayerLocation();
+
         this.player.bulletPool.forEach((bullet) => {
             bullet.drawBullet(this.context);
             bullet.updateBulletLocation();
         })
+        if (!this.attackIsStarted) {
+            this.startEnemyAttack();
+            this.attackIsStarted = true;
+        }
         this.enemyPool.forEach((enemy) => {
             enemy.drawEnemy(this.context);
             enemy.updateEnemyLocation();
         })
 
         if (this.gameOver) this.gameTools.drawGameOverText();
+        if (this.score === GameConst.gameWinScore) this.gameTools.drawGameWinText();
+        if (this.score > 0 && this.score % 50 === 0) this.increaseEnemiesSpeed();
     }
 
     updateGame() {
@@ -74,14 +84,13 @@ class Game {
         ctx.context.clearRect(0, 0, ctx.width, ctx.height);
         ctx.render();
 
-        window.requestAnimationFrame(() => ctx.updateGame());
+        if (!ctx.gameWin) window.requestAnimationFrame(() => ctx.updateGame());
     }
 
     createEnemyPool() {
         for (let i = 0; i < GameConst.numberOfEnemy; i += 1) {
             this.enemyPool.push(new Monster(this));
         }
-        this.startEnemyAttack();
     }
 
     async startEnemyAttack() {
@@ -89,7 +98,6 @@ class Game {
             await this.enemyPool[i].resolveEnemy();
             this.enemyLocation.push(this.enemyPool[i].x)
         }
-        console.log(this.enemyLocation)
     }
 
     checkCollision(a, b) {
@@ -104,8 +112,16 @@ class Game {
     restartGame() {
         this.player.restartPlayer();
         this.score = 0;
+        this.enemyPool = [];
         this.createEnemyPool();
+        this.attackIsStarted = false;
         this.gameOver = false;
+        this.gameWin = false;
+    }
+
+    continueGame() {
+        this.gameWin = false;
+        this.updateGame();
     }
 
     countTimer() {
@@ -115,6 +131,14 @@ class Game {
         } else {
             this.frameAnimationUpdate = false;
             this.frameTimer += this.timeInterval;
+        }
+    }
+
+    increaseEnemiesSpeed() {
+        this.score += 1;
+        for (let i = 0; i < this.enemyPool.length; i += 1) {
+            this.enemyPool[i].speed += 0.05;
+            console.log(this.enemyPool[i].speed)
         }
     }
 }

@@ -5,7 +5,7 @@ export { Monster };
 class Monster extends Enemy {
     constructor(game) {
         super(game)
-        this.image = document.querySelector('.monster__img');
+        this.image = document.querySelector('.monster-img');
         this.monsterWidth = 140;
         this.monsterHeight = 130;
         this.imageNumberX = 0;

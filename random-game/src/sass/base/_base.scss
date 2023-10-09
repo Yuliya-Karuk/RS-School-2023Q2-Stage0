@@ -43,6 +43,15 @@ h1 {
     }
 }
 
+h2 {
+    @include font("Bitsumishi", 4rem, 700, normal, 0.1rem);
+    color: $color-basic-white;
+
+    @include media-tablet {
+        font-size: 2rem;
+    }
+}
+
 p {
     @include font("Bitsumishi", 2rem, 700, normal, normal);
     color: $color-basic-white;
@@ -50,4 +59,23 @@ p {
 
 img {
     height: auto;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    100% { opacity: 0.2; }
+}
+
+@keyframes move {
+    0% {
+        transform: translateY(5px);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+
+    100% {
+        transform: translateY(5px);
+    }
 }
