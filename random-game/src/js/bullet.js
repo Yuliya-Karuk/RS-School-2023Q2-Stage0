@@ -5,7 +5,8 @@ const BulletConst = {
 }
 
 class Bullet {
-    constructor() {
+    constructor(game) {
+        this.game = game;
         this.width = 10;
         this.height = 30;
         this.x = 0;
@@ -15,18 +16,19 @@ class Bullet {
         this.image = document.querySelector('.bullet-img');
     }
 
-    drawBullet(context) {
-        if(this.isFlown) context.drawImage(this.image, 0, 0, 10, 30, this.x, this.y, this.width, this.height);
-    }
-
     startBulletFlow(x, y) {
         this.x = x - this.width * 0.5;
         this.y = y;
         this.isFlown = true;
     }
 
-    updateBulletLocation() {
+    drawBullet() {
+        this.game.context.drawImage(this.image, 0, 0, 10, 30, this.x, this.y, this.width, this.height);
+    }
+
+    updateBullet() {
         if(this.isFlown) {
+            this.drawBullet();
             this.y -= this.speed;
             if (this.y < -this.height) this.returnBullet();
         }

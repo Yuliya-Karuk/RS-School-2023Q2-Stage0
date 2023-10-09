@@ -1,48 +1,44 @@
 import { Player } from './player.js';
-import { Enemy } from './enemy.js';
 import { GameTools } from './game_tools.js';
 import { Monster } from './enemy_monster.js';
 import { newLocalStorageUtils } from './LS.js';
 export { Game };
 
 const GameConst = {
-    GameWidth : window.innerWidth * 0.8,
-    GameHeight : window.innerHeight * 0.8,
+    gameWidth : window.innerWidth * 0.8,
+    gameHeight : window.innerHeight * 0.8,
     numberOfEnemy : 7,
-    gameWinScore: 10,
+    gameWinScore: 150,
 }
 
 class Game {
     constructor() {
         this.canvas = document.querySelector('.game');
-        this.canvas.width = GameConst.GameWidth > 600 ? 600 : GameConst.GameWidth;
-        this.canvas.height = GameConst.GameHeight;
+        this.canvas.width = GameConst.gameWidth > 600 ? 600 : GameConst.gameWidth;
+        this.canvas.height = GameConst.gameHeight;
         this.context = this.canvas.getContext('2d');
         this.width = this.canvas.width;
         this.height = this.canvas.height;
+
         this.player = new Player(this);
+        this.buttonKeys = [];
+        this.buttonIsPressed = false;
+
         this.enemyPool = [];
         this.enemyLocation = [];
         this.attackIsStarted = false;
-
-        this.buttonKeys = [];
-        this.buttonIsPressed = false;
+        this.createEnemyPool();
 
         this.gameTools = new GameTools(this);
         this.score = 0;
         this.gameOver = false;
         this.gameWin = false;
 
-        this.frameAnimationUpdate = false;
-        this.frameTimer = 0;
-        this.frameInterval = 300;
-        this.timeInterval = 20;
-
-        this.createEnemyPool();
-
         window.addEventListener('keydown', (e) => {
             if (this.buttonKeys.indexOf(e.key) === -1) this.buttonKeys.push(e.key);
-            if (e.keyCode === 32 &&  ! this.buttonIsPressed) this.player.shootBullet();
+            if (e.keyCode === 32 && !this.buttonIsPressed) {
+                this.player.shootBullet()
+            };
             if (this.gameWin && e.keyCode === 13) this.continueGame();
             this.buttonIsPressed = true;
         })
@@ -55,27 +51,24 @@ class Game {
     }
 
     render() {
-        this.countTimer();
         this.gameTools.showScore();
         this.gameTools.drawGamePlayerLives();
 
-        this.player.drawPlayer(this.context);
         this.player.updatePlayerLocation();
 
         this.player.bulletPool.forEach((bullet) => {
-            bullet.drawBullet(this.context);
-            bullet.updateBulletLocation();
+            bullet.updateBullet();
         })
         if (!this.attackIsStarted) {
             this.startEnemyAttack();
             this.attackIsStarted = true;
         }
         this.enemyPool.forEach((enemy) => {
-            enemy.drawEnemy(this.context);
             enemy.updateEnemyLocation();
         })
 
         if (this.gameOver) {
+            this.enemyPool = [];
             newLocalStorageUtils.saveGameResult(this.score);
             this.gameTools.showGameOverModal();
         }
@@ -116,7 +109,6 @@ class Game {
     restartGame() {
         this.player.restartPlayer();
         this.score = 0;
-        this.enemyPool = [];
         this.createEnemyPool();
         this.attackIsStarted = false;
         this.gameOver = false;
@@ -127,16 +119,6 @@ class Game {
     continueGame() {
         this.gameWin = false;
         this.updateGame();
-    }
-
-    countTimer() {
-        if (this.frameTimer > this.frameInterval) {
-            this.frameAnimationUpdate = true;
-            this.frameTimer = 0;
-        } else {
-            this.frameAnimationUpdate = false;
-            this.frameTimer += this.timeInterval;
-        }
     }
 
     increaseEnemiesSpeed() {

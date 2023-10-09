@@ -8,6 +8,8 @@ const GameToolsConst = {
     heartGap: 20,
     startGameClass: "modal_inactive",
     numberOfResults: 10,
+    colorPrimary: '#FFFF00',
+    colorWhite: '#FFFFFF',
 }
 
 class GameTools {
@@ -73,8 +75,8 @@ class GameTools {
 
     drawGameWinText() {
         this.game.gameWin = true;
-        this.drawText('50px', 'You win!', this.game.width * 0.5, this.game.height * 0.5 - 50, '#ffff00');
-        this.drawText('30px', 'If you want to continue, press Enter', this.game.width * 0.5, this.game.height * 0.5, '#ffffff');
+        this.drawText('50px', 'You win!', this.game.width * 0.5, this.game.height * 0.5 - 50, GameToolsConst.colorPrimary);
+        this.drawText('30px', 'If you want to continue, press Enter', this.game.width * 0.5, this.game.height * 0.5, GameToolsConst.colorWhite);
         this.game.score += 1;
     }
 
@@ -92,7 +94,7 @@ class GameTools {
         this.game.context.shadowOffsetX = 1;
         this.game.context.shadowOffsetY = 2;
         this.game.context.shadowBlur = 6;
-        this.game.context.shadowColor = "rgba(256, 256, 256, 1)";
+        this.game.context.shadowColor = GameToolsConst.colorWhite;
         this.game.updateGame();
     }
 
@@ -105,7 +107,6 @@ class GameTools {
         this.gameOverModal.classList.add(GameToolsConst.startGameClass);
         const results = newLocalStorageUtils.getResults();
         this.renderScoreTable(results)
-
         this.scoreModal.classList.remove(GameToolsConst.startGameClass);
     }
 

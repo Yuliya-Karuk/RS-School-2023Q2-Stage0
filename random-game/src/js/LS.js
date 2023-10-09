@@ -1,9 +1,4 @@
 export { newLocalStorageUtils };
-import { newUtils } from './utils.js';
-
-const LocalStorageConst = {
-
-}
 
 class LocalStorageUtils {
 
@@ -21,7 +16,6 @@ class LocalStorageUtils {
 
             localStorage.setItem('games', JSON.stringify(parsedGames));
         }
-        console.log(localStorage)
     }
 
     getResults() {

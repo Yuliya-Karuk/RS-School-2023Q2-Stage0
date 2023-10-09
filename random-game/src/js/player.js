@@ -23,14 +23,12 @@ class Player {
         this.createBulletPool();
     }
 
-    drawPlayer(context) {
-        context.strokeRect(this.x, this.y, this.width, this.height);
-        context.drawImage(this.image, this.imageNumberX * this.width, 0, 80, 80, this.x, this.y, this.width, this.height);
+    drawPlayer() {
+        this.game.context.drawImage(this.image, this.imageNumberX * this.width, 0, 80, 80, this.x, this.y, this.width, this.height);
     }
 
     updatePlayerLocation() {
-        // if (movement === 'ArrowLeft') this.x -= this.speed;
-        // if (movement === 'ArrowRight') this.x += this.speed;
+        this.drawPlayer();
         if(this.game.buttonKeys.indexOf('ArrowLeft') > -1) this.x -= this.speed;
         if(this.game.buttonKeys.indexOf('ArrowRight') > -1) this.x += this.speed;
 
@@ -40,7 +38,7 @@ class Player {
 
     createBulletPool() {
         for (let i = 0; i < BulletConst.numberOFBullets; i += 1) {
-            this.bulletPool.push(new Bullet());
+            this.bulletPool.push(new Bullet(this.game));
         }
     }
 

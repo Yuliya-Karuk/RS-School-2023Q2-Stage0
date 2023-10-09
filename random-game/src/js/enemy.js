@@ -2,7 +2,8 @@ import { newUtils } from './utils.js';
 export { Enemy };
 
 const EnemyConst = {
-    EnemyDelay : 700,
+    appearEnemyDelay : 700,
+    changeEnemyImgDelay: 100,
 }
 
 class Enemy {
@@ -21,13 +22,12 @@ class Enemy {
             setTimeout(() => {
                 this.startEnemyFlow();
                 resolve();
-            }, EnemyConst.EnemyDelay);
+            }, EnemyConst.appearEnemyDelay);
         });
     }
 
-    drawEnemy(context) {
-        if(this.isFlown) context.strokeRect(this.x, this.y, this.width, this.height);
-        if(this.isFlown) context.drawImage(this.image, this.imageNumberX * this.monsterWidth, this.imageNumberY * this.monsterHeight, this.monsterWidth, this.monsterHeight, this.x, this.y, this.width, this.height);
+    drawEnemy() {
+        this.game.context.drawImage(this.image, this.imageNumberX * this.monsterWidth, this.imageNumberY * this.monsterHeight, this.monsterWidth, this.monsterHeight, this.x, this.y, this.width, this.height);
     }
 
     startEnemyFlow() {
@@ -55,44 +55,50 @@ class Enemy {
 
     updateEnemyLocation() {
         if (this.isFlown) {
+            this.drawEnemy();
             this.y += this.speed;
-            this.game.player.bulletPool.forEach(bullet => {
-                if (this.game.checkCollision(this, bullet) && this.lives > 0) {
+            this.game.player.bulletPool.forEach((bullet) => {
+                if (this.game.checkCollision(this, bullet) && this.lives > 0 && bullet.isFlown) {
                     this.lives -= 1;
+                    bullet.returnBullet(this.game);
                     if (!this.game.gameOver) this.game.score += 1;
                     this.game.player.showAnimation();
-                    bullet.returnBullet();
+                    this.hitEnemy();
                 };
             });
-            if (this.lives < 1) {
-                if (this.game.frameAnimationUpdate) this.showMonsterChanging();
-            }
             if (this.y + this.height > this.game.height || this.game.checkCollision(this, this.game.player)) {
                 this.game.player.lives -= 1;
-                console.log(this.game.player.lives)
                 if (this.game.player.lives === 0) {
                     this.game.gameOver = true;
-                    this.game.enemyPool = [];
                 }
                 this.returnEnemy();
             }
         }
     }
 
+    async hitEnemy() {
+        for (let i = 0; i < 3; i += 1) {
+            await this.showMonsterChanging();
+        }
+        this.returnEnemy();
+        this.game.player.imageNumberX = 0;
+    }
+
     returnEnemy() {
         this.isFlown = false;
         this.y = 0;
+        this.lives = 1;
         this.imageNumberX = 0;
         this.imageNumberY = newUtils.generateRandomPosition(0, this.numberOfMonster);
-        this.lives = 1;
         this.startEnemyFlow();
     }
 
     showMonsterChanging() {
-        this.imageNumberX += 1;
-        if (this.imageNumberX > 2) {
-            this.returnEnemy();
-            this.game.player.imageNumberX = 0;
-        }
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                this.imageNumberX += 1;
+                resolve();
+            }, EnemyConst.changeEnemyImgDelay);
+        });
     }
 }
