@@ -34,6 +34,8 @@ class GameTools {
         this.gameOverNewGame.addEventListener('click', (e) => this.startNewGame(e));
         this.gameOverScore.addEventListener('click', (e) => this.showScoreTable(e));
 
+        this.audio = new Audio();
+        this.setAudio();
 
         this.heartImage = document.querySelector('.heart-img');
 
@@ -85,6 +87,7 @@ class GameTools {
         this.game.restartGame();
         this.gameOverModal.classList.add(GameToolsConst.startGameClass);
         this.scoreModal.classList.add(GameToolsConst.startGameClass);
+        this.playAudio();
     }
 
     startGame(e) {
@@ -96,6 +99,7 @@ class GameTools {
         this.game.context.shadowBlur = 6;
         this.game.context.shadowColor = GameToolsConst.colorWhite;
         this.game.updateGame();
+        this.playAudio();
     }
 
     showGameOverModal() {
@@ -122,5 +126,20 @@ class GameTools {
             }
             this.scoreList.append(resultItem);
         }
+    }
+
+    setAudio() {
+        this.audio.src = './src/music/song3.mp3';
+        this.audio.loop = true;
+        this.audio.volume = 0.3;
+    }
+
+    playAudio() {
+        this.audio.currentTime = 0;
+        this.audio.play();
+    }
+
+    stopAudio() {
+        this.audio.pause();
     }
 }

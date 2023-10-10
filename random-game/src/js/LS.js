@@ -25,7 +25,7 @@ class LocalStorageUtils {
 
     getBest() {
         const games = localStorage.getItem('games');
-        return JSON.parse(games)[0];
+        return games ? JSON.parse(games)[0] : 0;
     }
 }
 

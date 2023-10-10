@@ -70,6 +70,7 @@ class Game {
         if (this.gameOver) {
             this.enemyPool = [];
             newLocalStorageUtils.saveGameResult(this.score);
+            this.gameTools.stopAudio();
             this.gameTools.showGameOverModal();
         }
         if (this.score === GameConst.gameWinScore) this.gameTools.drawGameWinText();
