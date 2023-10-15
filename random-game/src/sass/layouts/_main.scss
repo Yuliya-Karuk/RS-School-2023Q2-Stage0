@@ -1,0 +1,12 @@
+.main {
+    position: relative;
+    height: 85vh;
+    backdrop-filter: blur(10px);
+}
+
+.monster-img,
+.heart-img,
+.bullet-img,
+.ship-img {
+    display: none;
+}

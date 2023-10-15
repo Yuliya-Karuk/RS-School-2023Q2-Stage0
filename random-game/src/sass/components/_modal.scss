@@ -1,0 +1,89 @@
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: rgba(0, 0, 0, .3);
+    backdrop-filter: blur(10px);
+
+    &_inactive {
+        display: none;
+    }
+}
+
+.modal__title {
+    color: $color-basic-primary;
+    text-shadow: 1px 2px 6px $color-basic-white;
+    animation: blink 2s infinite;
+}
+
+.modal__text {
+    font-size: 3rem;
+    letter-spacing: 0.15rem;
+
+    &:first-of-type {
+        font-size: 2rem;
+    }
+}
+
+.modal__button {
+    color: $color-basic-primary;
+    @include font("Bitsumishi", 3rem, 700, normal, 0.1rem);
+    text-shadow: 1px 2px 6px $color-basic-white;
+    animation: move 2s infinite;
+}
+
+.modal__content {
+    position: relative;
+    z-index: 30;
+    padding: 20px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+
+    &_start {
+        row-gap: 30px;
+    }
+    &_gameover {
+        row-gap: 50px;
+    }
+    &_score {
+        row-gap: 20px;
+    }
+}
+
+.modal-gameover__buttons {
+    display: flex;
+    column-gap: 80px;
+}
+
+.modal-score__list {
+    width: 20%;
+        min-width: 150px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 5px;
+}
+
+.modal-score__item {
+    width: 100%;
+    padding: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: $color-basic-primary;
+    @include font("Bitsumishi", 2rem, 700, normal, 0.1rem);
+
+    background: rgba(256, 256, 256, 0.3);
+    border-radius: 5px;
+}
