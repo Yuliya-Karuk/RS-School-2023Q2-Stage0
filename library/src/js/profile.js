@@ -1,5 +1,5 @@
 export {newProfile};
-import booksJSON from '../data/books.json' assert { type: 'json' }
+import booksJSON from '../data/books.json';
 
 class Profile {
     constructor() {
