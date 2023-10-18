@@ -1,3 +1,6 @@
+/*!****************************************************************************************************************!*\
+  !*** css ../node_modules/css-loader/dist/cjs.js!../node_modules/sass-loader/dist/cjs.js!./src/sass/style.scss ***!
+  \****************************************************************************************************************/
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -822,7 +825,7 @@ input[type=radio]:checked + label:after {
 .header__icon {
   width: 28px;
   height: 28px;
-  background: center no-repeat url("../img/icons/icon_profile.svg");
+  background: center no-repeat url(2a23816c91033e6e5bc0.svg);
   background-size: cover;
   border-radius: 50%;
 }
@@ -842,7 +845,7 @@ input[type=radio]:checked + label:after {
 }
 @media (min-width: 1025px) {
   .header__login:hover .header__icon {
-    background: center no-repeat url("../img/icons/icon_profile_orange.svg");
+    background: center no-repeat url(40c037e0c15a95b1ba2b.svg);
   }
   .header__login_active:hover .header__icon {
     color: #FFFFFF;
@@ -973,27 +976,27 @@ input[type=radio]:checked + label:after {
   background-size: cover;
 }
 .social-sites__icon_twitter {
-  background: center no-repeat url("../img/icons/twitter.svg");
+  background: center no-repeat url(b11f57a045f32f0e2bfa.svg);
 }
 @media (min-width: 1025px) {
   .social-sites__icon_twitter:hover {
-    background: center no-repeat url("../img/icons/twitter_orange.svg");
+    background: center no-repeat url(258fe0157fa388e178c5.svg);
   }
 }
 .social-sites__icon_instagram {
-  background: center no-repeat url("../img/icons/instagram.svg");
+  background: center no-repeat url(7ccd524c0d080e3d7df5.svg);
 }
 @media (min-width: 1025px) {
   .social-sites__icon_instagram:hover {
-    background: center no-repeat url("../img/icons/instagram_orange.svg");
+    background: center no-repeat url(9ec1817acf9bb0a3ab26.svg);
   }
 }
 .social-sites__icon_facebook {
-  background: center no-repeat url("../img/icons/facebook.svg");
+  background: center no-repeat url(31a10f90a17b57a250d3.svg);
 }
 @media (min-width: 1025px) {
   .social-sites__icon_facebook:hover {
-    background: center no-repeat url("../img/icons/facebook_orange.svg");
+    background: center no-repeat url(752677f0b63f38327aac.svg);
   }
 }
 
@@ -1122,14 +1125,14 @@ input[type=radio]:checked + label:after {
 .welcome {
   position: relative;
   background-color: #0C0C0E;
-  background-image: url("../img/welcome_desktop_img.jpg");
+  background-image: url(7e3fbdf30b41fc6eebd8.jpg);
   background-repeat: no-repeat;
   background-position: 0 0;
   background-size: cover;
 }
 @media (max-width: 768px) {
   .welcome {
-    background-image: url("../img/welcome_tablet_img.jpg");
+    background-image: url(4ca9639b1c6727ee5289.jpg);
   }
 }
 
@@ -1325,7 +1328,7 @@ input[type=radio]:checked + label:after {
   opacity: 0.3;
 }
 .slider__btn_left {
-  background-image: url("../img/icons/arrow_left.svg");
+  background-image: url(cb8b798e6facf66b6efd.svg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -1333,7 +1336,7 @@ input[type=radio]:checked + label:after {
 }
 .slider__btn_right {
   right: 7.8%;
-  background-image: url("../img/icons/arrow_right.svg");
+  background-image: url(f3a75a221b54f24b05a2.svg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -2048,10 +2051,10 @@ input[type=radio]:checked + label:after {
   display: block;
   width: 15px;
   height: 15px;
-  background: center no-repeat url("../img/icons/close_btn_black.svg");
+  background: center no-repeat url(9d948cfefe15258f6852.svg);
 }
 .modal__close-icon_card {
-  background: center no-repeat url("../img/icons/close_btn_white.svg");
+  background: center no-repeat url(4b2d5c08014dd5ec3cd8.svg);
 }
 
 .modal__text {
@@ -2261,12 +2264,12 @@ input[type=radio]:checked + label:after {
 .profile-card__copy {
   width: 14px;
   height: 12px;
-  background: center no-repeat url("../img/icons/icon_copy.svg");
+  background: center no-repeat url(c3659f14ec0badb7098b.svg);
 }
 
 @media (max-width: 480px) {
   .profile .modal__close-icon {
-    background: center no-repeat url("../img/icons/close_btn_white.svg");
+    background: center no-repeat url(4b2d5c08014dd5ec3cd8.svg);
   }
 }
 
@@ -2344,4 +2347,4 @@ input[type=radio]:checked + label:after {
   }
 }
 
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=style.css.map*/
