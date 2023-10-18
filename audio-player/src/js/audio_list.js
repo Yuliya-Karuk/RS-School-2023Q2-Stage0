@@ -16,17 +16,17 @@ class AudioList {
         this.buttonPlay = document.querySelector('.controls__play_play');
     }
 
-    showSongList(songsJSON, id) {
+    showSongList(songsList, id) {
         this.songsList.innerHTML = '';
         this.songsList.classList.add(AudioListClasses.songsActive);
-        for (let i = 0; i < songsJSON.length; i += 1) {
+        for (let i = 0; i < songsList.length; i += 1) {
             const songItem = document.createElement("li");
             songItem.classList.add(AudioListClasses.songItem);
             if (i === id) {
                 songItem.classList.add(AudioListClasses.songItemActive);
             }
-            songItem.innerHTML = `<h2 class="songs__title">${songsJSON[i].title}</h2>
-                                  <h3 class="songs__singer">${songsJSON[i].singer}</h3>`;
+            songItem.innerHTML = `<h2 class="songs__title">${songsList[i].title}</h2>
+                                  <h3 class="songs__singer">${songsList[i].singer}</h3>`;
             this.songsList.append(songItem);
         }
     }
@@ -35,18 +35,18 @@ class AudioList {
         this.songsList.classList.remove(AudioListClasses.songsActive);
     }
 
-    showFavoritesList(songsJSON, id) {
+    showFavoritesList(songsList, id) {
         this.songsList.innerHTML = '';
         this.songsList.classList.add(AudioListClasses.songsActive);
-        for (let i = 0; i < songsJSON.length; i += 1) {
-            if (songsJSON[i].favorite === true) {
+        for (let i = 0; i < songsList.length; i += 1) {
+            if (songsList[i].favorite === true) {
                 const songItem = document.createElement("li");
                 songItem.classList.add(AudioListClasses.songItem);
                 if (i === id) {
                     songItem.classList.add(AudioListClasses.songItemActive);
                 }
-                songItem.innerHTML = `<h2 class="songs__title">${songsJSON[i].title}</h2>
-                                    <h3 class="songs__singer">${songsJSON[i].singer}</h3>`;
+                songItem.innerHTML = `<h2 class="songs__title">${songsList[i].title}</h2>
+                                    <h3 class="songs__singer">${songsList[i].singer}</h3>`;
                 this.songsList.append(songItem);
             }
         }

@@ -1,4 +1,4 @@
-import songsJSON from '../data/songs.json' assert { type: 'json' };
+import { songsList } from './songs.js';
 import { newAudioList } from './audio_list.js';
 export { AudioPlayer };
 
@@ -64,7 +64,7 @@ class AudioPlayer {
     }
 
     findActiveSong(id) {
-        this.song = songsJSON[id];
+        this.song = songsList[id];
     }
 
     fillAudioInfo() {
@@ -107,7 +107,7 @@ class AudioPlayer {
 
     changeAudioTrack(value) {
         this.singId = this.singId + value;
-        if (this.singId === songsJSON.length ) {
+        if (this.singId === songsList.length ) {
             this.singId = 0;
         }
         if (this.singId === -1 ) {
@@ -138,15 +138,18 @@ class AudioPlayer {
     showAudioTime() {
         const currentMinutes = Math.floor(this.audio.currentTime / 60);
         const currentSeconds = Math.floor(this.audio.currentTime - currentMinutes * 60);
-        const durationMinutes = Math.floor(this.audio.duration / 60);
-        const durationSeconds = Math.floor(this.audio.duration - durationMinutes * 60);
 
         this.currentTimeElement.innerHTML = `${currentMinutes}:${currentSeconds < 10 ? '0' + currentSeconds : currentSeconds}`;
         this.durationTimeElement.innerHTML = `${this.song.duration}`;
     }
 
     showAudioTimeControl() {
-        let percent = Math.floor((this.audio.currentTime / this.audio.duration) * 100);
+        let percent;
+        if (this.audio.duration) {
+            percent = Math.floor((this.audio.currentTime / this.audio.duration) * 100);
+        } else {
+            percent = 0;
+        }
         this.controlTimer.style.background = `linear-gradient(to right, #B01C25 0%, #B01C25 ${percent}%, #999999 ${percent}%, #999999 100%)`;
         this.controlTimer.value = percent;
     }
@@ -168,7 +171,7 @@ class AudioPlayer {
     }
 
     addToFavorites(id) {
-        songsJSON[id].favorite = true;
+        songsList[id].favorite = true;
         this.fillButtonFavorites();
         if (this.isFavoritesShown === true) {
             this.showFavoritesList();
@@ -186,11 +189,12 @@ class AudioPlayer {
     }
 
     showSongList() {
+        this.isFavoritesShown = false;
         this.albumImage.style.display = 'none';
         if (window.innerWidth < 501) {
             this.timerBlock.style.visibility = 'hidden';
         }
-        newAudioList.showSongList(songsJSON, this.singId);
+        newAudioList.showSongList(songsList, this.singId);
         this.isListShown = true;
     }
 
@@ -208,7 +212,7 @@ class AudioPlayer {
         if (window.innerWidth < 501) {
             this.timerBlock.style.visibility = 'hidden';
         }
-        newAudioList.showFavoritesList(songsJSON, this.singId);
+        newAudioList.showFavoritesList(songsList, this.singId);
         this.isFavoritesShown = true;
     }
 
