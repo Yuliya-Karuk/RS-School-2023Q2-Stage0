@@ -1,3 +1,6 @@
+/*!**************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/sass/style.scss ***!
+  \**************************************************************************************************************/
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -537,11 +540,11 @@ img {
 }
 .footer__icon_rs {
   width: 80px;
-  background: center center no-repeat url("../img/icons/rs_school.svg");
+  background: center center no-repeat url(9c9e0015b40abeff02a1.svg);
 }
 .footer__icon_github {
   width: 30px;
-  background: center center no-repeat url("../img/icons/github.svg");
+  background: center center no-repeat url(8b2579b308b5d0ed34cf.svg);
 }
 @media (min-width: 1025px) {
   .footer__link:hover .footer__icon {
@@ -599,7 +602,7 @@ img {
 .welcome {
   height: 500px;
   margin-top: -90px;
-  background: center no-repeat url("../img/bg.png");
+  background: center no-repeat url(ad1b756c56f30439e85e.png);
   background-size: cover;
 }
 
@@ -646,7 +649,7 @@ img {
   display: block;
   width: 19px;
   height: 19px;
-  background: center center no-repeat url("../img/icons/search.svg");
+  background: center center no-repeat url(8ad307e71a0138306048.svg);
 }
 
 .search__form {
@@ -692,7 +695,7 @@ img {
   display: block;
   width: 20px;
   height: 20px;
-  background: center center no-repeat url("../img/icons/clear.svg");
+  background: center center no-repeat url(777d79f9ffd0982e2a72.svg);
 }
 
 .results {
@@ -894,20 +897,20 @@ img {
   max-height: 40px;
 }
 .pagination__icon_previous {
-  background: center no-repeat url("../img/icons/pgn_previous.svg");
+  background: center no-repeat url(369019d6df0f5fe3ac6f.svg);
   background-size: cover;
 }
 .pagination__icon_next {
-  background: center no-repeat url("../img/icons/pgn_previous.svg");
+  background: center no-repeat url(369019d6df0f5fe3ac6f.svg);
   background-size: cover;
   transform: rotate(180deg);
 }
 .pagination__icon_first {
-  background: center center no-repeat url("../img/icons/pgn_first.svg");
+  background: center center no-repeat url(30bfa2762357ce629a5c.svg);
   background-size: cover;
 }
 .pagination__icon_last {
-  background: center center no-repeat url("../img/icons/pgn_first.svg");
+  background: center center no-repeat url(30bfa2762357ce629a5c.svg);
   background-size: cover;
   transform: rotate(180deg);
 }
@@ -921,4 +924,4 @@ img {
   background-color: #FFFFFF;
 }
 
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=style.css.map*/
