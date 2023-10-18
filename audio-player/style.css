@@ -1,3 +1,6 @@
+/*!****************************************************************************************************************!*\
+  !*** css ../node_modules/css-loader/dist/cjs.js!../node_modules/sass-loader/dist/cjs.js!./src/sass/style.scss ***!
+  \****************************************************************************************************************/
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -390,7 +393,7 @@ fieldset {
 
 @font-face {
   font-family: "Bitsumishi";
-  src: url("../fonts/BITSUMIS.TTF") format("truetype");
+  src: url(ce53fc254d05b0f0ea39.TTF) format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -531,7 +534,7 @@ img {
 .footer__icon_rs {
   width: 55px;
   height: 21px;
-  background: center center no-repeat url("../img/icons/rs_school.svg");
+  background: center center no-repeat url(ce19696a8aeb37dfa4dc.svg);
 }
 @media (min-width: 1025px) {
   .footer__link_rs:hover .footer__icon_rs {
@@ -736,33 +739,33 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 .controls__heart_usual {
-  background: center center no-repeat url("../img/icons/heart.svg");
+  background: center center no-repeat url(1de05c4361167bf935aa.svg);
 }
 .controls__heart_selected {
-  background: center center no-repeat url("../img/icons/heart_black.svg");
+  background: center center no-repeat url(da44bf3b86e54da24e7c.svg);
 }
 
 .controls__previous {
-  background: center center no-repeat url("../img/icons/previous.svg");
+  background: center center no-repeat url(bb2a8b880927d9d5fd15.svg);
 }
 
 .controls__play_play {
-  background: center center no-repeat url("../img/icons/play.svg");
+  background: center center no-repeat url(8f24b1e3df0165335351.svg);
 }
 .controls__play_pause {
-  background: center center no-repeat url("../img/icons/stop.svg");
+  background: center center no-repeat url(8ce6c8a56747be7eabb3.svg);
 }
 
 .controls__next {
-  background: center center no-repeat url("../img/icons/previous.svg");
+  background: center center no-repeat url(bb2a8b880927d9d5fd15.svg);
   transform: rotate(180deg);
 }
 
 .controls__volume_volume {
-  background: center center no-repeat url("../img/icons/volume.svg");
+  background: center center no-repeat url(99cd178cdee950d3c21b.svg);
 }
 .controls__volume_mute {
-  background: center center no-repeat url("../img/icons/mute.svg");
+  background: center center no-repeat url(a16a4b846ef81763b0db.svg);
 }
 
 .home {
@@ -786,16 +789,16 @@ input[type=range]::-webkit-slider-thumb {
   height: 32px;
 }
 .home__icon_home {
-  background: center center no-repeat url("../img/icons/home.svg");
+  background: center center no-repeat url(8a525c464b9a66791267.svg);
 }
 .home__icon_search {
-  background: center center no-repeat url("../img/icons/search.svg");
+  background: center center no-repeat url(30e5524496f8c957354d.svg);
 }
 .home__icon_favorites {
-  background: center center no-repeat url("../img/icons/favorites.svg");
+  background: center center no-repeat url(7d97bb307d7b5e230415.svg);
 }
 .home__icon_shelf {
-  background: center center no-repeat url("../img/icons/book.svg");
+  background: center center no-repeat url(a4d78b45029ad3e34895.svg);
 }
 @media (min-width: 1025px) {
   .home-btn:hover .home__icon, .home-btn:focus .home__icon {
@@ -864,4 +867,4 @@ input[type=range]::-webkit-slider-thumb {
   color: #B01C25;
 }
 
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=style.css.map*/
