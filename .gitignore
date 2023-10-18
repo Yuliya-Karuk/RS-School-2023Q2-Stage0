@@ -102,3 +102,10 @@ dist
 
 # TernJS port file
 .tern-port
+
+# VS code
+.vscode
+
+# External configs for creating bundle with webpack
+package-lock.json
+package.json
