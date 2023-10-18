@@ -105,3 +105,7 @@ dist
 
 # VS Code
 .vscode
+
+# external config for creating bundle
+package-lock.json
+package.json
