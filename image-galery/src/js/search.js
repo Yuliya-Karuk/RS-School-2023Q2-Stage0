@@ -1,4 +1,6 @@
 import { newPagination } from './pagination.js';
+import userIcon from '../img/icons/user.svg';
+import likeIcon from '../img/icons/like.svg';
 export { newSearch };
 
 const SearchClasses = {
@@ -139,7 +141,7 @@ class Search {
         const user = document.createElement('div');
         user.classList.add('result__author');
         user.insertAdjacentHTML("beforeend",
-            `<img class="result__author-icon" src="src/img/icons/user.svg" width="35" height="35" alt="user icon">
+            `<img class="result__author-icon" src="${userIcon}" width="35" height="35" alt="user icon">
             <div class="result__author-details">
                 <p class="result__author-name">${elementData.user.first_name} ${(elementData.user.last_name) ? elementData.user.last_name : ''}</p>
                 <a class="link result__author-instagram" href="https://www.instagram.com/${elementData.user.instagram_username}" target="_blank">${elementData.user.instagram_username ? elementData.user.instagram_username : ''}</a>
@@ -149,7 +151,7 @@ class Search {
         const likes = document.createElement('div');
         likes.classList.add('result__likes');
         likes.insertAdjacentHTML("beforeend",
-            `<img class="result__likes-icon" src="src/img/icons/like.svg" width="14" height="14" alt="like icon">
+            `<img class="result__likes-icon" src="${likeIcon}" width="14" height="14" alt="like icon">
             <p class="result__likes-number">${elementData.likes}</p>`
         );
 
